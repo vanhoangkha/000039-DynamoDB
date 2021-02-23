@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Composite Keys on Advanced Design Patterns for Amazon DynamoDB</title>
+    <link>/vi/6-composite-keys/</link>
+    <description>Recent content in Composite Keys on Advanced Design Patterns for Amazon DynamoDB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:40 +0700</lastBuildDate>
+    
+	<atom:link href="/vi/6-composite-keys/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

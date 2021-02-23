@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sparse Global Secondary Indexes on Advanced Design Patterns for Amazon DynamoDB</title>
+    <link>/5-sparse-global-secondary-indexes/</link>
+    <description>Recent content in Sparse Global Secondary Indexes on Advanced Design Patterns for Amazon DynamoDB</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:40 +0700</lastBuildDate>
+    
+	<atom:link href="/5-sparse-global-secondary-indexes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

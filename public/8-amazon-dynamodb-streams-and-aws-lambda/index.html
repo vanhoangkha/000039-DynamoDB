@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Amazon DynamoDB Streams và AWS Lambda :: Advanced Design Patterns for Amazon DynamoDB</title>
+
+    
+    <link href="/css/nucleus.css?1614062855" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1614062855" rel="stylesheet">
+    <link href="/css/hybrid.css?1614062855" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1614062855" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1614062855" rel="stylesheet">
+    <link href="/css/auto-complete.css?1614062855" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1614062855" rel="stylesheet">
+    <link href="/css/theme.css?1614062855" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1614062855" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1614062855" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1614062855"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/8-amazon-dynamodb-streams-and-aws-lambda/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1614062855"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1614062855"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1614062855"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/0-setup/" title="Setup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/0-setup/">
+          <b>1. </b>Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-dynamodb-capacity-units-and-partitioning/" title="DynamoDB Capacity Units và Partitioning" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-dynamodb-capacity-units-and-partitioning/">
+          <b>2. </b>DynamoDB Capacity Units và Partitioning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-sequential-and-parallel-table-scans/" title="Sequential và Parallel Table Scans" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-sequential-and-parallel-table-scans/">
+          <b>3. </b>Sequential và Parallel Table Scans
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-global-secondary-index-write-sharding/" title="Global Secondary Index Write Sharding" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-global-secondary-index-write-sharding/">
+          <b>4. </b>Global Secondary Index Write Sharding
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-global-secondary-index-key-overloading/" title="Global Secondary Index Key Overloading" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-global-secondary-index-key-overloading/">
+          <b>5. </b>Global Secondary Index Key Overloading
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-sparse-global-secondary-indexes/" title="Sparse Global Secondary Indexes" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-sparse-global-secondary-indexes/">
+          <b>6. </b>Sparse Global Secondary Indexes
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-composite-keys/" title="Composite Keys" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-composite-keys/">
+          <b>7. </b>Composite Keys
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-adjacency-lists/" title="Adjacency Lists" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-adjacency-lists/">
+          <b>8. </b>Adjacency Lists
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-amazon-dynamodb-streams-and-aws-lambda/" title="Amazon DynamoDB Streams và AWS Lambda" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/8-amazon-dynamodb-streams-and-aws-lambda/">
+          <b>9. </b>Amazon DynamoDB Streams và AWS Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/8-amazon-dynamodb-streams-and-aws-lambda/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/8-amazon-dynamodb-streams-and-aws-lambda/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Advanced Design Patterns for Amazon DynamoDB</a> > Amazon DynamoDB Streams và AWS Lambda
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+	<h1 id="bài-thực-hành-8-amazon-dynamodb-streams-và-aws-lambda">Bài Thực Hành 8: Amazon DynamoDB Streams và AWS Lambda</h1>
+<p>Sư kết hợp giữa DynamoDB Stream với AWS Lambda tạo ra nhiều mẫu kiến trúc mới vô củng mạnh mẽ. Trong bài thực hành này, bạn sẽ sao chép các item từ bảng DynamoDB sang một bảng khác sử dụng DynamoDB Stream và AWS Lambda. 
+DynamoDB Stream chụp lại một chuỗi sự thay đổi ở mức item và xếp lại theo thứ tự thời gian rồi lưu vào một nhật ký có thời hạn lưu trữ là 24h. Mọi ứng dụng đều có thể truy cập và xem dữ liệu nhật kí này với thời gian chỉnh sửa so với thực tế là gân thực. 
+DynamoDB stream được sử dụng trong các trường hợp sau đây:</p>
+<ul>
+<li>
+<p>Một trò chơi có cấu trúc liên kết cơ sở dữ liệu phân tán, lưu trữ trên nhiều region khác nhau. Mỗi region luôn được đồng bộ những sự thay đổi xảy ra ở những region ở xa. (Thực tế cơ chế đồng bộ dữ liệu toàn cầu của DynamoDB là dựa trên DynamoDB Stream)</p>
+</li>
+<li>
+<p>Khách hàng thêm dữ liệu vào bảng DynamoDB. Sự kiện này sẽ gọi tới AWS Lambda để sao chép dữ liệu tới một bảng DynamoDB riêng biệt để lưu trữ dữ liệu lâu dài</p>
+</li>
+</ul>
+<p>Chúng ta sẽ sử dụng lại bảng <strong>logfile</strong>  mà chúng ta đã tạo ở bài thực hành số 1 để bật DynamoDB Stream cho nó. Bất cứ khi nào có sự thay đổi trên bảng <strong>logfile</strong>, ngay lập tức thông tin thay đổi sẽ được đưa vào stream. 
+Tiếp theo ta sẽ gắn một Lambda function vào stream với mục đích truy vấn sự thay đổi trên bảng <strong>logfile</strong>, rồi ghi lại những cập nhật đó vào bảng được tạo mới có tên là <strong>logfile_replica</strong>. 
+Biểu đồ sau thể hiện các bước thực hiện của bài thực hành này: 
+<img src="../../../images/23.png?width=60pc" alt="Security Hub"></p>
+<h3 id="bước-1---tạo-bảng-sao-chép">Bước 1 - Tạo Bảng Sao chép</h3>
+<p>Bảng Sao chép có tên <strong>logfile_replica</strong> sẽ có các thuộc tính tương tự với bản gốc</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb create<span style="color:#f92672">-</span>table <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name logfile_replica \
+<span style="color:#f92672">--</span>attribute<span style="color:#f92672">-</span>definitions AttributeName<span style="color:#f92672">=</span>PK,AttributeType<span style="color:#f92672">=</span>S AttributeName<span style="color:#f92672">=</span>GSI_1_PK,AttributeType<span style="color:#f92672">=</span>S \
+<span style="color:#f92672">--</span>key<span style="color:#f92672">-</span>schema AttributeName<span style="color:#f92672">=</span>PK,KeyType<span style="color:#f92672">=</span>HASH <span style="color:#f92672">--</span>provisioned<span style="color:#f92672">-</span>throughput ReadCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,WriteCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> \
+<span style="color:#f92672">--</span>tags Key<span style="color:#f92672">=</span>workshop<span style="color:#f92672">-</span>design<span style="color:#f92672">-</span>patterns,Value<span style="color:#f92672">=</span>targeted<span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">-</span>cleanup \
+<span style="color:#f92672">--</span><span style="color:#66d9ef">global</span><span style="color:#f92672">-</span>secondary<span style="color:#f92672">-</span>indexes <span style="color:#e6db74">&#34;IndexName=GSI_1,KeySchema=[{AttributeName=GSI_1_PK,KeyType=HASH}],\</span>
+Projection<span style="color:#f92672">=</span>{ProjectionType<span style="color:#f92672">=</span>INCLUDE,NonKeyAttributes<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;bytessent&#39;</span>, <span style="color:#e6db74">&#39;requestid&#39;</span>, <span style="color:#e6db74">&#39;host&#39;</span>]},\
+ProvisionedThroughput<span style="color:#f92672">=</span>{ReadCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>,WriteCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>}<span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Bảng cũng được liên kết với Chỉ mục phụ toàn cục. Thông tin chi tiết được thống kê lại như sau:</p>
+<ul>
+<li>
+<p>Key schema: HASH (partition key)</p>
+</li>
+<li>
+<p>Table read capacity units (RCUs) = 10</p>
+</li>
+<li>
+<p>Table write capacity units (WCUs) = 5</p>
+</li>
+<li>
+<p>Global secondary index: GSI_1 (10 RCUs, 5 WCUs) - Cho phép truy vấn dựa theo địa chỉ IP của máy host.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Attribute Name (Type)</th>
+<th>Special Attribute?</th>
+<th>Attribute Use Case</th>
+<th>Sample Attribute Value</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">PK (STRING)</td>
+<td>Partition key</td>
+<td>Holds the request id</td>
+<td>request#104009</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">GSI_1_PK (STRING)</td>
+<td>GSI 1 partition key</td>
+<td>Host</td>
+<td>host#66.249.67.3</td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Chạy lệnh sau, đợi cho tới khi trạng thái của bảng chuyển thành <strong>ACTIVE</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb wait table<span style="color:#f92672">-</span>exists <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name logfile_replica
+</code></pre></div><h3 id="bước-2---kiểm-tra-lại-iam-policy-gán-cho-aws-lambda">Bước 2 - Kiểm tra lại IAM Policy gán cho AWS Lambda</h3>
+<p>Ở phần thiết lập chúng ta đã chuẩn bị trước một IAM Role có tên <strong>DDBReplicationRole</strong> mà đã được gán cho AWS Lambda function. IAM Role này cấp cho AWS Lambda function những quyền hạn cần thiết để thực hiện sao chép dữ liệu. Cụ thể các permission đó bao gồm:</p>
+<p>AWS Lambda function có khả năng gọi tới DynamoDB Stream và lấy được thông tin các thay đổi bản ghi từ Stream</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{
+    <span style="color:#e6db74">&#34;Action&#34;</span>: [
+        <span style="color:#e6db74">&#34;dynamodb:DescribeStream&#34;</span>,
+        <span style="color:#e6db74">&#34;dynamodb:GetRecords&#34;</span>,
+        <span style="color:#e6db74">&#34;dynamodb:GetShardIterator&#34;</span>,
+        <span style="color:#e6db74">&#34;dynamodb:ListStreams&#34;</span>
+    ],
+    <span style="color:#e6db74">&#34;Resource&#34;</span>: [
+        <span style="color:#e6db74">&#34;*&#34;</span>
+    ],
+    <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>
+}
+</code></pre></div><p>AWS Lambda function có thể thêm hoặc xóa item khỏi bảng <strong>logfile_replica</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{
+    <span style="color:#e6db74">&#34;Action&#34;</span>: [
+        <span style="color:#e6db74">&#34;dynamodb:DeleteItem&#34;</span>,
+        <span style="color:#e6db74">&#34;dynamodb:PutItem&#34;</span>
+    ],
+    <span style="color:#e6db74">&#34;Resource&#34;</span>: [
+        <span style="color:#e6db74">&#34;*&#34;</span>
+    ],
+    <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>
+}
+</code></pre></div><h3 id="bước-3---tạo-lambda-function">Bước 3 - Tạo Lambda function</h3>
+<p>AWS Lambda function sẽ được gắn với DynamoDB Stream của bảng <strong>logfile</strong> để sao chép hành động thêm hoặc xóa item của bảng gốc sang bảng sao <strong>logfile_replica</strong>. Nội dung Lambda function nằm trong file <strong>ddbreplica_lambda.py</strong>, bạn có thể xem bằng lệnh <em>vim</em> hoặc <em>less</em>.<br>
+Thực hiện nén nội dung của tập lệnh rồi upload lên dịch vụ AWS Lambda để tạo ra Lambda function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">zip ddbreplica_lambda<span style="color:#f92672">.</span>zip ddbreplica_lambda<span style="color:#f92672">.</span>py lab_config<span style="color:#f92672">.</span>py
+</code></pre></div><p>Lấy thông tin ARN của IAM Role mã sẽ được gán cho Lambda function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cat <span style="color:#f92672">~/</span>workshop<span style="color:#f92672">/</span>ddb<span style="color:#f92672">-</span>replication<span style="color:#f92672">-</span>role<span style="color:#f92672">-</span>arn<span style="color:#f92672">.</span>txt
+</code></pre></div><p>Thông tin ARN sẽ tương tự như sau:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arn:aws:iam::<span style="color:#f92672">&lt;</span>ACCOUNTID<span style="color:#f92672">&gt;</span>:role<span style="color:#f92672">/</span>XXXXX<span style="color:#f92672">-</span>DDBReplicationRole<span style="color:#f92672">-</span>XXXXXXXXXXX
+</code></pre></div><p>Sao chép ARN có được ở trên, thay thế cho <em><strong>YOUR_ARN_HERE</strong></em> rồi chạy lệnh tạo Lambda function</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws <span style="color:#66d9ef">lambda</span> create<span style="color:#f92672">-</span>function \
+<span style="color:#f92672">--</span>function<span style="color:#f92672">-</span>name ddbreplica_lambda <span style="color:#f92672">--</span>zip<span style="color:#f92672">-</span>file fileb:<span style="color:#f92672">//</span>ddbreplica_lambda<span style="color:#f92672">.</span>zip \
+<span style="color:#f92672">--</span>handler ddbreplica_lambda<span style="color:#f92672">.</span>lambda_handler <span style="color:#f92672">--</span>timeout <span style="color:#ae81ff">60</span> <span style="color:#f92672">--</span>runtime python3<span style="color:#f92672">.</span><span style="color:#ae81ff">7</span> \
+<span style="color:#f92672">--</span>description <span style="color:#e6db74">&#34;Sample lambda function for dynamodb streams&#34;</span> \
+<span style="color:#f92672">--</span>role YOUR_ARN_HERE
+</code></pre></div><h3 id="bước-4---bật-dynamodb-stream">Bước 4 - Bật DynamoDB Stream</h3>
+<p>Khi stream đã được bật, chúng ta có thể chọn DynamoDB sẽ sao chép những item mới, hay những item cũ, hay tất cả, hay chỉ điều chỉnh partition key và sort key.</p>
+<p>Để bật DynamoDB Stream cho bảng <strong>logfile</strong> với lựa chọn <em><strong>NEW_IMAGE</strong></em> (nghĩa là toàn bộ item mới)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb update<span style="color:#f92672">-</span>table <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name <span style="color:#e6db74">&#39;logfile&#39;</span> <span style="color:#f92672">--</span>stream<span style="color:#f92672">-</span>specification StreamEnabled<span style="color:#f92672">=</span>true,StreamViewType<span style="color:#f92672">=</span>NEW_IMAGE
+</code></pre></div><p>Lấy thông tin của DynamoDB Stream</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb describe<span style="color:#f92672">-</span>table <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name <span style="color:#e6db74">&#39;logfile&#39;</span> <span style="color:#f92672">--</span>query <span style="color:#e6db74">&#39;Table.LatestStreamArn&#39;</span> <span style="color:#f92672">--</span>output text
+</code></pre></div><p>Thông tin đầu ra tương tự như sau</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">arn:aws:dynamodb:<span style="color:#f92672">&lt;</span>REGION<span style="color:#f92672">&gt;</span>:<span style="color:#f92672">&lt;</span>ACCOUNTID<span style="color:#f92672">&gt;</span>:table<span style="color:#f92672">/</span>logfile<span style="color:#f92672">/</span>stream<span style="color:#f92672">/</span><span style="color:#ae81ff">2018</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">27</span>T02:<span style="color:#ae81ff">15</span>:<span style="color:#ae81ff">46.245</span>
+</code></pre></div><h3 id="bước-5---nối-nguồn-stream-với-lambda-function">Bước 5 - Nối nguồn Stream với Lambda function</h3>
+<p>Như vậy bảng gốc đã được bật DynamoDB Stream và Lambda function cũng đã được tạo. Bước tiếp theo, ta sẽ nối Stream với Lambda function sử dụng lệnh sau đây</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws <span style="color:#66d9ef">lambda</span> create<span style="color:#f92672">-</span>event<span style="color:#f92672">-</span>source<span style="color:#f92672">-</span>mapping \
+<span style="color:#f92672">--</span>function<span style="color:#f92672">-</span>name ddbreplica_lambda <span style="color:#f92672">--</span>enabled <span style="color:#f92672">--</span>batch<span style="color:#f92672">-</span>size <span style="color:#ae81ff">100</span> <span style="color:#f92672">--</span>starting<span style="color:#f92672">-</span>position TRIM_HORIZON \
+<span style="color:#f92672">--</span>event<span style="color:#f92672">-</span>source<span style="color:#f92672">-</span>arn YOUR_STREAM_ARN_HERE
+</code></pre></div><p>Kết quả mong đợi sẽ tương tự bên dưới</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{
+    <span style="color:#e6db74">&#34;UUID&#34;</span>: <span style="color:#e6db74">&#34;0dcede66-709c-4073-a628-724d01b92095&#34;</span>,
+    <span style="color:#e6db74">&#34;BatchSize&#34;</span>: <span style="color:#ae81ff">100</span>,
+    <span style="color:#e6db74">&#34;MaximumBatchingWindowInSeconds&#34;</span>: <span style="color:#ae81ff">0</span>,
+    <span style="color:#e6db74">&#34;ParallelizationFactor&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#e6db74">&#34;EventSourceArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:dynamodb:&lt;REGION&gt;:&lt;ACCOUNTID&gt;:table/logfile/stream/2021-12-31T00:00:00.000&#34;</span>,
+    <span style="color:#e6db74">&#34;FunctionArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:lambda:&lt;REGION&gt;:&lt;ACCOUNTID&gt;:function:ddbreplica_lambda&#34;</span>,
+    <span style="color:#e6db74">&#34;LastModified&#34;</span>: <span style="color:#ae81ff">1663286115.972</span>,
+    <span style="color:#e6db74">&#34;LastProcessingResult&#34;</span>: <span style="color:#e6db74">&#34;No records processed&#34;</span>,
+    <span style="color:#e6db74">&#34;State&#34;</span>: <span style="color:#e6db74">&#34;Creating&#34;</span>,
+    <span style="color:#e6db74">&#34;StateTransitionReason&#34;</span>: <span style="color:#e6db74">&#34;User action&#34;</span>,
+    <span style="color:#e6db74">&#34;DestinationConfig&#34;</span>: {
+        <span style="color:#e6db74">&#34;OnFailure&#34;</span>: {}
+    },
+    <span style="color:#e6db74">&#34;MaximumRecordAgeInSeconds&#34;</span>: <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,
+    <span style="color:#e6db74">&#34;BisectBatchOnFunctionError&#34;</span>: false,
+    <span style="color:#e6db74">&#34;MaximumRetryAttempts&#34;</span>: <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+}
+</code></pre></div><h3 id="bước-6---đẩy-dữ-liệu-vào-bảng-logfile-và-kiểm-tra-tiến-trình-sao-chép-vào-bảng-logfile_replica">Bước 6 - Đẩy dữ liệu vào bảng logfile và kiểm tra tiến trình sao chép vào bảng logfile_replica</h3>
+<p>Chạy lệnh python bên dưới để nạp thêm item vào bảng <strong>logfile</strong>. Các bản ghi mới sẽ được đưa vào DynamoDB Stream, dẫn tới việc kích hoạt Lambda function để ghi thông tin item mới vào bảng <strong>logfile_replica</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python load_logfile<span style="color:#f92672">.</span>py logfile <span style="color:#f92672">./</span>data<span style="color:#f92672">/</span>logfile_stream<span style="color:#f92672">.</span>csv
+</code></pre></div><p>Kết quả tương tự bên dưới</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">RowCount: <span style="color:#ae81ff">2000</span>, Total seconds: <span style="color:#ae81ff">15.808809518814087</span>
+</code></pre></div><p>Để kiểm tra tiến trình sao chép vào bảng <strong>logfile_replica</strong> có thành công hay chưa, thực hiện quét dữ liệu bảng <strong>logfile_replica</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb scan <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name <span style="color:#e6db74">&#39;logfile_replica&#39;</span> <span style="color:#f92672">--</span>max<span style="color:#f92672">-</span>items <span style="color:#ae81ff">2</span> <span style="color:#f92672">--</span>output text
+</code></pre></div><p>Kết quả tương tự bên dưới</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">None    <span style="color:#ae81ff">723</span>     <span style="color:#ae81ff">723</span>
+BYTESSENT       <span style="color:#ae81ff">2969</span>
+DATE    <span style="color:#ae81ff">2009</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">21</span>
+HOST    <span style="color:#ae81ff">64.233</span><span style="color:#f92672">.</span><span style="color:#ae81ff">172.17</span>
+HOUROFDAY       <span style="color:#ae81ff">8</span>
+METHOD  GET
+REQUESTID       <span style="color:#ae81ff">4666</span>
+RESPONSECODE    <span style="color:#ae81ff">200</span>
+TIMEZONE        GMT<span style="color:#f92672">-</span><span style="color:#ae81ff">0700</span>
+URL     <span style="color:#f92672">/</span>gwidgets<span style="color:#f92672">/</span>alexa<span style="color:#f92672">.</span>xml
+USERAGENT       Mozilla<span style="color:#f92672">/</span><span style="color:#ae81ff">5.0</span> (compatible) Feedfetcher<span style="color:#f92672">-</span>Google; (<span style="color:#f92672">+</span>http:<span style="color:#f92672">//</span>www<span style="color:#f92672">.</span>google<span style="color:#f92672">.</span>com<span style="color:#f92672">/</span>feedfetcher<span style="color:#f92672">.</span>html)
+BYTESSENT       <span style="color:#ae81ff">1160</span>
+DATE    <span style="color:#ae81ff">2009</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">21</span>
+HOST    <span style="color:#ae81ff">64.233</span><span style="color:#f92672">.</span><span style="color:#ae81ff">172.17</span>
+HOUROFDAY       <span style="color:#ae81ff">6</span>
+METHOD  GET
+REQUESTID       <span style="color:#ae81ff">4119</span>
+RESPONSECODE    <span style="color:#ae81ff">200</span>
+TIMEZONE        GMT<span style="color:#f92672">-</span><span style="color:#ae81ff">0700</span>
+URL     <span style="color:#f92672">/</span>gadgets<span style="color:#f92672">/</span>adpowers<span style="color:#f92672">/</span>AlexaRank<span style="color:#f92672">/</span>ALL_ALL<span style="color:#f92672">.</span>xml
+USERAGENT       Mozilla<span style="color:#f92672">/</span><span style="color:#ae81ff">5.0</span> (compatible) Feedfetcher<span style="color:#f92672">-</span>Google; (<span style="color:#f92672">+</span>http:<span style="color:#f92672">//</span>www<span style="color:#f92672">.</span>google<span style="color:#f92672">.</span>com<span style="color:#f92672">/</span>feedfetcher<span style="color:#f92672">.</span>html)
+NEXTTOKEN       eyJFeGNsdXNpdmVTdGFydEtleSI6IG51bGwsICJib3RvX3RydW5jYXRlX2Ftb3VudCI6IDJ9
+</code></pre></div><h1 id="chúc-mừng-bạn-bạn-đã-hoàn-thành-tất-cả-các-bài-thực-hành-trong-workshop-này">CHÚC MỪNG BẠN!!! BẠN ĐÃ HOÀN THÀNH TẤT CẢ CÁC BÀI THỰC HÀNH TRONG WORKSHOP NÀY!</h1>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/7-adjacency-lists/" title="Adjacency Lists"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/0-setup/" title="Setup" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1614062855"></script>
+    <script src="/js/perfect-scrollbar.min.js?1614062855"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1614062855"></script>
+    <script src="/js/jquery.sticky.js?1614062855"></script>
+    <script src="/js/featherlight.min.js?1614062855"></script>
+    <script src="/js/highlight.pack.js?1614062855"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1614062855"></script>
+    <script src="/js/learn.js?1614062855"></script>
+    <script src="/js/hugo-learn.js?1614062855"></script>
+
+    <link href="/mermaid/mermaid.css?1614062855" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1614062855"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

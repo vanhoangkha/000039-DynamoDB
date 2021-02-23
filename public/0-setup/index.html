@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Setup :: Advanced Design Patterns for Amazon DynamoDB</title>
+
+    
+    <link href="/css/nucleus.css?1614062855" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1614062855" rel="stylesheet">
+    <link href="/css/hybrid.css?1614062855" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1614062855" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1614062855" rel="stylesheet">
+    <link href="/css/auto-complete.css?1614062855" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1614062855" rel="stylesheet">
+    <link href="/css/theme.css?1614062855" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1614062855" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1614062855" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1614062855"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/0-setup/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1614062855"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1614062855"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1614062855"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/0-setup/" title="Setup" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/0-setup/">
+          <b>1. </b>Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-dynamodb-capacity-units-and-partitioning/" title="DynamoDB Capacity Units và Partitioning" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-dynamodb-capacity-units-and-partitioning/">
+          <b>2. </b>DynamoDB Capacity Units và Partitioning
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-sequential-and-parallel-table-scans/" title="Sequential và Parallel Table Scans" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-sequential-and-parallel-table-scans/">
+          <b>3. </b>Sequential và Parallel Table Scans
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-global-secondary-index-write-sharding/" title="Global Secondary Index Write Sharding" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-global-secondary-index-write-sharding/">
+          <b>4. </b>Global Secondary Index Write Sharding
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-global-secondary-index-key-overloading/" title="Global Secondary Index Key Overloading" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-global-secondary-index-key-overloading/">
+          <b>5. </b>Global Secondary Index Key Overloading
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-sparse-global-secondary-indexes/" title="Sparse Global Secondary Indexes" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-sparse-global-secondary-indexes/">
+          <b>6. </b>Sparse Global Secondary Indexes
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-composite-keys/" title="Composite Keys" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-composite-keys/">
+          <b>7. </b>Composite Keys
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-adjacency-lists/" title="Adjacency Lists" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-adjacency-lists/">
+          <b>8. </b>Adjacency Lists
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-amazon-dynamodb-streams-and-aws-lambda/" title="Amazon DynamoDB Streams và AWS Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-amazon-dynamodb-streams-and-aws-lambda/">
+          <b>9. </b>Amazon DynamoDB Streams và AWS Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/660548818043427/"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/0-setup/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/0-setup/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+    
+
+    
+
+    
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Advanced Design Patterns for Amazon DynamoDB</a> > Setup
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+	<h1 id="thiết-lập-môi-trường">Thiết lập môi trường</h1>
+<h3 id="1-khởi-tạo-cloudformation-stack">1. Khởi tạo CloudFormation Stack</h3>
+
+<div class="notices warning" ><p>Xuyên suốt bài thực hành, chúng ta sẽ làm việc với các bảng DynamoDB với chi phí có thể lên tới hàng chục hoặc hàng trăm $ mỗi ngày.
+Phải chắc chắn bạn đã xóa CloudFormation stack và toàn bộ các bảng DynamoDB với DynamoDB console ngay sau khi kết thúc bài thực hành.</p>
+</div>
+
+<p>a. Khởi tạo CloudFormation template tại region <strong>US East 1</strong> để triển khai các tài nguyên cần thiết bằng cách bấm vào <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=amazon-dynamodb-labs&amp;templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/lab.yaml">Launch Stack</a> hoặc bạn có thể tải về <a href="https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/lab.yaml">CloudFormation template YAML</a> rồi tự khởi tạo.</p>
+<p>b. Nhấp vào <strong>Next</strong> ở hộp thoại đầu tiên.
+<img src="../../../images/1.png?width=90pc" alt="Security Hub"></p>
+<p>c. Trong phần <strong>Parameters</strong>, tùy chọn mặc định cho <strong>VPCSelection</strong> là <em><strong>CreateNewVPC</strong></em>. Lựa chọn này giúp bạn dễ dàng thực hiện theo bài hướng dẫn tuy nhiên nếu bạn muốn sử dụng VPC mặc định của mình, hãy thay đổi tùy chọn này thành <em><strong>Default</strong></em>.</p>
+<p>d. Giữ nguyên thông số <strong>WorkshopCodeURL</strong> và nhấp vào <strong>Next</strong>
+<img src="../../../images/2.png?width=90pc" alt="Security Hub"></p>
+<p>e. Tiếp tục giữ nguyên mọi giá trị mặc định của trang cấu hình tiếp theo rồi đi tới trang <strong>Review</strong>. Kéo xuống dưới và nhấp chọn <strong>I acknowledge that AWS CloudFormation might create IAM resources</strong> rồi bấm <strong>Create stack</strong>.
+<img src="../../../images/3.png?width=90pc" alt="Security Hub"></p>
+<p>f. Stack sẽ tạo ra một EC2 Instance với Role đi kèm. Ngoài ra nó còn tạo thêm Role cho AWS Lambda function sẽ được sử dụng xuyên suốt bài thực hành này.</p>
+<h3 id="2-truy-cập-ec2-instance-qua-aws-systems-manager-console">2. Truy cập EC2 Instance qua AWS Systems Manager Console</h3>
+<p>a. Truy cập dịch vụ <a href="https://console.aws.amazon.com/systems-manager/home?region=us-east-1">AWS Systems Manager</a>, rồi chọn <strong>Session Manager</strong> ở cột điều hướng bên trái màn hình.</p>
+<p>b. Bấm <strong>Start session</strong> để bắt đầu một phiên shell mới, rồi chọn đúng EC2 Instance mà được tạo ra bởi CloudFormation stack. Thường tên EC2 Instance sẽ bắt đầu với <em><strong>mod-xxxx…</strong></em></p>
+<p>c. Ở phiên shell mới, chuyển sang thao tác bằng tài khoản ec2-user sử dụng lệnh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sudo su <span style="color:#f92672">-</span> ec2<span style="color:#f92672">-</span>user
+</code></pre></div><p>d. Chạy lệnh <em><strong>shopt login_shell</strong></em> để đảm bảo kết quả trả về là <em><strong>login_shell on</strong></em>. Sau đó chuyển sang thao tác trên thư mục của workshop bằng lệnh <em><strong>cd ~/workshop</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sh<span style="color:#f92672">-</span><span style="color:#ae81ff">4.2</span><span style="color:#960050;background-color:#1e0010">$</span> sudo su <span style="color:#f92672">-</span> ec2<span style="color:#f92672">-</span>user
+[ec2<span style="color:#f92672">-</span>user<span style="color:#a6e22e">@ip</span><span style="color:#f92672">-</span><span style="color:#ae81ff">172</span><span style="color:#f92672">-</span><span style="color:#ae81ff">31</span><span style="color:#f92672">-</span><span style="color:#ae81ff">24</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">~</span>]<span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#75715e">#Verify login_shell is &#39;on&#39;</span>
+[ec2<span style="color:#f92672">-</span>user<span style="color:#a6e22e">@ip</span><span style="color:#f92672">-</span><span style="color:#ae81ff">172</span><span style="color:#f92672">-</span><span style="color:#ae81ff">31</span><span style="color:#f92672">-</span><span style="color:#ae81ff">24</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">~</span>]<span style="color:#960050;background-color:#1e0010">$</span> shopt login_shell
+login_shell     on
+[ec2<span style="color:#f92672">-</span>user<span style="color:#a6e22e">@ip</span><span style="color:#f92672">-</span><span style="color:#ae81ff">172</span><span style="color:#f92672">-</span><span style="color:#ae81ff">31</span><span style="color:#f92672">-</span><span style="color:#ae81ff">24</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">~</span>]<span style="color:#960050;background-color:#1e0010">$</span> <span style="color:#75715e">#Change into the workshop directory</span>
+[ec2<span style="color:#f92672">-</span>user<span style="color:#a6e22e">@ip</span><span style="color:#f92672">-</span><span style="color:#ae81ff">172</span><span style="color:#f92672">-</span><span style="color:#ae81ff">31</span><span style="color:#f92672">-</span><span style="color:#ae81ff">24</span><span style="color:#f92672">-</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">~</span>]<span style="color:#960050;background-color:#1e0010">$</span> cd <span style="color:#f92672">~/</span>workshop
+</code></pre></div><h3 id="3-kiểm-tra-cài-đặt-python-và-aws-cli">3. Kiểm tra cài đặt Python và AWS CLI</h3>
+<p>a. Trên EC2 Instance chạy lệnh kiểm tra phiên bản cài đặt Python</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">--</span>version
+Python <span style="color:#ae81ff">3.6</span><span style="color:#f92672">.</span><span style="color:#ae81ff">12</span>
+</code></pre></div><p>b. Kiểm tra phiên bản cài đặt AWS CLI</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws <span style="color:#f92672">--</span>version
+aws<span style="color:#f92672">-</span>cli<span style="color:#f92672">/</span><span style="color:#ae81ff">1.18</span><span style="color:#f92672">.</span><span style="color:#ae81ff">139</span> Python<span style="color:#f92672">/</span><span style="color:#ae81ff">3.6</span><span style="color:#f92672">.</span><span style="color:#ae81ff">12</span> Linux<span style="color:#f92672">/</span><span style="color:#ae81ff">4.14</span><span style="color:#f92672">.</span><span style="color:#ae81ff">193</span><span style="color:#f92672">-</span><span style="color:#ae81ff">113.317</span><span style="color:#f92672">.</span>amzn1<span style="color:#f92672">.</span>x86_64 botocore<span style="color:#f92672">/</span><span style="color:#ae81ff">1.17</span><span style="color:#f92672">.</span><span style="color:#ae81ff">62</span>
+</code></pre></div><p><em>Note: Để thực hành workshop không xảy ra lỗi, phải đảm bảo rằng phiên bản AWS CLI là 1.18.139 và python là 3.6.12</em></p>
+<h3 id="4-kiểm-tra-cài-đặt-boto3">4. Kiểm tra cài đặt boto3</h3>
+<p>Boto3 là một SDK của AWS phát triển riêng cho Python, nó cho phép các nhà phát triển Python xây dựng các ứng dụng dựa trên các dịch vụ AWS.
+Trong cửa sổ EC2 shell, chạy lệnh python để bắt đầu trình tương tác với python rồi dán các mã lệnh sau vào cửa sổ:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Run this code:</span>
+<span style="color:#f92672">import</span> boto3
+ddb <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;dynamodb&#39;</span>)
+ddb<span style="color:#f92672">.</span>describe_limits()
+</code></pre></div><p>Kết quả hiển thị phải tương tự như bên dưới</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">{<span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;TableMaxWriteCapacityUnits&#39;</span>: <span style="color:#ae81ff">40000</span>, <span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;TableMaxReadCapacityUnits&#39;</span>: <span style="color:#ae81ff">40000</span>, <span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;AccountMaxReadCapacityUnits&#39;</span>: <span style="color:#ae81ff">80000</span>, <span style="color:#e6db74">&#39;ResponseMetadata&#39;</span>: {<span style="color:#e6db74">&#39;RetryAttempts&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;HTTPStatusCode&#39;</span>: <span style="color:#ae81ff">200</span>, <span style="color:#e6db74">&#39;RequestId&#39;</span>: <span style="color:#e6db74">&#39;BFMGAS4P48I3DJTP5NU22QRDDJVV4KQNSO5AEMVJF66Q9ASUAAJG&#39;</span>, <span style="color:#e6db74">&#39;HTTPHeaders&#39;</span>: {<span style="color:#e6db74">&#39;x-amzn-requestid&#39;</span>: <span style="color:#e6db74">&#39;BFMGAS4P48I3DJTP5NU22QRDDJVV4KQNSO5AEMVJF66Q9ASUAAJG&#39;</span>, <span style="color:#e6db74">&#39;content-length&#39;</span>: <span style="color:#e6db74">&#39;143&#39;</span>, <span style="color:#e6db74">&#39;server&#39;</span>: <span style="color:#e6db74">&#39;Server&#39;</span>, <span style="color:#e6db74">&#39;connection&#39;</span>: <span style="color:#e6db74">&#39;keep-alive&#39;</span>, <span style="color:#e6db74">&#39;x-amz-crc32&#39;</span>: <span style="color:#e6db74">&#39;3062975651&#39;</span>, <span style="color:#e6db74">&#39;date&#39;</span>: <span style="color:#e6db74">&#39;Tue, 31 Dec 2020 00:00:00 GMT&#39;</span>, <span style="color:#e6db74">&#39;content-type&#39;</span>: <span style="color:#e6db74">&#39;application/x-amz-json-1.0&#39;</span>}}, <span style="color:#e6db74">u</span><span style="color:#e6db74">&#39;AccountMaxWriteCapacityUnits&#39;</span>: <span style="color:#ae81ff">80000</span>}
+</code></pre></div><p>Kết thúc kiểm tra, thực hiện tắt trình tương tác với python</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">quit()
+</code></pre></div><h3 id="5-kiểm-tra-nội-dung-thư-mục-workshop">5. Kiểm tra nội dung thư mục workshop</h3>
+<p>Trên EC2 instance, truy cập thư mục chứa workshop rồi chạy lệnh ls:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cd <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>ec2<span style="color:#f92672">-</span>user<span style="color:#f92672">/</span>workshop
+ls <span style="color:#f92672">-</span>l <span style="color:#f92672">.</span>
+</code></pre></div><p>Các nội dung phải có trong thư mục workshop bao gồm<br>
+<strong>Python code:</strong><br>
+<em>ddbreplica_lambda.py<br>
+load_employees.py<br>
+load_invoice.py<br>
+load_logfile_parallel.py<br>
+load_logfile.py<br>
+lab_config.py<br>
+query_city_dept.py<br>
+query_employees.py<br>
+query_index_invoiceandbilling.py<br>
+query_invoiceandbilling.py<br>
+query_responsecode.py<br>
+scan_for_managers_gsi.py<br>
+scan_for_managers.py<br>
+scan_logfile_parallel.py<br>
+scan_logfile_simple.py</em></p>
+<p><strong>JSON:</strong><br>
+<em>gsi_city_dept.json<br>
+gsi_manager.json<br>
+iam-role-policy.json<br>
+iam-trust-relationship.json</em></p>
+<p><strong>Text:</strong><br>
+<em>ddb-replication-role-arn.txt</em></p>
+<p>Chạy lệnh ls để kiểm tra danh sách các dữ liệu mẫu:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ls <span style="color:#f92672">-</span>l <span style="color:#f92672">./</span>data
+employees<span style="color:#f92672">.</span>csv
+invoice<span style="color:#f92672">-</span>data2<span style="color:#f92672">.</span>csv
+invoice<span style="color:#f92672">-</span>data<span style="color:#f92672">.</span>csv
+logfile_medium1<span style="color:#f92672">.</span>csv
+logfile_medium2<span style="color:#f92672">.</span>csv
+logfile_small1<span style="color:#f92672">.</span>csv
+logfile_stream<span style="color:#f92672">.</span>csv
+</code></pre></div><h3 id="6-kiểm-tra-định-dạng-và-nội-dung-các-file-chứa-dữ-liệu">6. Kiểm tra Định dạng và Nội dung các file chứa Dữ liệu</h3>
+<p>Chúng ta sẽ làm việc với rất nhiều dữ liệu khác nhau xuyên suốt bài thực hành, đó là:</p>
+<ul>
+<li>
+<p>Server Logs data</p>
+</li>
+<li>
+<p>Employees data</p>
+</li>
+<li>
+<p>Invoices and Bills data</p>
+</li>
+</ul>
+<p>Cấu trúc dữ liệu của file Server Logs gồm:</p>
+<ul>
+<li>
+<p>requestid (number)</p>
+</li>
+<li>
+<p>host (string)</p>
+</li>
+<li>
+<p>date (string)</p>
+</li>
+<li>
+<p>hourofday (number)</p>
+</li>
+<li>
+<p>timezone (string)</p>
+</li>
+<li>
+<p>method (string)</p>
+</li>
+<li>
+<p>url (string)</p>
+</li>
+<li>
+<p>responsecode (number)</p>
+</li>
+<li>
+<p>bytessent (number)</p>
+</li>
+<li>
+<p>useragent (string)</p>
+</li>
+</ul>
+<p>Để xem một bản ghi mẫu trong file, dùng lệnh:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">head <span style="color:#f92672">-</span>n1 <span style="color:#f92672">./</span>data<span style="color:#f92672">/</span>logfile_small1<span style="color:#f92672">.</span>csv
+<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">66.249</span><span style="color:#f92672">.</span><span style="color:#ae81ff">67.3</span>,<span style="color:#ae81ff">2017</span><span style="color:#f92672">-</span><span style="color:#ae81ff">07</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">20</span>,GMT<span style="color:#f92672">-</span><span style="color:#ae81ff">0700</span>,GET,<span style="color:#e6db74">&#34;/gallery/main.php?g2_controller=exif.SwitchDetailMode&amp;g2_mode=detailed&amp;g2_return=</span><span style="color:#e6db74">%2F</span><span style="color:#e6db74">gallery</span><span style="color:#e6db74">%2F</span><span style="color:#e6db74">main.php</span><span style="color:#e6db74">%3F</span><span style="color:#e6db74">g2_itemId%3D15741&amp;g2_returnName=photo&#34;</span>,<span style="color:#ae81ff">302</span>,<span style="color:#ae81ff">5</span>,<span style="color:#e6db74">&#34;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&#34;</span>
+</code></pre></div><p>Tương tự, cấu trúc của file Employees gồm:</p>
+<ul>
+<li>
+<p>employeeid (number)</p>
+</li>
+<li>
+<p>name (string)</p>
+</li>
+<li>
+<p>title (string)</p>
+</li>
+<li>
+<p>dept (string)</p>
+</li>
+<li>
+<p>city (string)</p>
+</li>
+<li>
+<p>state (string)</p>
+</li>
+<li>
+<p>dob (string)</p>
+</li>
+<li>
+<p>hire-date (string)</p>
+</li>
+<li>
+<p>previous title (string)</p>
+</li>
+<li>
+<p>previous title end date (string)</p>
+</li>
+<li>
+<p>is a manager (string), <em>1 cho nhân viên là Quản lý employees, và non-existent cho các loại nhân viên còn lại</em></p>
+</li>
+</ul>
+<p>Để xem một bản ghi mẫu trong file, dùng lệnh:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">head <span style="color:#f92672">-</span>n1 <span style="color:#f92672">./</span>data<span style="color:#f92672">/</span>employees<span style="color:#f92672">.</span>csv
+<span style="color:#ae81ff">1</span>,Onfroi Greeno,Systems Administrator,Operation,Portland,OR,<span style="color:#ae81ff">1992</span><span style="color:#f92672">-</span><span style="color:#ae81ff">03</span><span style="color:#f92672">-</span><span style="color:#ae81ff">31</span>,<span style="color:#ae81ff">2014</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#f92672">-</span><span style="color:#ae81ff">24</span>,Application Support Analyst,<span style="color:#ae81ff">2014</span><span style="color:#f92672">-</span><span style="color:#ae81ff">04</span><span style="color:#f92672">-</span><span style="color:#ae81ff">12</span>
+</code></pre></div><h3 id="7-nạp-trước-các-item-cho-bài-tập-quét-dữ-liệu-bảng">7. Nạp trước các Item cho bài tập Quét dữ liệu bảng</h3>
+<p><em>Reminder: Tất cả các lệnh hướng dẫn phải được thực thi trong cửa sổ shell của EC2 Instance, không thao tác trên trên máy local.</em></p>
+<p>Trong bài thực hành <strong>Lab #2</strong> chúng ta sẽ thảo luận về Quét dữ liệu bảng và những phương pháp hay nhất. 
+Tại bước này, chúng ta sẽ nạp trước 1 triệu items để chuẩn bị cho bài thực hành Quét dữ liệu bảng.
+Chạy lệnh sau đây để bắt đầu việc tạo bảng:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb create<span style="color:#f92672">-</span>table <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name logfile_scan \
+<span style="color:#f92672">--</span>attribute<span style="color:#f92672">-</span>definitions AttributeName<span style="color:#f92672">=</span>PK,AttributeType<span style="color:#f92672">=</span>S AttributeName<span style="color:#f92672">=</span>GSI_1_PK,AttributeType<span style="color:#f92672">=</span>S AttributeName<span style="color:#f92672">=</span>GSI_1_SK,AttributeType<span style="color:#f92672">=</span>S \
+<span style="color:#f92672">--</span>key<span style="color:#f92672">-</span>schema AttributeName<span style="color:#f92672">=</span>PK,KeyType<span style="color:#f92672">=</span>HASH \
+<span style="color:#f92672">--</span>provisioned<span style="color:#f92672">-</span>throughput ReadCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>,WriteCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span> \
+<span style="color:#f92672">--</span>tags Key<span style="color:#f92672">=</span>workshop<span style="color:#f92672">-</span>design<span style="color:#f92672">-</span>patterns,Value<span style="color:#f92672">=</span>targeted<span style="color:#f92672">-</span><span style="color:#66d9ef">for</span><span style="color:#f92672">-</span>cleanup \
+<span style="color:#f92672">--</span><span style="color:#66d9ef">global</span><span style="color:#f92672">-</span>secondary<span style="color:#f92672">-</span>indexes <span style="color:#e6db74">&#34;IndexName=GSI_1,\</span>
+KeySchema<span style="color:#f92672">=</span>[{AttributeName<span style="color:#f92672">=</span>GSI_1_PK,KeyType<span style="color:#f92672">=</span>HASH},{AttributeName<span style="color:#f92672">=</span>GSI_1_SK,KeyType<span style="color:#f92672">=</span>RANGE}],\
+Projection<span style="color:#f92672">=</span>{ProjectionType<span style="color:#f92672">=</span>KEYS_ONLY},\
+ProvisionedThroughput<span style="color:#f92672">=</span>{ReadCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">3000</span>,WriteCapacityUnits<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>}<span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Kết quả lệnh tạo ra một bảng mới có tên <strong>logfile_scan</strong> và một GSI, cụ thể:</p>
+<ul>
+<li>
+<p>Key schema: HASH</p>
+</li>
+<li>
+<p>Table RCU = 5000</p>
+</li>
+<li>
+<p>Table WCU = 5000</p>
+</li>
+<li>
+<p>GSI(s): GSI_1 (3000 RCU, 5000 WCU) - cho phép quét dữ liệu nhật ký truy cập theo kiểu tuần tự hoặc song song. Sắp xếp theo status code và timestamp.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Tên Thuộc tính (Loại)</th>
+<th align="center">Mô tả</th>
+<th align="center">Trường hợp sử dụng</th>
+<th align="center">Ví dụ Giá trị Thuộc tính</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">PK (STRING)</td>
+<td align="center">Hash key</td>
+<td align="center">Thông tin request id phục vụ công tác kiểm tra nhật ký truy cập</td>
+<td align="center">request#104009</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">GSI_1_PK (STRING)</td>
+<td align="center">GSI 1 hash key</td>
+<td align="center">Là một shard key, với các giá trị từ 0-N, phục vụ công tác tìm kiếm bản ghi nhật ký</td>
+<td align="center">shard#3</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">GSI_1_SK (STRING)</td>
+<td align="center">GSI 1 sort key</td>
+<td align="center">Sắp xếp các bản ghi nhật ký theo thứ bậc, từ status code -&gt; date -&gt; hour</td>
+<td align="center">200#2019-09-21#01</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Chạy lệnh sau để đợi cho đến khi trạng thái bảng trở thành Active:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">aws dynamodb wait table<span style="color:#f92672">-</span>exists <span style="color:#f92672">--</span>table<span style="color:#f92672">-</span>name logfile_scan
+</code></pre></div><p>Chạy lệnh nạp 1,000,000 bản ghi từ file <strong>Server logs</strong> vào bảng <strong>logfile_scan</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nohup python load_logfile_parallel<span style="color:#f92672">.</span>py logfile_scan <span style="color:#f92672">&amp;</span>
+disown
+</code></pre></div><p>Tùy chọn <em><strong>nohup</strong></em> được sử dụng để chạy ngầm các tiến trình, còn <em><strong>disown</strong></em> cho phép dữ liệu vẫn sẽ tiếp tục được nạp trong trường hợp bạn vừa bị mất kết nối.</p>
+<p><em>Note: Lệnh nạp dữ liệu tạo ra một tiến trình chạy ngầm và mất khoảng 10 phút để hoàn thành việc này.</em></p>
+<p>Chạy lệnh <em><strong>pgrep -l python</strong></em> để kiểm tra dữ liệu vẫn được nạp vào bảng.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pgrep <span style="color:#f92672">-</span>l python
+<span style="color:#ae81ff">3257</span> python
+</code></pre></div><p>Và bạn đã hoàn thành quá trình Thiết lập và sẵn sàng cho những bài thực hành rất thú vị ở phía trước!</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/" title="Advanced Design Patterns for Amazon DynamoDB"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/1-dynamodb-capacity-units-and-partitioning/" title="DynamoDB Capacity Units và Partitioning" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1614062855"></script>
+    <script src="/js/perfect-scrollbar.min.js?1614062855"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1614062855"></script>
+    <script src="/js/jquery.sticky.js?1614062855"></script>
+    <script src="/js/featherlight.min.js?1614062855"></script>
+    <script src="/js/highlight.pack.js?1614062855"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1614062855"></script>
+    <script src="/js/learn.js?1614062855"></script>
+    <script src="/js/hugo-learn.js?1614062855"></script>
+
+    <link href="/mermaid/mermaid.css?1614062855" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1614062855"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
