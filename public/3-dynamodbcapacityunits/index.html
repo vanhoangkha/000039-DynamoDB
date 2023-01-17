@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title> :: AWS System Manager</title>
+    <title>DynamoDB Capacity Units and Partitioning :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1673905999" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673905999" rel="stylesheet">
-    <link href="/css/hybrid.css?1673905999" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673905999" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673905999" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673905999" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673905999" rel="stylesheet">
-    <link href="/css/theme.css?1673905999" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673905999" rel="stylesheet">
+    <link href="/css/nucleus.css?1673939160" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673939160" rel="stylesheet">
+    <link href="/css/hybrid.css?1673939160" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673939160" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673939160" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673939160" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673939160" rel="stylesheet">
+    <link href="/css/theme.css?1673939160" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673939160" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1673905999" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673939160" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1673905999"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673939160"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673905999"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673905999"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673939160"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673939160"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673905999"></script>
+<script type="text/javascript" src="/js/search.js?1673939160"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/1-introduce/" title="" class="dd-item 
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
         
         
         
         ">
       <a href="/1-introduce/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/10-dynamodbstreamsandlambda/">
-          
+           <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
           
@@ -134,39 +108,13 @@
  
   
     
-    <li data-nav-id="/11-cleanup/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/11-cleanup/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-prerequiste/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/" title="Preparation steps" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/">
-          
+           <b> 2. </b> Preparation steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -191,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="Create CloudFormation Stack" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.1-createcloudformationstack/">
-          
+           <b> 2.1 </b> Create CloudFormation Stack
           
             <i class="fas fa-check read-icon"></i>
           
@@ -219,13 +167,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="Connecting EC2 instances" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-connectec2instance/">
-          
+           <b> 2.2 </b> Connecting EC2 instances
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,13 +202,13 @@
  
   
     
-    <li data-nav-id="/3-dynamodbcapacityunits/" title="" class="dd-item 
+    <li data-nav-id="/3-dynamodbcapacityunits/" title="DynamoDB Capacity Units and Partitioning" class="dd-item 
         parent
         active
         
         ">
       <a href="/3-dynamodbcapacityunits/">
-          
+           <b> 3. </b> DynamoDB Capacity Units and Partitioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -280,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-scan/" title="" class="dd-item 
+    <li data-nav-id="/4-scan/" title="Sequential and parallel table scans" class="dd-item 
         
         
         
         ">
       <a href="/4-scan/">
-          
+           <b> 4. </b> Sequential and parallel table scans
           
             <i class="fas fa-check read-icon"></i>
           
@@ -306,13 +254,13 @@
  
   
     
-    <li data-nav-id="/5-gsiwritesharding/" title="" class="dd-item 
+    <li data-nav-id="/5-gsiwritesharding/" title="Global Secondary Index Write Sharding" class="dd-item 
         
         
         
         ">
       <a href="/5-gsiwritesharding/">
-          
+           <b> 5. </b> Global Secondary Index Write Sharding
           
             <i class="fas fa-check read-icon"></i>
           
@@ -332,13 +280,13 @@
  
   
     
-    <li data-nav-id="/6-gsikeyoverloading/" title="" class="dd-item 
+    <li data-nav-id="/6-gsikeyoverloading/" title="Global Secondary Index Key Overloading" class="dd-item 
         
         
         
         ">
       <a href="/6-gsikeyoverloading/">
-          
+           <b> 6. </b> Global Secondary Index Key Overloading
           
             <i class="fas fa-check read-icon"></i>
           
@@ -358,13 +306,13 @@
  
   
     
-    <li data-nav-id="/7-sparsegsi/" title="" class="dd-item 
+    <li data-nav-id="/7-sparsegsi/" title="Sparse Global Secondary Indexes" class="dd-item 
         
         
         
         ">
       <a href="/7-sparsegsi/">
-          
+           <b> 7. </b> Sparse Global Secondary Indexes
           
             <i class="fas fa-check read-icon"></i>
           
@@ -384,13 +332,13 @@
  
   
     
-    <li data-nav-id="/8-compositekeys/" title="" class="dd-item 
+    <li data-nav-id="/8-compositekeys/" title="Composite Keys" class="dd-item 
         
         
         
         ">
       <a href="/8-compositekeys/">
-          
+           <b> 8. </b> Composite Keys
           
             <i class="fas fa-check read-icon"></i>
           
@@ -410,13 +358,65 @@
  
   
     
-    <li data-nav-id="/9-adjacencylists/" title="" class="dd-item 
+    <li data-nav-id="/9-adjacencylists/" title="Adjacency List" class="dd-item 
         
         
         
         ">
       <a href="/9-adjacencylists/">
+           <b> 9. </b> Adjacency List
           
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="Amazon DynamoDB Streams and AWS Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10-dynamodbstreamsandlambda/">
+           <b> 10. </b> Amazon DynamoDB Streams and AWS Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-cleanup/" title="Clean up resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11-cleanup/">
+           <b> 11. </b> Clean up resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -563,7 +563,7 @@
             
           
           
-            <a href='/'>Advanced Amazon DynamoDB</a> > 
+            <a href='/'>Advanced Amazon DynamoDB</a> > DynamoDB Capacity Units and Partitioning
           
         
           
@@ -574,7 +574,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -590,7 +598,7 @@
           
             <h1>
               
-              
+              DynamoDB Capacity Units and Partitioning
             </h1>
           
 
@@ -598,7 +606,376 @@
 
 
 
-	
+	<h4 id="dynamodb-capacity-units-and-partitioning">DynamoDB Capacity Units and Partitioning</h4>
+
+<div class="notices note" ><p>Note: a browser for Windows such as Chrome, Firefox, or Edge must be the latest version; the same goes for Apple Safari on macOS</p>
+</div>
+
+<p>In this first exercise, you will load data into <strong>DynamoDB</strong> tables with different <strong>write/read capacity</strong> values ​​and compare load times between different data sets.</p>
+<p>On the first attempt, we load a small data set into the table and quickly save execution time. Next, we load the larger data set into a table to simulate an exception that causes data transmission bottlenecks. Finally, we simulate the backpressure of GSI on a board by creating a table with a high capacity and a GSI with only 1 write capacity unit (WCU).</p>
+<p>Also in this exercise, we will use sample Web server access log data, similar to the web server log data generated by <strong>Apache</strong>.</p>
+<p>Before we start the practice, we would like to go over some important knowledge that you need to know regarding <strong>DynamoDB No-SQL Database</strong>. In DynamoDB, table, item, and attribute are the main components that we often work with. A table is a collection of items, and each item is a collection of attributes.</p>
+<p><strong>DynamoDB</strong> uses <strong>Primary Keys (PKs)</strong> to distinguish items in a table from each other, while secondary indexes add flexibility to queries.
+You can use <strong>DynamoDB Stream</strong> to capture events leading to changes in the <strong>DynamoDB</strong> data table.</p>
+<h4 id="primary-key---primary-key">Primary Key - Primary Key</h4>
+<p>There are two types of primary keys: <strong>Partition key</strong> and <strong>Partition key + Sort key</strong></p>
+<p><strong>Partition key:</strong> is a key with only 1 attribute. DynamoDB uses the value of the attribute that is set as the Partition key as input to the hash function. - - - The result of the hash function will help determine the partition where the corresponding item is located.</p>
+<ul>
+<li>Each table has only one partition key, and there are no two identical partition key values ​​in the same table.</li>
+<li>For example, in the People table, Primary Key has a partition key of PersonID, you can get information on any item as long as you have the PersonID value corresponding to that item. In this case, the Primary key is the Partition key.</li>
+</ul>
+<p><img src="/images/1-Introduce/0002-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+<p><strong>Partition key + Sort key:</strong> is a combination key of 2 different attributes of a table. The first property acts as the Partition key, and the second property acts as the Sort key.</p>
+<ul>
+<li>DynamoDB still uses the value of the partition key as input to the hash function. The output of the hash function is used to determine the partition containing the corresponding items. At the same time, these items are also stored in the same location and sorted according to the value of the sort key.</li>
+<li>In a table that has both a partition key and a sort key, it is perfectly normal for the values ​​of the partition key to overlap, but these items must have different sort key values ​​to distinguish them from each other&hellip;</li>
+<li>For example, in the Music table, the Primary key includes the partition key of Artist and the sort key of SongTitle. You can only get the item&rsquo;s information if and only if you provide 2 Artist and SongTitle information.</li>
+<li>This type of composite Primary Key is often used when we want to add more flexibility to data querying. For example, in case we only want to get the list of songs of a particular Artist, we only need to provide the value of the partition key corresponding to the value of the Artist attribute, along with a range of values ​​of the attribute. calculate SongTitle.</li>
+</ul>
+<p><img src="/images/1-Introduce/0003-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+
+<div class="notices note" ><p>The partition key is also known as the Hash attribute - because the partition key is used as input to the hash function. The Sort key is also known as the Range property - because of the way it stores items with the same partition key value and sorts them based on the sort key value.</p>
+</div>
+
+<ul>
+<li>The attribute that is used as the Primary key must have a scalar value. The data types that the Primary Key is allowed to use are string, number, or binary.</li>
+</ul>
+<h4 id="secondary-indexes">Secondary Indexes</h4>
+<ul>
+<li>
+<p>You can create one or more <strong>Secondary Indexes</strong> for a <strong>DynamoDB</strong> table.</p>
+</li>
+<li>
+<p><strong>Secondary Index</strong> allows you to query data in a table using surrogate keys, in addition to queries using primary keys.</p>
+</li>
+<li>
+<p>The use of an Index is not required in DynamoDB, but knowing how to use it can give flexibility to data queries.</p>
+</li>
+<li>
+<p>Once the Index table is defined, you can read data from it just like reading on the original DynamoDB table.</p>
+</li>
+<li>
+<p><strong>DynamoDB</strong> supports <strong>2 types of Secondary Index</strong> which are:</p>
+</li>
+<li>
+<p><strong>Global Secondary Index:</strong> Index with Partition key and Sort key value pair must be distinct between data tables</p>
+</li>
+<li>
+<p><strong>Local Secondary Index:</strong> The index with the Partition key can be the same on the same table, but the Sort key value must be different</p>
+</li>
+<li>
+<p>Each DynamoDB table is allowed to have <strong>20 GSI</strong> (default) and <strong>5 local secondary indexes</strong>.</p>
+</li>
+<li>
+<p>In the Music table example, you can query data with the partition key of Artist or query with the pair (partition key + sort key) as Artist + SongTitle. But what if you want to query the data using the Genre and AlbumTitle properties. To do this, you must create an Index consisting of 2 properties Genre and AlbumTitle, and then query the Index Table as you would on the original Music table.</p>
+</li>
+<li>
+<p>The following diagram shows how an Index Table named GenreAlbumTitle is created. In the Index Table, Genre acts as the Partition key, and AlbumTitle acts as the Sort key.</p>
+</li>
+</ul>
+<p><img src="/images/1-Introduce/0004-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+<p><strong>A few notes on the GenreAlbumTitle Index table:</strong></p>
+<ul>
+<li>
+<p>Each GSI Index table belongs to a data table called the Base table. As per the example above, the Music table is the Base table for the GenreAlbumTitle Index table.</p>
+</li>
+<li>
+<p>DynamoDB maintains the Index table automatically. Every time you add, edit, or delete an item from the data table, DynamoDB will automatically add, edit or delete the corresponding item in the Index table of its Base table.</p>
+</li>
+<li>
+<p>When creating an Index, you must specify which properties will be copied, or projected, from the Base table to the Index table. At a minimum, DynamoDB will project the properties acting as Keys from the Base table to the Index table. In the above example, only the properties that act as Keys in the Music table such as Artist (Partition key), SongTitle (Sort key) are projected to the GenreAlbumTitle Index table.</p>
+</li>
+</ul>
+<p>You can query the GenreAlbumTitle Index table to find all albums of a particular genre (eg Rock albums). You can also query to find all albums of a specific genre that have a specific album title (for example, all Country albums with titles starting with the letter H).</p>
+<h4 id="dynamodb-stream">DynamoDB Stream</h4>
+<p>DynamoDB Streams is an optional feature that records a history of data change events in DynamoDB tables.
+Data about these events is saved to a private data stream in near real time and in the order in which the events occurred.
+Each event corresponds to a record in the data stream. Once the table has been streamed, DynamoDB Streams will log stream snap information when one of the following events occurs:</p>
+<ul>
+<li>
+<p>A new item is added to the table: The stream captures the new item&rsquo;s content, including its attributes.</p>
+</li>
+<li>
+<p>An item is updated: The stream records the value of the &ldquo;before&rdquo; and &ldquo;after&rdquo; state item&rsquo;s attributes change.</p>
+</li>
+<li>
+<p>An item is removed from the table: The stream records the item&rsquo;s contents before being deleted.</p>
+</li>
+</ul>
+<p>Each record in the stream contains information including the table name, event time, and other metadata.
+The lifetime of a stream record is 24 hours; then they are automatically removed from the stream.</p>
+<p>You can use DynamoDB Stream with AWS Lambda to create a trigger—code that runs automatically whenever an event is logged into the stream.
+For example, consider the Customers table below, the content is customer information of a company. Suppose you want to send a &ldquo;welcome&rdquo; email to each new customer, you must first enable the flow on that table, and then associate the stream with a Lambda function.
+Whenever a new record comes in, new item information is fed into the stream, the Lambda function will process those new items. For any new item with the EmailAddress property, the Lambda function calls the Amazon Simple Email Service (Amazon SES) to send the email.</p>
+<p><img src="/images/1-Introduce/0005-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+<p><strong>Next, we will go into the main content of the workshop, which is the practice of applying advanced architecture using DynamoDB.</strong></p>
+<ol>
+<li>Initialize the DynamoDB table. Run the command to create a new DynamoDB table named <strong>logfile</strong>:</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb create-table --table-name logfile \
+--attribute-definitions AttributeName=PK,AttributeType=S AttributeName=GSI_1_PK,AttributeType=S \
+--key-schema AttributeName=PK,KeyType=HASH \
+--provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+--tags Key=workshop-design-patterns,Value=targeted-for-cleanup \
+--global-secondary-indexes &#34;IndexName=GSI_1,\
+
+KeySchema=[{AttributeName=GSI_1_PK,KeyType=HASH}],\
+Projection={ProjectionType=INCLUDE,NonKeyAttributes=[&#39;bytessent&#39;]},\
+ProvisionedThroughput={ReadCapacityUnits=5,WriteCapacityUnits=5}&#34;
+</code></pre><p>The new table structure includes the following components:</p>
+<ul>
+<li>
+<p>Key schema: HASH (partition key)</p>
+</li>
+<li>
+<p>Table read capacity units (RCUs) = 5</p>
+</li>
+<li>
+<p>Table write capacity units (WCUs) = 5</p>
+</li>
+<li>
+<p>Global secondary index (GSI): GSI_1 (5 RCUs, 5 WCUs) - Allows querying by IP address of the host machine.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tên Thuộc tính (Loại)</th>
+<th>Mô tả</th>
+<th>Trường hợp Sử dụng</th>
+<th>Ví dụ</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PK (STRING)</td>
+<td>Partition key</td>
+<td>Lưu giá trị request id phục vụ công tác kiểm tra nhật kí truy cập</td>
+<td>request#104009</td>
+<td></td>
+</tr>
+<tr>
+<td>GSI_1_PK (STRING)</td>
+<td>GSI 1 partition key</td>
+<td>Thông tin về request, một địa chỉ IPv4</td>
+<td>host#66.249.67.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Special Attributes are those that have been set as the Primary Key of the Base table or of the GSI Index table. GSI Index tables also have the same primary keys as its Base table.</p>
+<p>In DynamoDB, the partition key is also known as the hash key because the value of the partition key is used as input to the hash function of the DynamoDB table, and the sort key is also known as the range key because this key is used to rearrange a table. set of items with the same partition key value.</p>
+<p>Special Attributes are those that have been set as the Primary Key of the Base table or the GSI Index table. GSI Index tables also have the same primary keys as their Base table.</p>
+<p>In DynamoDB, the partition key is also known as the hash key because the value of the partition key is used as input to the hash function of the DynamoDB table, and the sort key is also known as the range key because this key is used to rearrange a table. set of items with the same partition key value.</p>
+<p>The DynamoDB APIs use the terms hash and range, while the AWS docs use the terms partition and sort. Regardless of the terminology, however, these two keys will together form the Primary key.</p>
+<p><img src="/images/3-DynamoDBCapacityUnits/0001-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="2">
+<li>Run the following command and wait until the state of the table becomes <strong>ACTIVE</strong>:</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb wait table-exists --table-name logfile
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/0002-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="3">
+<li>Or just to check the table state, we use the command:</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb describe-table --table-name logfile --query &#34;Table.TableStatus&#34;
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/0003-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="4">
+<li>In the <strong>AWS DynamoDB</strong> interface</li>
+</ol>
+<ul>
+<li>Select <strong>Table</strong></li>
+<li>If the status of the <strong>logfile</strong> table is <strong>Active</strong>, the table creation is successful</li>
+</ul>
+<p><img src="/images/3-DynamoDBCapacityUnits/0004-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="5">
+<li>Load sample data into the table. After the table has been created, you can load the sample data using the Python script as shown below:</li>
+</ol>
+<pre tabindex="0"><code>cd /home/ec2-user/workshop
+python load_logfile.py logfile ./data/logfile_small1.csv
+</code></pre><p>Where, <strong>logfile</strong> is the table name, and the sample data is in the file <strong>logfile_small1.csv</strong></p>
+<pre tabindex="0"><code>row: 100 in 0.780548095703125
+row: 200 in 7.2669219970703125
+row: 300 in 1.547729730606079
+row: 400 in 3.9651060104370117
+row: 500 in 3.98996901512146
+RowCount: 500, Total seconds: 17.614499807357788
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/0005-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="6">
+<li><strong>logfile</strong> interface after loading data</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/0006-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="7">
+<li>Load larger sample data into the table. Run the script again, but this time using a larger sample file</li>
+</ol>
+<pre tabindex="0"><code>python load_logfile.py logfile ./data/logfile_medium1.csv
+</code></pre><p>Where logfile is the name of the table, and <strong>logfile_medium1.csv</strong> is the name of the sample data file.</p>
+<p>The result of the above script is as below, it shows that the data load is getting slower and slower and takes about 1 to 3 minutes to complete</p>
+<pre tabindex="0"><code>row: 100 in 0.490761995316
+...
+row: 2000 in 3.188856363296509
+RowCount: 2000, Total seconds: 75.0764648914
+</code></pre><p>or</p>
+<pre tabindex="0"><code>row: 100 in 0.490761995316
+...
+row: 2000 in 18.479122161865234
+RowCount: 2000, Total seconds: 133.84829711914062
+</code></pre>
+<div class="notices note" ><p>Note that the loading time for each batch of 100 lines (records) is around 5s. When so many batches are written down, bottlenecks occur, causing the Boto3 SDK to slow down the insert speed (or slow down exponentially). At this point, DynamoDB will need more capacity to meet data loading performance. In Amazon CloudWatch, information regarding data feed congestion is represented by a metric named WriteThrottleEvents.</p>
+</div>
+
+<p><img src="/images/3-DynamoDBCapacityUnits/0007-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="8">
+<li>Check the table&rsquo;s CloudWatch Metrics.</li>
+</ol>
+<ul>
+<li>Access to <strong>DynamoDB</strong></li>
+<li>Select <strong>Table</strong></li>
+<li>Select the table <strong>logfile</strong></li>
+<li>Select <strong>Monitor</strong></li>
+<li>View <strong>CloudWatch metrics</strong></li>
+</ul>
+<p><img src="/images/3-DynamoDBCapacityUnits/0008-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="9">
+<li>CloudWatch metric shows information like below</li>
+</ol>
+
+<div class="notices note" ><p>For newly created tables, it will take some time for the read/write data capacity information to be displayed on the graph.</p>
+</div>
+
+<p><img src="/images/3-DynamoDBCapacityUnits/0009-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="10">
+<li>For the GSI Index table, CloudWatch metric will show like below:</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00010-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="11">
+<li>Maybe some of you wonder, why the event of congestion when loading data does not appear in the metric chart of the GSI table, but only in the graph of the Base table.
+That is because between the Base table and the Index table, there is always a buffer, only when the capacity of the base table is exhausted for a long time will the congestion event appear on the chart of the Index table.</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00011-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="12">
+<li>Increase the Capacity of the table. Run command to increase capacity from 5 to 100</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb update-table --table-name logfile \
+--provisioned-throughput ReadCapacityUnits=100,WriteCapacityUnits=100
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00012-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="13">
+<li>Run a pending command until the table state becomes <strong>ACTIVE</strong></li>
+</ol>
+<pre tabindex="0"><code>time aws dynamodb wait table-exists --table-name logfile
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00013-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="14">
+<li>In the <strong>Table</strong> interface see the <strong>logfile</strong> table has increased <strong>Read capacity mode</strong> and <strong>Write capacity mode</strong> to <strong>Provisioned (100)</strong></li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00014-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="15">
+<li>Reload large-size data. After increasing the processing capacity for the table, run the script again to push the data from the <strong>logfile_medium2.csv</strong> file into the table.</li>
+</ol>
+<pre tabindex="0"><code>python load_logfile.py logfile ./data/logfile_medium2.csv
+</code></pre><p>The results show that the total loading time is smaller than when performing the previous step</p>
+<pre tabindex="0"><code>row: 100 in 0.9451174736022949
+row: 200 in 0.8512668609619141
+...
+row: 1900 in 0.8499886989593506
+row: 2000 in 0.8817043304443359
+RowCount: 2000, Total seconds: 17.13607406616211
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00015-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="16">
+<li>Create a new table with low capacity GSI Index table</li>
+</ol>
+<ul>
+<li>Now we will create a table with a different capacity than the examples above. The new table will have a <strong>GSI index with low capacity</strong> table, specifically <strong>write capacity</strong> is <strong>1 WCU</strong> and <strong>read capacity</strong> is <strong>1 RCU</strong>.
+To create a new table, use the following command:</li>
+</ul>
+<pre tabindex="0"><code>aws dynamodb create-table --table-name logfile_gsi_low \
+--attribute-definitions AttributeName=PK,AttributeType=S AttributeName=GSI_1_PK,AttributeType=S \
+--key-schema AttributeName=PK,KeyType=HASH \
+--provisioned-throughput ReadCapacityUnits=1000,WriteCapacityUnits=1000 \
+--tags Key=workshop-design-patterns,Value=targeted-for-cleanup \
+--global-secondary-indexes &#34;IndexName=GSI_1,\
+
+KeySchema=[{AttributeName=GSI_1_PK,KeyType=HASH}],\
+Projection={ProjectionType=INCLUDE,NonKeyAttributes=[&#39;bytessent&#39;]},\
+ProvisionedThroughput={ReadCapacityUnits=1,WriteCapacityUnits=1}&#34;
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00016-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="17">
+<li>Run the command to wait until the table transitions to <strong>ACTIVE</strong></li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb wait table-exists --table-name logfile_gsi_low
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00017-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="18">
+<li>In the <strong>DyanmoDB</strong> table view, the <strong>logfile_gsi_low</strong> table has been created and the status is <strong>Active</strong></li>
+</ol>
+<p>The command creates the logfile_gsi_low table with:</p>
+<ul>
+<li>
+<p>Key schema: HASH (partition key)</p>
+</li>
+<li>
+<p>Table read capacity units (RCUs) = 1000</p>
+</li>
+<li>
+<p>Table write capacity units (WCUs) = 1000</p>
+</li>
+<li>
+<p>Global secondary index: GSI_1 (1 RCU, 1 WCU) - allows querying with host IP address</p>
+</li>
+</ul>
+<p><img src="/images/3-DynamoDBCapacityUnits/00018-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="19">
+<li>Then we push a large data set into the newly created table, the purpose is to simulate an increase in traffic, creating a conflict between the allocated capacity and the actual capacity needed.</li>
+</ol>
+<pre tabindex="0"><code>python load_logfile_parallel.py logfile_gsi_low
+</code></pre><ul>
+<li>After a few minutes of execution, an error message appears stating that a data bottleneck has occurred and needs to increase the amount of space allocated to the DynamoDB table, or enable autoscale for the table.</li>
+</ul>
+<pre tabindex="0"><code>ProvisionedThroughputExceededException: An error occurred (ProvisionedThroughputExceededException) when calling the BatchWriteItem operation (reached max retries: 9): The level of configured provisioned throughput for one or more global secondary indexes of the table was exceeded. Consider increasing your provisioning level for the under-provisioned global secondary indexes with the UpdateTable API
+</code></pre><p><img src="/images/3-DynamoDBCapacityUnits/00019-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+
+<div class="notices note" ><p>The question here is, why does our new table have <strong>WCU=1000</strong> and <strong>RCU=1000</strong> still there is a bottleneck when writing data from the new file to the table, and Loading time is also greatly increased.
+A closer look at the error message shows that the exception named <strong>ProvisionedThroughputExceededException</strong> caught a data congestion error, specifically the throughput allocated to the GSI Index table has been exceeded. Thus we will have to increase the processing capacity for the Index table because currently the capacity for the Index table is extremely low with 1 RCU and 1 WCU. As it works, if you want the Base table to operate with 100% write capacity allocated, the corresponding Index table must also have a Write capacity equal to the Write capacity of the Base table. In this case, the Write Capacity of the Index table needs to be reset to WCU=1000</p>
+</div>
+
+<ol start="20">
+<li>The cause of the error and how to fix it is very clear. But if we want to take a closer look at the <strong>CloudWatch metric</strong>, then at the DynamoDB console page, click Table and then select the table named <strong>logfile_gsi_low</strong>.</li>
+</ol>
+<ul>
+<li>Select <strong>Write usage</strong></li>
+<li>Select <strong>View in metrics</strong></li>
+</ul>
+<p><img src="/images/3-DynamoDBCapacityUnits/00020-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="21">
+<li>The image below shows the Base table&rsquo;s Write capacity chart. The blue line shows the actual consumed write capacity, and the red line is the allocated write capacity. Since the blue line is below that color line, it can be concluded that the Base table has a Write capacity suitable for the sudden increase in requests.</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00021-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="22">
+<li>See <strong>Index: GSI_1</strong></li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00022-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="23">
+<li>As for the chart of the Write capacity of the Index table as shown below, it shows that the actual consumed Write capacity line (blue line) is above the allocated Write capacity line (red line). This indicates that the GSI Index table needs to be allocated more capacity to accommodate the sudden increase in requests.</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00023-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="24">
+<li>Even though the Base table logfile_gsi_low has the Write capacity met, when checking the Throttled write requests graph, it still shows a line showing the number of congested requests.
+Any API requests that are congested are logged in the ThrottledRequests metrics graph. As we can see below, there are more than 20 API requests blocked.</li>
+</ol>
+<p><img src="/images/3-DynamoDBCapacityUnits/00024-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<ol start="25">
+<li>To determine the source of the bottleneck of Write requests, we will need to examine the Throttled Write Events metric graph. If the Base table was the source of the bottleneck it would have to have WriteThrottleEvents, otherwise the GSI Index table.</li>
+</ol>
+<ul>
+<li>And after checking, we see that only the GSI Index table has WriteThrottleEvents with the graph below. The cause is understandable because the Index table does not have enough Write capacity to accommodate the sudden increase in requests.
+Thus, the Index table is the main cause of the bottleneck for Write requests.</li>
+</ul>
+<p><img src="/images/3-DynamoDBCapacityUnits/00025-dynamodbcapacityunits.png" alt="DynamoDB Capacity Units and Partitioning"></p>
+<h4 id="conclusion">Conclusion:</h4>
+<ul>
+<li>The capacity of the DynamoDB table is separate from the capacity of the GSI Index table. If the Index Table is not given enough capacity, it can create back pressure on the Base tables in the form of bottlenecks when loading data.</li>
+<li>It will cause all write requests to the Base table to be denied until the buffer between the Base table and the GSI Index table is freed and there is enough space for new data.</li>
+<li>Always monitor CloudWatch metrics on both Base and Index tables and set monitoring alerts based on your business requirements.</li>
+</ul>
+
 
 
 
@@ -662,38 +1039,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -758,6 +1103,38 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -859,10 +1236,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/2-prerequiste/2.2-connectec2instance/" title=""> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/2-prerequiste/2.2-connectec2instance/" title="Connecting EC2 instances"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/4-scan/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/4-scan/" title="Sequential and parallel table scans" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -872,19 +1249,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673905999"></script>
-    <script src="/js/jquery.sticky.js?1673905999"></script>
-    <script src="/js/featherlight.min.js?1673905999"></script>
-    <script src="/js/highlight.pack.js?1673905999"></script>
+    <script src="/js/clipboard.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673939160"></script>
+    <script src="/js/jquery.sticky.js?1673939160"></script>
+    <script src="/js/featherlight.min.js?1673939160"></script>
+    <script src="/js/highlight.pack.js?1673939160"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673905999"></script>
-    <script src="/js/learn.js?1673905999"></script>
-    <script src="/js/hugo-learn.js?1673905999"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673939160"></script>
+    <script src="/js/learn.js?1673939160"></script>
+    <script src="/js/hugo-learn.js?1673939160"></script>
 
-    <link href="/mermaid/mermaid.css?1673905999" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1673905999"></script>
+    <link href="/mermaid/mermaid.css?1673939160" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673939160"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

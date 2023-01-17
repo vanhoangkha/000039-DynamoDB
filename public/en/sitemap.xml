@@ -14,47 +14,7 @@
                 href="/"
                 />
   </url><url>
-    <loc>/1-introduce/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/1-introduce/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/1-introduce/"
-                />
-  </url><url>
-    <loc>/10-dynamodbstreamsandlambda/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/10-dynamodbstreamsandlambda/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/10-dynamodbstreamsandlambda/"
-                />
-  </url><url>
-    <loc>/11-cleanup/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/11-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/11-cleanup/"
-                />
-  </url><url>
     <loc>/2-prerequiste/2.1-createcloudformationstack/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -66,8 +26,19 @@
                 href="/2-prerequiste/2.1-createcloudformationstack/"
                 />
   </url><url>
+    <loc>/1-introduce/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/1-introduce/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/1-introduce/"
+                />
+  </url><url>
     <loc>/2-prerequiste/2.2-connectec2instance/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -80,7 +51,6 @@
                 />
   </url><url>
     <loc>/2-prerequiste/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -93,7 +63,6 @@
                 />
   </url><url>
     <loc>/3-dynamodbcapacityunits/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -106,7 +75,6 @@
                 />
   </url><url>
     <loc>/4-scan/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -119,7 +87,6 @@
                 />
   </url><url>
     <loc>/5-gsiwritesharding/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -132,7 +99,6 @@
                 />
   </url><url>
     <loc>/6-gsikeyoverloading/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -145,7 +111,6 @@
                 />
   </url><url>
     <loc>/7-sparsegsi/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -158,7 +123,6 @@
                 />
   </url><url>
     <loc>/8-compositekeys/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -171,7 +135,6 @@
                 />
   </url><url>
     <loc>/9-adjacencylists/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -181,6 +144,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="/9-adjacencylists/"
+                />
+  </url><url>
+    <loc>/10-dynamodbstreamsandlambda/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/10-dynamodbstreamsandlambda/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/10-dynamodbstreamsandlambda/"
+                />
+  </url><url>
+    <loc>/11-cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/11-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/11-cleanup/"
                 />
   </url><url>
     <loc>/categories/</loc>

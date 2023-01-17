@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title> :: AWS System Manager</title>
+    <title>Amazon DynamoDB Streams and AWS Lambda :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1673905999" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673905999" rel="stylesheet">
-    <link href="/css/hybrid.css?1673905999" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673905999" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673905999" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673905999" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673905999" rel="stylesheet">
-    <link href="/css/theme.css?1673905999" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673905999" rel="stylesheet">
+    <link href="/css/nucleus.css?1673939160" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673939160" rel="stylesheet">
+    <link href="/css/hybrid.css?1673939160" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673939160" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673939160" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673939160" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673939160" rel="stylesheet">
+    <link href="/css/theme.css?1673939160" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673939160" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1673905999" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673939160" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1673905999"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673939160"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673905999"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673905999"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673939160"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673939160"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673905999"></script>
+<script type="text/javascript" src="/js/search.js?1673939160"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/1-introduce/" title="" class="dd-item 
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
         
         
         
         ">
       <a href="/1-introduce/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/10-dynamodbstreamsandlambda/">
-          
+           <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
           
@@ -134,39 +108,13 @@
  
   
     
-    <li data-nav-id="/11-cleanup/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/11-cleanup/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-prerequiste/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/" title="Preparation steps" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/">
-          
+           <b> 2. </b> Preparation steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -191,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="Create CloudFormation Stack" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.1-createcloudformationstack/">
-          
+           <b> 2.1 </b> Create CloudFormation Stack
           
             <i class="fas fa-check read-icon"></i>
           
@@ -219,13 +167,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="Connecting EC2 instances" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-connectec2instance/">
-          
+           <b> 2.2 </b> Connecting EC2 instances
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,13 +202,13 @@
  
   
     
-    <li data-nav-id="/3-dynamodbcapacityunits/" title="" class="dd-item 
+    <li data-nav-id="/3-dynamodbcapacityunits/" title="DynamoDB Capacity Units and Partitioning" class="dd-item 
         
         
         
         ">
       <a href="/3-dynamodbcapacityunits/">
-          
+           <b> 3. </b> DynamoDB Capacity Units and Partitioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -280,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-scan/" title="" class="dd-item 
+    <li data-nav-id="/4-scan/" title="Sequential and parallel table scans" class="dd-item 
         
         
         
         ">
       <a href="/4-scan/">
-          
+           <b> 4. </b> Sequential and parallel table scans
           
             <i class="fas fa-check read-icon"></i>
           
@@ -306,13 +254,13 @@
  
   
     
-    <li data-nav-id="/5-gsiwritesharding/" title="" class="dd-item 
+    <li data-nav-id="/5-gsiwritesharding/" title="Global Secondary Index Write Sharding" class="dd-item 
         
         
         
         ">
       <a href="/5-gsiwritesharding/">
-          
+           <b> 5. </b> Global Secondary Index Write Sharding
           
             <i class="fas fa-check read-icon"></i>
           
@@ -332,13 +280,13 @@
  
   
     
-    <li data-nav-id="/6-gsikeyoverloading/" title="" class="dd-item 
+    <li data-nav-id="/6-gsikeyoverloading/" title="Global Secondary Index Key Overloading" class="dd-item 
         
         
         
         ">
       <a href="/6-gsikeyoverloading/">
-          
+           <b> 6. </b> Global Secondary Index Key Overloading
           
             <i class="fas fa-check read-icon"></i>
           
@@ -358,13 +306,13 @@
  
   
     
-    <li data-nav-id="/7-sparsegsi/" title="" class="dd-item 
+    <li data-nav-id="/7-sparsegsi/" title="Sparse Global Secondary Indexes" class="dd-item 
         
         
         
         ">
       <a href="/7-sparsegsi/">
-          
+           <b> 7. </b> Sparse Global Secondary Indexes
           
             <i class="fas fa-check read-icon"></i>
           
@@ -384,13 +332,13 @@
  
   
     
-    <li data-nav-id="/8-compositekeys/" title="" class="dd-item 
+    <li data-nav-id="/8-compositekeys/" title="Composite Keys" class="dd-item 
         
         
         
         ">
       <a href="/8-compositekeys/">
-          
+           <b> 8. </b> Composite Keys
           
             <i class="fas fa-check read-icon"></i>
           
@@ -410,13 +358,65 @@
  
   
     
-    <li data-nav-id="/9-adjacencylists/" title="" class="dd-item 
+    <li data-nav-id="/9-adjacencylists/" title="Adjacency List" class="dd-item 
         
         
         
         ">
       <a href="/9-adjacencylists/">
+           <b> 9. </b> Adjacency List
           
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="Amazon DynamoDB Streams and AWS Lambda" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/10-dynamodbstreamsandlambda/">
+           <b> 10. </b> Amazon DynamoDB Streams and AWS Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-cleanup/" title="Clean up resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11-cleanup/">
+           <b> 11. </b> Clean up resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -563,7 +563,7 @@
             
           
           
-            <a href='/'>Advanced Amazon DynamoDB</a> > 
+            <a href='/'>Advanced Amazon DynamoDB</a> > Amazon DynamoDB Streams and AWS Lambda
           
         
           
@@ -590,7 +590,7 @@
           
             <h1>
               
-              
+              Amazon DynamoDB Streams and AWS Lambda
             </h1>
           
 
@@ -598,7 +598,205 @@
 
 
 
-	
+	<p>The combination of DynamoDB Stream with AWS Lambda creates many powerful new architectural patterns. In this exercise, you will copy items from a DynamoDB table to another table using DynamoDB Stream and AWS Lambda. DynamoDB Stream captures a sequence of item-level changes and reorders it chronologically and stores it in a 24-hour log. Any application can access and view this log data with actual modification time. DynamoDB stream is used in the following cases:</p>
+<p>A game with a distributed database topology, hosted across many different regions. Each region is always synchronized with changes occurring in remote regions. (In fact, DynamoDB&rsquo;s global data synchronization mechanism is based on DynamoDB Stream)</p>
+<p>The client adds data to the DynamoDB table. This event will call AWS Lambda to copy data to a separate DynamoDB table for persistent data storage</p>
+<p>We will reuse the logfile table we created in exercise #1 to enable DynamoDB Stream for it. Whenever there is a change in the logfile table, the change information is immediately put into the stream. Next we will attach a Lambda function to the stream with the purpose of querying the changes on the logfile table, and then recording those updates to the newly created table named logfile_replica. The following diagram shows the steps for this exercise:</p>
+<p><img src="/images/1-Introduce/0008-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+<ol>
+<li>Create a Copy Table</li>
+</ol>
+<p>The Replica table named <strong>logfile_replica</strong> will have the same properties as the original</p>
+<pre tabindex="0"><code>aws dynamodb create-table --table-name logfile_replica \
+--attribute-definitions AttributeName=PK,AttributeType=S AttributeName=GSI_1_PK,AttributeType=S \
+--key-schema AttributeName=PK,KeyType=HASH --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5 \
+--tags Key=workshop-design-patterns,Value=targeted-for-cleanup \
+--global-secondary-indexes &#34;IndexName=GSI_1,KeySchema=[{AttributeName=GSI_1_PK,KeyType=HASH}],\
+
+Projection={ProjectionType=INCLUDE,NonKeyAttributes=[&#39;bytessent&#39;, &#39;requestid&#39;, &#39;host&#39;]},\
+ProvisionedThroughput={ReadCapacityUnits=10,WriteCapacityUnits=5}&#34;
+</code></pre><p>The table is also linked to the Global Secondary Index. The detailed information is listed as follows:</p>
+<ul>
+<li>
+<p>Key schema: HASH (partition key)</p>
+</li>
+<li>
+<p>Table read capacity units (RCUs) = 10</p>
+</li>
+<li>
+<p>Table write capacity units (WCUs) = 5</p>
+</li>
+<li>
+<p>Global secondary index: GSI_1 (10 RCUs, 5 WCUs) - Allows querying based on the host&rsquo;s IP address.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Attribute Name (Type)</th>
+<th>Special Attribute?</th>
+<th>Attribute Use Case</th>
+<th>Sample Attribute Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PK (STRING)</td>
+<td>Partition key</td>
+<td>Holds the request id</td>
+<td>request#104009</td>
+</tr>
+<tr>
+<td>GSI_1_PK (STRING)</td>
+<td>GSI 1 partition key</td>
+<td>Host</td>
+<td>host#66.249.67.3</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/9-DynamoDBStreamsandLambda/0001-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams và AWS Lambda"></p>
+<ol start="2">
+<li>Run the following command, wait until the status of the table changes to ACTIVE</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb wait table-exists --table-name logfile_replica
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0002-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="3">
+<li>Create <strong>logfile_replica</strong> table successfully</li>
+</ol>
+<p><img src="/images/9-DynamoDBStreamsandLambda/0003-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="4">
+<li>Check the IAM Policy assigned to AWS Lambda</li>
+</ol>
+<p>In the setup we prepared an IAM Role named DDBReplicationRole that was assigned to the AWS Lambda function. This IAM Role grants the AWS Lambda function the necessary permissions to perform data replication. Specifically, those permissions include:</p>
+<p>AWS Lambda function has the ability to call DynamoDB Stream and get record changes from Stream</p>
+<pre tabindex="0"><code>{
+    &#34;Action&#34;: [
+        &#34;dynamodb:DescribeStream&#34;,
+        &#34;dynamodb:GetRecords&#34;,
+        &#34;dynamodb:GetShardIterator&#34;,
+        &#34;dynamodb:ListStreams&#34;
+    ],
+    &#34;Resource&#34;: [
+        &#34;*&#34;
+    ],
+    &#34;Effect&#34;: &#34;Allow&#34;
+}
+</code></pre><p>AWS Lambda function can add or remove items from logfile_replica table</p>
+<pre tabindex="0"><code>{
+    &#34;Action&#34;: [
+        &#34;dynamodb:DeleteItem&#34;,
+        &#34;dynamodb:PutItem&#34;
+    ],
+    &#34;Resources&#34;: [
+        &#34;*&#34;
+    ],
+    &#34;Effect&#34;: &#34;Allow&#34;
+}
+</code></pre><ol start="5">
+<li>Create Lambda function</li>
+</ol>
+<p>The AWS Lambda function will be tied to the DynamoDB Stream of the logfile table to replicate the original table&rsquo;s item add or delete action to the logfile_replica replica table. The content of the Lambda function is in the ddbreplica_lambda.py file, which you can view with the vim or less command.
+Compress the content of the script and then upload it to the AWS Lambda service to generate the Lambda function.</p>
+<pre tabindex="0"><code>zip ddbreplica_lambda.zip ddbreplica_lambda.py lab_config.py
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0004-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="6">
+<li>Get the ARN information of the IAM Role code to be assigned to the Lambda function.</li>
+</ol>
+<pre tabindex="0"><code>cat ~/workshop/ddb-replication-role-arn.txt
+</code></pre><p>The RNA information should look something like this:</p>
+<pre tabindex="0"><code>arn:aws:iam::&lt;ACCOUNTID&gt;:role/XXXXX-DDBReplicationRole-XXXXXXXXXXX
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0005-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="7">
+<li>Copy the ARN obtained above, replace YOUR_ARN_HERE and run the command to create Lambda function</li>
+</ol>
+<pre tabindex="0"><code>aws lambda create-function \
+--function-name ddbreplica_lambda --zip-file fileb://ddbreplica_lambda.zip \
+--handler ddbreplica_lambda.lambda_handler --timeout 60 --runtime python3.7 \
+--description &#34;Sample lambda function for dynamodb streams&#34; \
+--role YOUR_ARN_HERE
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0006-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="8">
+<li>AWS Lambda Function has been initialized successfully</li>
+</ol>
+<p><img src="/images/9-DynamoDBStreamsandLambda/0007-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="9">
+<li>Enable DynamoDB Stream</li>
+</ol>
+<p>Once streaming is enabled, we can choose whether DynamoDB will copy new items, or old items, or all, or just adjust the partition key and sort key.</p>
+<p>To enable DynamoDB Stream for the logfile table with NEW_IMAGE option (ie all new items)</p>
+<pre tabindex="0"><code>aws dynamodb update-table --table-name &#39;logfile&#39; --stream-specification StreamEnabled=true,StreamViewType=NEW_IMAGE
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0008-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="10">
+<li>Get DynamoDB Stream Information</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb describe-table --table-name &#39;logfile&#39; --query &#39;Table.LatestStreamArn&#39; --output text
+</code></pre><p>The output information is similar to the following</p>
+<pre tabindex="0"><code>arn:aws:dynamodb:&lt;REGION&gt;:&lt;ACCOUNTID&gt;:table/logfile/stream/2018-10-27T02:15:46.245
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/0009-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="11">
+<li>Connect Stream source with Lambda function</li>
+</ol>
+<p>So the original table has DynamoDB Stream enabled and the Lambda function has also been created. Next step, we will connect Stream with Lambda function using following command</p>
+<pre tabindex="0"><code>aws lambda create-event-source-mapping \
+--function-name ddbreplica_lambda --enabled --batch-size 100 --starting-position TRIM_HORIZON \
+--event-source-arn YOUR_STREAM_ARN_HERE
+</code></pre><p>Expected result will be similar below</p>
+<pre tabindex="0"><code>{
+    &#34;UUID&#34;: &#34;0dcede66-709c-4073-a628-724d01b92095&#34;,
+    &#34;BatchSize&#34;: 100,
+    &#34;MaximumBatchingWindowInSeconds&#34;: 0,
+    &#34;ParallelizationFactor&#34;: 1,
+    &#34;EventSourceArn&#34;: &#34;arn:aws:dynamodb:&lt;REGION&gt;:&lt;ACCOUNTID&gt;:table/logfile/stream/2021-12-31T00:00:00.000&#34;,
+    &#34;FunctionArn&#34;: &#34;arn:aws:lambda:&lt;REGION&gt;:&lt;ACCOUNTID&gt;:function:ddbreplica_lambda&#34;,
+    &#34;LastModified&#34;: 1663286115.972,
+    &#34;LastProcessingResult&#34;: &#34;No records processed&#34;,
+    &#34;State&#34;: &#34;Creating&#34;,
+    &#34;StateTransitionReason&#34;: &#34;User action&#34;,
+    &#34;DestinationConfig&#34;: {
+        &#34;OnFailure&#34;: {}
+    },
+    &#34;MaximumRecordAgeInSeconds&#34;: -1,
+    &#34;BisectBatchOnFunctionError&#34;: false,
+    &#34;MaximumRetryAttempts&#34;: -1
+}
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/00010-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams và AWS Lambda"></p>
+<ol start="12">
+<li>Push data to logfile table and check copy progress to logfile_replica table</li>
+</ol>
+<p>Run the python command below to load more items into the logfile table. The new records will be injected into the DynamoDB Stream, leading to the activation of the Lambda function to write the new item information to the logfile_replica table</p>
+<pre tabindex="0"><code>python load_logfile.py logfile ./data/logfile_stream.csv
+</code></pre><p>The result is similar to the following</p>
+<pre tabindex="0"><code>RowCount: 2000, Total seconds: 15.808809518814087
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/00011-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams and AWS Lambda"></p>
+<ol start="13">
+<li>To check whether the copy to the logfile_replica table is successful, perform a scan of the logfile_replica table data.</li>
+</ol>
+<pre tabindex="0"><code>aws dynamodb scan --table-name &#39;logfile_replica&#39; --max-items 2 --output text
+</code></pre><p>The results are similar to the following:</p>
+<pre tabindex="0"><code>None    723     723
+BYTESSENT       2969
+DATE    2009-07-21
+HOST    64.233.172.17
+HOUROFDAY       8
+METHOD  GET
+REQUESTID       4666
+RESPONSECODE    200
+TIMEZONE        GMT-0700
+URL     /gwidgets/alexa.xml
+USERAGENT       Mozilla/5.0 (compatible) Feedfetcher-Google; (+http://www.google.com/feedfetcher.html)
+BYTESSENT       1160
+DATE    2009-07-21
+HOST    64.233.172.17
+HOUROFDAY       6
+METHOD  GET
+REQUESTID       4119
+RESPONSECODE    200
+TIMEZONE        GMT-0700
+URL     /gadgets/adpowers/AlexaRank/ALL_ALL.xml
+USERAGENT       Mozilla/5.0 (compatible) Feedfetcher-Google; (+http://www.google.com/feedfetcher.html)
+NEXTTOKEN       eyJFeGNsdXNpdmVTdGFydEtleSI6IG51bGwsICJib3RvX3RydW5jYXRlX2Ftb3VudCI6IDJ9
+</code></pre><p><img src="/images/9-DynamoDBStreamsandLambda/00012-dynamodbstreamandlambda.png" alt="Amazon DynamoDB Streams và AWS Lambda"></p>
+
 
 
 
@@ -657,42 +855,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -838,6 +1000,42 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -859,10 +1057,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/1-introduce/" title=""> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/9-adjacencylists/" title="Adjacency List"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/11-cleanup/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/11-cleanup/" title="Clean up resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -872,19 +1070,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673905999"></script>
-    <script src="/js/jquery.sticky.js?1673905999"></script>
-    <script src="/js/featherlight.min.js?1673905999"></script>
-    <script src="/js/highlight.pack.js?1673905999"></script>
+    <script src="/js/clipboard.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673939160"></script>
+    <script src="/js/jquery.sticky.js?1673939160"></script>
+    <script src="/js/featherlight.min.js?1673939160"></script>
+    <script src="/js/highlight.pack.js?1673939160"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673905999"></script>
-    <script src="/js/learn.js?1673905999"></script>
-    <script src="/js/hugo-learn.js?1673905999"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673939160"></script>
+    <script src="/js/learn.js?1673939160"></script>
+    <script src="/js/hugo-learn.js?1673939160"></script>
 
-    <link href="/mermaid/mermaid.css?1673905999" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1673905999"></script>
+    <link href="/mermaid/mermaid.css?1673939160" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673939160"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

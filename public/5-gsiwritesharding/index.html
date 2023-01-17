@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title> :: AWS System Manager</title>
+    <title>Global Secondary Index Write Sharding :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1673905999" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1673905999" rel="stylesheet">
-    <link href="/css/hybrid.css?1673905999" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1673905999" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1673905999" rel="stylesheet">
-    <link href="/css/auto-complete.css?1673905999" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1673905999" rel="stylesheet">
-    <link href="/css/theme.css?1673905999" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1673905999" rel="stylesheet">
+    <link href="/css/nucleus.css?1673939160" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673939160" rel="stylesheet">
+    <link href="/css/hybrid.css?1673939160" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673939160" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673939160" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673939160" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673939160" rel="stylesheet">
+    <link href="/css/theme.css?1673939160" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673939160" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1673905999" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673939160" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1673905999"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673939160"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1673905999"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1673905999"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673939160"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673939160"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1673905999"></script>
+<script type="text/javascript" src="/js/search.js?1673939160"></script>
 
     
   </div>
@@ -82,39 +82,13 @@
  
   
     
-    <li data-nav-id="/1-introduce/" title="" class="dd-item 
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
         
         
         
         ">
       <a href="/1-introduce/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/10-dynamodbstreamsandlambda/">
-          
+           <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
           
@@ -134,39 +108,13 @@
  
   
     
-    <li data-nav-id="/11-cleanup/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/11-cleanup/">
-          
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/2-prerequiste/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/" title="Preparation steps" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/">
-          
+           <b> 2. </b> Preparation steps
           
             <i class="fas fa-check read-icon"></i>
           
@@ -191,13 +139,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.1-createcloudformationstack/" title="Create CloudFormation Stack" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.1-createcloudformationstack/">
-          
+           <b> 2.1 </b> Create CloudFormation Stack
           
             <i class="fas fa-check read-icon"></i>
           
@@ -219,13 +167,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.2-connectec2instance/" title="Connecting EC2 instances" class="dd-item 
         
         
         
         ">
       <a href="/2-prerequiste/2.2-connectec2instance/">
-          
+           <b> 2.2 </b> Connecting EC2 instances
           
             <i class="fas fa-check read-icon"></i>
           
@@ -254,13 +202,13 @@
  
   
     
-    <li data-nav-id="/3-dynamodbcapacityunits/" title="" class="dd-item 
+    <li data-nav-id="/3-dynamodbcapacityunits/" title="DynamoDB Capacity Units and Partitioning" class="dd-item 
         
         
         
         ">
       <a href="/3-dynamodbcapacityunits/">
-          
+           <b> 3. </b> DynamoDB Capacity Units and Partitioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -280,13 +228,13 @@
  
   
     
-    <li data-nav-id="/4-scan/" title="" class="dd-item 
+    <li data-nav-id="/4-scan/" title="Sequential and parallel table scans" class="dd-item 
         
         
         
         ">
       <a href="/4-scan/">
-          
+           <b> 4. </b> Sequential and parallel table scans
           
             <i class="fas fa-check read-icon"></i>
           
@@ -306,13 +254,13 @@
  
   
     
-    <li data-nav-id="/5-gsiwritesharding/" title="" class="dd-item 
+    <li data-nav-id="/5-gsiwritesharding/" title="Global Secondary Index Write Sharding" class="dd-item 
         parent
         active
         
         ">
       <a href="/5-gsiwritesharding/">
-          
+           <b> 5. </b> Global Secondary Index Write Sharding
           
             <i class="fas fa-check read-icon"></i>
           
@@ -332,13 +280,13 @@
  
   
     
-    <li data-nav-id="/6-gsikeyoverloading/" title="" class="dd-item 
+    <li data-nav-id="/6-gsikeyoverloading/" title="Global Secondary Index Key Overloading" class="dd-item 
         
         
         
         ">
       <a href="/6-gsikeyoverloading/">
-          
+           <b> 6. </b> Global Secondary Index Key Overloading
           
             <i class="fas fa-check read-icon"></i>
           
@@ -358,13 +306,13 @@
  
   
     
-    <li data-nav-id="/7-sparsegsi/" title="" class="dd-item 
+    <li data-nav-id="/7-sparsegsi/" title="Sparse Global Secondary Indexes" class="dd-item 
         
         
         
         ">
       <a href="/7-sparsegsi/">
-          
+           <b> 7. </b> Sparse Global Secondary Indexes
           
             <i class="fas fa-check read-icon"></i>
           
@@ -384,13 +332,13 @@
  
   
     
-    <li data-nav-id="/8-compositekeys/" title="" class="dd-item 
+    <li data-nav-id="/8-compositekeys/" title="Composite Keys" class="dd-item 
         
         
         
         ">
       <a href="/8-compositekeys/">
-          
+           <b> 8. </b> Composite Keys
           
             <i class="fas fa-check read-icon"></i>
           
@@ -410,13 +358,65 @@
  
   
     
-    <li data-nav-id="/9-adjacencylists/" title="" class="dd-item 
+    <li data-nav-id="/9-adjacencylists/" title="Adjacency List" class="dd-item 
         
         
         
         ">
       <a href="/9-adjacencylists/">
+           <b> 9. </b> Adjacency List
           
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-dynamodbstreamsandlambda/" title="Amazon DynamoDB Streams and AWS Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10-dynamodbstreamsandlambda/">
+           <b> 10. </b> Amazon DynamoDB Streams and AWS Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-cleanup/" title="Clean up resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11-cleanup/">
+           <b> 11. </b> Clean up resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -563,7 +563,7 @@
             
           
           
-            <a href='/'>Advanced Amazon DynamoDB</a> > 
+            <a href='/'>Advanced Amazon DynamoDB</a> > Global Secondary Index Write Sharding
           
         
           
@@ -574,7 +574,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -590,7 +598,7 @@
           
             <h1>
               
-              
+              Global Secondary Index Write Sharding
             </h1>
           
 
@@ -598,7 +606,117 @@
 
 
 
-	
+	<h4 id="overview">Overview</h4>
+<p>The primary key of a Base table or a GSI Index table in DynamoDB includes a partition key and a sort key (optional).
+How you design the keys for the Index table is extremely important to the structure and performance of the database you build.
+The value of the Partition key determines how to divide the original database into logical partitions where data or items are stored.
+Choosing the right partition key value helps the database workload to be evenly distributed across all partitions in the Base table or GSI Index table.</p>
+<p>In this exercise, we will learn how to build a GSI Write Sharding Index table, which increases performance by selectively querying items spanning various logical partitions.
+Going back to the server access log example from Exercise #1, based on the Apache service access log. This time, we&rsquo;ll be querying for items with a 4xx response code.
+Note that items with 4xx response codes account for a very small percentage and are not uniformly distributed according to the response codes in the datasheet.</p>
+<p>The following chart shows the distribution of the logs based on the response code in the sample file <strong>logfile_medium1.csv</strong>.</p>
+<p><img src="/images/1-Introduce/0007-Diagram-DynamoDB-Tables.png" alt="DynamoDB"></p>
+<p>We will create a GSI write sharding index table on a table to randomize the writes of the partition key value to the logical partition, which increases the read/write throughput of the application.
+To start, we generate a random number from a fixed set (e.g. 1 to 10) and use this as the partition key for the GSI Index table. The random partition key value that is written to the partitions of the Index table is spread over all partition key values ​​belonging to the set defined above (from 1 to 10) and it is independent of all remaining attributes. This results in better parallelism and higher overall throughput.</p>
+<p>To summarize in this exercise, we will create a new Index table using the value Random as the Partition key, and the composite key responsecode#date#hourofday as the Sort key. The logfile_scan table that we created in the preparation step already has these 2 properties. Specifically, the code that initializes them is:</p>
+<pre tabindex="0"><code>SHARDS = 10
+newitem[&#39;GSI_1_PK&#39;] = &#34;shard#{}&#34;.format((newitem[&#39;requestid&#39;] % SHARDS) + 1)
+newitem[&#39;GSI_1_SK&#39;] = row[7] + &#34;#&#34; + row[2] + &#34;#&#34; + row[3]
+</code></pre><ol>
+<li>View information from the Index table</li>
+</ol>
+<ul>
+<li>The GSI Index table has been created in the workshop settings. You can see the description of the Index table with the command below</li>
+</ul>
+<pre tabindex="0"><code>aws dynamodb describe-table --table-name logfile_scan --query &#34;Table.GlobalSecondaryIndexes&#34;
+</code></pre><p><strong>Description similar to the following:</strong></p>
+<pre tabindex="0"><code>{
+  &#34;GlobalSecondaryIndexes&#34;: [
+    {
+        &#34;IndexName&#34;: &#34;GSI_1&#34;,
+        &#34;KeySchema&#34;: [
+            {
+                &#34;AttributeName&#34;: &#34;GSI_1_PK&#34;,
+                &#34;KeyType&#34;: &#34;HASH&#34;
+            },
+            {
+                &#34;AttributeName&#34;: &#34;GSI_1_SK&#34;,
+                &#34;KeyType&#34;: &#34;RANGE&#34;
+            }
+        ],
+        &#34;Projection&#34;: {
+            &#34;ProjectionType&#34;: &#34;KEYS_ONLY&#34;
+        },
+        &#34;IndexStatus&#34;: &#34;ACTIVE&#34;,
+        &#34;ProvisionedThroughput&#34;: {
+            &#34;NumberOfDecreasesToday&#34;: 0,
+            &#34;ReadCapacityUnits&#34;: 3000,
+            &#34;WriteCapacityUnits&#34;: 5000
+        },
+        &#34;IndexSizeBytes&#34;: 0,
+        &#34;ItemCount&#34;: 0,
+        &#34;IndexArn&#34;: &#34;arn:aws:dynamodb:(region):(accountid):table/logfile_scan/index/GSI_1&#34;
+    }
+]
+}
+</code></pre><ul>
+<li>DynamoDB ItemCount in this example has a value of zero.</li>
+<li>DynamoDB calculates the total number of items seen by this API multiple times a day and the actual value may differ from the result shown in the example.</li>
+</ul>
+<p><img src="/images/5-GSIwritesharding/0001-gsiwritesharing.png" alt="Global Secondary Index Write Sharding"></p>
+<ol start="2">
+<li><strong>Query the GSI Write Sharding Index table</strong></li>
+</ol>
+<ul>
+<li>To get all records with 404 response code, you need to query on the entire global sub-index partition using sort key.</li>
+</ul>
+<pre tabindex="0"><code>  if date == &#34;all&#34;:
+    ke = Key(&#39;GSI_1_PK&#39;).eq(&#34;shard#{}&#34;.format(shardid)) &amp; Key(&#39;GSI_1_SK&#39;).begins_with(responsecode)
+  else:
+    ke = Key(&#39;GSI_1_PK&#39;).eq(&#34;shard#{}&#34;.format(shardid)) &amp; Key(&#39;GSI_1_SK&#39;).begins_with(responsecode+&#34;#&#34;+date)
+
+  response = table.query(
+    IndexName=&#39;GSI_1&#39;,
+    KeyConditionExpression=ke
+    )
+</code></pre><p>Run the following script to get items from the GSI Write Sharding Index table with only the partition key and response code</p>
+<pre tabindex="0"><code>python query_responsecode.py logfile_scan 404
+</code></pre><p>The command will query the logfile_scan table to find items with sort keys=404 using the begins_with parameter.
+A query is run on each segment of the GSI index table and the results are pushed back to the client. The output of the script is similar to below</p>
+<pre tabindex="0"><code>Records with response code 404 in the shardid 0 = 0
+Records with response code 404 in the shardid 1 = 1750
+Records with response code 404 in the shardid 2 = 2500
+Records with response code 404 in the shardid 3 = 1250
+Records with response code 404 in the shardid 4 = 1000
+Records with response code 404 in the shardid 5 = 1000
+Records with response code 404 in the shardid 6 = 1750
+Records with response code 404 in the shardid 7 = 1500
+Records with response code 404 in the shardid 8 = 3250
+Records with response code 404 in the shardid 9 = 2750
+Number of records with responsecode 404 is 16750. Query time: 1.5092344284057617 seconds
+</code></pre><p><img src="/images/5-GSIwritesharding/0002-gsiwritesharing.png" alt="Global Secondary Index Write Sharding"></p>
+<ol start="3">
+<li>You can query on the same index, but add a date to the command to run the script. Specifically, execute a <strong>logfile_scan</strong> table query to find items with a catch key of <strong>404#2017-07-21</strong> using the <strong>begins_with</strong> parameter.</li>
+</ol>
+<pre tabindex="0"><code>python query_responsecode.py logfile_scan 404 --date 2017-07-21
+</code></pre><p>The result of running command is similar below</p>
+<pre tabindex="0"><code>Records with response code 404 in the shardid 0 = 0
+Records with response code 404 in the shardid 1 = 750
+Records with response code 404 in the shardid 2 = 750
+Records with response code 404 in the shardid 3 = 250
+Records with response code 404 in the shardid 4 = 500
+Records with response code 404 in the shardid 5 = 0
+Records with response code 404 in the shardid 6 = 250
+Records with response code 404 in the shardid 7 = 1000
+Records with response code 404 in the shardid 8 = 1000
+Records with response code 404 in the shardid 9 = 1000
+Number of records with responsecode 404 is 5500. Query time: 1.190359354019165 seconds
+</code></pre><p><img src="/images/5-GSIwritesharding/0003-gsiwritesharing.png" alt="Global Secondary Index Write Sharding"></p>
+<h4 id="conclusion">Conclusion</h4>
+<p>In this exercise, we used the GSI write sharding Index table to quickly retrieve sorted results, using composite keys that will be covered in more depth in exercise 6.
+The GSI write sharding table in the above example uses an array of partition keys with values ​​from 0 to 9, but in your application you can choose any range.
+Also, you can add more shards as the number of items indexed increases. Within each shard, the data is sorted according to the sort key. This allows us to retrieve server access logs sorted by <strong>#response code</strong> and <strong>#date</strong>, e.g. <strong>404#2017-07-21</strong>.</p>
+
 
 
 
@@ -662,38 +780,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -790,6 +876,38 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -859,10 +977,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/4-scan/" title=""> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/4-scan/" title="Sequential and parallel table scans"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/6-gsikeyoverloading/" title="" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/6-gsikeyoverloading/" title="Global Secondary Index Key Overloading" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -872,19 +990,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.min.js?1673905999"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1673905999"></script>
-    <script src="/js/jquery.sticky.js?1673905999"></script>
-    <script src="/js/featherlight.min.js?1673905999"></script>
-    <script src="/js/highlight.pack.js?1673905999"></script>
+    <script src="/js/clipboard.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673939160"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673939160"></script>
+    <script src="/js/jquery.sticky.js?1673939160"></script>
+    <script src="/js/featherlight.min.js?1673939160"></script>
+    <script src="/js/highlight.pack.js?1673939160"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1673905999"></script>
-    <script src="/js/learn.js?1673905999"></script>
-    <script src="/js/hugo-learn.js?1673905999"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673939160"></script>
+    <script src="/js/learn.js?1673939160"></script>
+    <script src="/js/hugo-learn.js?1673939160"></script>
 
-    <link href="/mermaid/mermaid.css?1673905999" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1673905999"></script>
+    <link href="/mermaid/mermaid.css?1673939160" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673939160"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
