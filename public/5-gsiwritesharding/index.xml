@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Global Secondary Index Write Sharding on AWS System Manager</title>
+    <title>Global Secondary Index Write Sharding on Advanced Amazon DynamoDB</title>
     <link>/5-gsiwritesharding/</link>
-    <description>Recent content in Global Secondary Index Write Sharding on AWS System Manager</description>
+    <description>Recent content in Global Secondary Index Write Sharding on Advanced Amazon DynamoDB</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="/5-gsiwritesharding/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
