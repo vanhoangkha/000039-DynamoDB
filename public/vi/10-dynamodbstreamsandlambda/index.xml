@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Amazon DynamoDB Streams và AWS Lambda on Advanced Amazon DynamoDB</title>
+    <title>Amazon DynamoDB Streams và AWS Lambda on AMAZON DYNAMODB NÂNG CAO</title>
     <link>/vi/10-dynamodbstreamsandlambda/</link>
-    <description>Recent content in Amazon DynamoDB Streams và AWS Lambda on Advanced Amazon DynamoDB</description>
+    <description>Recent content in Amazon DynamoDB Streams và AWS Lambda on AMAZON DYNAMODB NÂNG CAO</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/10-dynamodbstreamsandlambda/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
