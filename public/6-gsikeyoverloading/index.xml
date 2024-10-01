@@ -2,8 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Global Secondary Index Key Overloading on ADVANCED AMAZON DYNAMODB</title>
-    <link>/6-gsikeyoverloading/</link>
+    <link>//localhost:1313/6-gsikeyoverloading/</link>
     <description>Recent content in Global Secondary Index Key Overloading on ADVANCED AMAZON DYNAMODB</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/6-gsikeyoverloading/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/6-gsikeyoverloading/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

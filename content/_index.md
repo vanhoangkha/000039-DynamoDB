@@ -1,46 +1,30 @@
 ---
-title : "Advanced Amazon DynamoDB"
-date : "`r Sys.Date()`"
-weight : 1
+title : "Amazon DynamoDB Immersion Day"
+date :  "`r Sys.Date()`" 
+weight : 1 
 chapter : false
 ---
+# Amazon DynamoDB Immersion Day
 
-# Advanced Amazon DynamoDB
+![Mở Biểu trưng DynamoDB](images/1/dynamodb.png)
 
-#### Overview
+Welcome to the AWS Workshop and Lab Content Portal for [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html), a key-value and document database that delivers single-digit millisecond performance at any scale. Here you will find a collection of workshops and hands-on content aimed at helping you gain an understanding of DynamoDB features and NoSQL data modeling best practices.
 
-In this workshop, we will learn together some advanced architectures using **Amazon DynamoDB** services and best practices for building powerful, scalable applications that have been performance and cost optimization.
+The 200-level hands on labs (LHOL) include exercises designed to familarize you with DynamoDB using the CLI and the AWS Management Console. This site also includes a workshop (LADV) that is a collection of easy-to-follow instructions, scripts, and tutorial data. In addition the site includes a collection of data model design challenge scenarios (LDC) to help you understand the decisions and tradeoffs made while building efficient data models. If you're already comfortable with these topics and you would like to learn more about DynamoDB global tables, the site includes a multi-region workshop with a fun video-streaming use case (LMR).
 
-To make it easy to practice following the workshop, we have prepared Python scripts to help build the architectural patterns used in the workshop. And by the end of the workshop, you'll have enough knowledge to build and monitor applications using the **DynamoDB** service that can grow to any size and scale.
+Prior expertise with AWS and NoSQL databases is beneficial but not required to complete this workshop.
+If you're brand new to DynamoDB with no experience, you may want to begin with *Hands-on Labs for Amazon DynamoDB*. If you want to learn the design patterns for DynamoDB, check out *Advanced Design Patterns for DynamoDB* and the *Design Challenges* scenarios.
 
-![DynamoDB](/images/1-Introduce/0001-Diagram-DynamoDB-Tables.png)
+### **Looking for a larger challenge?**
+The DynamoDB Immersion Day has a series of workshops designed to cover advanced topics. If you want to dig deep into streaming aggregations with AWS Lambda and DynamoDB Streams, consider LEDA. Or if you want an easier introduction CDC you can consider LCDC.
+Do you want to integrate Generative AI to create a context-aware reasoning application? If so consider LBED, a lab that takes a product catalog from DynamoDB and contiously indexes it into OpenSearch Service for natural language queries supported by Amazon Bedrock.
 
-#### Content
-
-1. [Introduction](1-introduce)
-2. [Preparation steps](2-prerequiste)
-3. [DynamoDB Capacity Units and Partitioning](3-dynamodbcapacityunits)
-4. [Table Scan Types: Sequential and Parallel](4-scan)
-5. [Global Secondary Index Write Sharding](5-gsiwritesharding)
-6. [Global Secondary Index Department Key Overloading](6-gsikeyoverloading)
-7. [Sparse Global Secondary Indexes](7-sparsegsi)
-8. [Composite Keys](8-compositekeys)
-9. [Adjacency Lists](9-adjacencylists)
-10. [Amazon DynamoDB Streams and AWS Lambda](10-dynamodbstreamsandlambda)
-11. [Resource Cleanup](11-cleanup)
-
-#### Target
-The workshop is suitable for application developers, software engineers, and database administrators who are involved in the design and maintenance of applications using DynamoDB services.
-
-#### Request
-- Basic knowledge of AWS services
-- Along with other services, the workshop will teach you how to use AWS Systems Manager Session Manager and AWS Lambda
-- Basic understanding of DynamoDB
-- If you have never worked with DynamoDB, please refer to the Amazon DynamoDB documentation. before starting the workshop
-
-#### Reference
-
-1. [Key Reference Advanced Design Patterns for Amazon DynamoDB](https://amazon-dynamodb-labs.com/design-patterns.html)
-2. [Core Components of Amazon DynamoDB Reference](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey)
-3. [What is Database sharding reference?](https://viblo.asia/p/database-sharding-la-gi-Az45boQVKxY)
-4. [Video introducing advanced architectural patterns using DynamoDB](https://www.youtube.com/watch?v=6yqfmXiZTlM)
+Dive into the content:
+- LHOL: Hands-on Labs for Amazon DynamoDB
+- LBED: Generative AI with DynamoDB zero-ETL to OpenSearch integration and Amazon Bedrock
+- LADV: Advanced Design Patterns for Amazon DynamoDB
+- LCDC: Change Data Capture for Amazon DynamoDB
+- LMR: Build and Deploy a Global Serverless Application with Amazon DynamoDB
+- LEDA: Build a Serverless Event Driven Architecture with DynamoDB
+- LGME: Modeling Game Player Data with Amazon DynamoDB
+- LDC: Design Challenges

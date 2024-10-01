@@ -2,8 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Global Secondary Index Write Sharding on AMAZON DYNAMODB NÂNG CAO</title>
-    <link>/vi/5-gsiwritesharding/</link>
+    <link>//localhost:1313/vi/5-gsiwritesharding/</link>
     <description>Recent content in Global Secondary Index Write Sharding on AMAZON DYNAMODB NÂNG CAO</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/5-gsiwritesharding/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="//localhost:1313/vi/5-gsiwritesharding/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
