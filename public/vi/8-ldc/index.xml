@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LDC: Những thách thức thiết kế on AMAZON DYNAMODB NÂNG CAO</title>
-    <link>//localhost:1313/vi/8-ldc/</link>
+    <link>/vi/8-ldc/</link>
     <description>Recent content in LDC: Những thách thức thiết kế on AMAZON DYNAMODB NÂNG CAO</description>
     <generator>Hugo</generator>
     <language>vi</language>
-    <atom:link href="//localhost:1313/vi/8-ldc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/vi/8-ldc/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
