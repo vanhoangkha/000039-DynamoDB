@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Working with Table Scans :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Working with Table Scans :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5290,11 +5291,11 @@
 
 	<p>The <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html">Scan API</a>  which can be invoked using the <a href="https://docs.aws.amazon.com/cli/latest/reference/dynamodb/scan.html">scan CLI command</a> . Scan will do a full table scan and return the items in 1MB chunks.</p>
 <p>The Scan API is similar to the Query API except that since we want to scan the whole table and not just a single Item Collection, there is no Key Condition Expression for a Scan. However, you can specify a <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expression</a>  which will reduce the size of the result set (even though it will not reduce the amount of capacity consumed).</p>
-<p>Let us look at the data in the <strong>Reply</strong> table which has both a Partition Key and a Sort Key. Select the left menu bar <strong>Explore items</strong>. <img alt="Console Menu Item Explorer" src="/images/1/1.3/11.png"> You may need to click the hamburger menu icon to expand the left menu if its hidden. <img alt="Console Menu Hamburger Icon" src="/images/1/1.3/12.png"></p>
+<p>Let us look at the data in the <strong>Reply</strong> table which has both a Partition Key and a Sort Key. Select the left menu bar <strong>Explore items</strong>. <img src="/images/1/1.3/11.png" alt="Console Menu Item Explorer"> You may need to click the hamburger menu icon to expand the left menu if its hidden. <img src="/images/1/1.3/12.png" alt="Console Menu Hamburger Icon"></p>
 <p>Once you enter the Explore Items you need to select the <strong>Reply</strong> table and then expand the Scan/Query items box.</p>
-<p><img alt="Item Explorer Expand Tables" src="/images/1/1.3/13.png"></p>
+<p><img src="/images/1/1.3/13.png" alt="Item Explorer Expand Tables"></p>
 <p>For example, we could find all the replies in the Reply that were posted by User A.</p>
-<p><img alt="Item Explorer Scan Reply 1" src="/images/1/1.3/14.png"></p>
+<p><img src="/images/1/1.3/14.png" alt="Item Explorer Scan Reply 1"></p>
 <p>You should see 3 <strong>Reply</strong> items posted by User A.</p>
 
 
@@ -8053,19 +8054,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

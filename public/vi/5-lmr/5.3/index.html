@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Module 2: Khám phá Global Tables :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Module 2: Khám phá Global Tables :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801187" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801187" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801187" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801187" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801187" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801187" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801187" rel="stylesheet">
-    <link href="/css/theme.css?1733801187" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801187" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450734" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450734" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450734" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450734" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450734" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450734" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450734" rel="stylesheet">
+    <link href="/css/theme.css?1737450734" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450734" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801187" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450734" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801187"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450734"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801187"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801187"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450734"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450734"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801187"></script>
+<script type="text/javascript" src="/js/search.js?1737450734"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5300,7 +5301,7 @@
 <li><strong>Vai trò AWS IAM</strong> để cấp các quyền cần thiết.</li>
 </ul>
 <p>Sau đó, bạn đã sử dụng AWS Command Line Interface để triển khai một DynamoDB Global Table có tên <strong>global-serverless</strong> và điền vào đó một số mục. Những mục này đại diện cho các bản ghi bookmark có thể được thiết lập để ghi lại và truy xuất tiến trình mà khách hàng đã đạt được khi xem nội dung video. Ngoài ra còn có các mục đại diện cho một danh mục nội dung video có sẵn.</p>
-<p><img alt="Kiến trúc Serverless Toàn cầu" src="/images/5/5.3/1.png" title="Global Serverless Architecture"></p>
+<p><img src="/images/5/5.3/1.png" alt="Kiến trúc Serverless Toàn cầu" title="Global Serverless Architecture"></p>
 <h3 id="chi-tiết-về-dynamodb-global-table">Chi tiết về DynamoDB Global Table</h3>
 <h4 id="thiết-kế-bookmark">Thiết kế Bookmark</h4>
 <p>Bảng của chúng ta có khóa chính hai phần bao gồm một Partition Key và một Sort Key, được đặt tên là PK và SK. Mỗi bản ghi bookmark sẽ có UserID của người xem làm giá trị PK, và một giá trị ContentID trong SK để chỉ ra video mà họ đang xem. Thuộc tính thứ ba, gọi là Bookmark, sẽ ghi lại tiến trình. Ứng dụng sẽ thực hiện các cập nhật định kỳ cho thuộc tính Bookmark này khi chương trình được xem. Nếu người dùng dừng lại và sau đó quay lại sau, một lệnh gọi Get-Item có thể xác định vị trí bookmark, đọc giá trị Bookmark, và xếp hàng cho trình phát video đến đúng điểm để khách hàng tiếp tục xem.</p>
@@ -5308,7 +5309,7 @@
 <p>Khi stack ứng dụng ở Oregon thực hiện các lệnh gọi tới DynamoDB, nó kết nối tới bảng DynamoDB trong cùng vùng. Chúng ta có thể gọi bảng cục bộ này là một bản sao vùng vì nó tham gia vào sao chép Global Tables. Ghi vào bất kỳ bản sao vùng nào sẽ được dịch vụ DynamoDB phát hiện và hình ảnh mục mới sẽ được gửi và áp dụng cho tất cả các bản sao vùng khác. Mục tiêu của Global Tables là đưa tất cả các bản sao đến trạng thái giống nhau càng nhanh càng tốt. Người gọi như hàm Lambda của chúng ta ở Oregon không cần phải biết về các vùng khác và không kết nối đến bất kỳ điểm cuối toàn cầu nào vì không có điểm cuối nào như vậy.</p>
 <p>Các thao tác ghi vào một bảng bản sao được xác nhận thành công với người gọi với hiệu suất tương tự như một bảng không phải là Global Table, thường là trong vòng 10 mili giây.</p>
 <p>Khoảng cách giữa Oregon và Ireland là 4500 dặm (7000 km). Thông tin truyền với tốc độ ánh sáng sẽ vượt qua khoảng cách này trong 24 ms.</p>
-<p><img alt="Khoảng cách từ Oregon đến Ireland" src="/images/5/5.3/2.png" title="Distance Oregon to Ireland"></p>
+<p><img src="/images/5/5.3/2.png" alt="Khoảng cách từ Oregon đến Ireland" title="Distance Oregon to Ireland"></p>
 <p>Thời gian DynamoDB cần để sao chép các thay đổi đến các vùng khác có thể thay đổi, nhưng thường là từ 1-2 giây. Thống kê <strong>ReplicationLatency</strong> trong Cloudwatch theo dõi thời gian cần thiết để sao chép các mục.</p>
 <h3 id="kiểm-tra-các-trường-hợp-cạnh-trong-ứng-dụng-web">Kiểm tra các trường hợp cạnh trong ứng dụng web</h3>
 <p>Hãy chứng minh rằng sao chép Global Tables đang hoạt động.</p>
@@ -5317,7 +5318,7 @@
 <li>Nhấp vào Get-Item trong vùng thứ hai và so sánh giá trị với bookmark trong vùng đầu tiên. Nếu chúng giống nhau, điều đó có nghĩa là Global Tables đã áp dụng trạng thái mới cho tất cả các vùng.</li>
 <li>Lặp lại các bước 1 và 2 nhanh nhất có thể.</li>
 </ol>
-<p><img alt="Độ trễ sao chép" src="/images/5/5.3/3.png" title="Replication Delay"></p>
+<p><img src="/images/5/5.3/3.png" alt="Độ trễ sao chép" title="Replication Delay"></p>
 <p>Mục tiêu là kiểm tra bookmark trong vùng thứ hai trước khi việc sao chép hoàn tất. Vì sao chép có thể diễn ra trong khoảng một giây, bạn sẽ phải nhanh chóng để phát hiện điều này. Nếu bạn làm được, thì nhấp lại vào Get-Item và giá trị đã đồng bộ hóa sẽ được hiển thị.<br>
 Lưu ý ứng dụng giữ một bộ đếm thời gian sau mỗi lần cập nhật, do đó bạn có thể xem đã bao nhiêu giây trôi qua khi thực hiện đọc tiếp theo.</p>
 <h4 id="tạo-một-xung-đột">Tạo một xung đột</h4>
@@ -5328,7 +5329,7 @@ Lưu ý ứng dụng giữ một bộ đếm thời gian sau mỗi lần cập n
 <li>Ở vùng thứ hai, ngay lập tức nhấp vào nút trừ.</li>
 <li>Kiểm tra kỹ đầu ra. Vùng thứ hai có thay đổi giá trị trở lại giá trị ban đầu không? Nếu có, thì không có xung đột. Bản cập nhật đầu tiên đã sao chép hoàn toàn trước khi bản cập nhật thứ hai bắt đầu. Nếu bản cập nhật thứ hai đã giảm bookmark thấp hơn giá trị ban đầu, điều đó cho thấy ĐÃ có xung đột và bản cập nhật đầu tiên đã bị hoàn tác.</li>
 </ol>
-<p><img alt="Xung đột sao chép" src="/images/5/5.3/4.png" title="Replication Conflict"></p>
+<p><img src="/images/5/5.3/4.png" alt="Xung đột sao chép" title="Replication Conflict"></p>
 <p>Bạn có thể đọc thêm về DynamoDB Global Tables trong chương cuối của buổi workshop này hoặc trong <a href="https://aws.amazon.com/dynamodb/global-tables/">Tài liệu về Global Tables</a>.</p>
 
 
@@ -8086,19 +8087,19 @@ Lưu ý ứng dụng giữ một bộ đếm thời gian sau mỗi lần cập n
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801187"></script>
-    <script src="/js/jquery.sticky.js?1733801187"></script>
-    <script src="/js/featherlight.min.js?1733801187"></script>
-    <script src="/js/highlight.pack.js?1733801187"></script>
+    <script src="/js/clipboard.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450734"></script>
+    <script src="/js/jquery.sticky.js?1737450734"></script>
+    <script src="/js/featherlight.min.js?1737450734"></script>
+    <script src="/js/highlight.pack.js?1737450734"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801187"></script>
-    <script src="/js/learn.js?1733801187"></script>
-    <script src="/js/hugo-learn.js?1733801187"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450734"></script>
+    <script src="/js/learn.js?1737450734"></script>
+    <script src="/js/hugo-learn.js?1737450734"></script>
 
-    <link href="/mermaid/mermaid.css?1733801187" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801187"></script>
+    <link href="/mermaid/mermaid.css?1737450734" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450734"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

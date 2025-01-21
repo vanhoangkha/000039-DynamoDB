@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Bước 3: Kết nối ReduceLambda :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Bước 3: Kết nối ReduceLambda :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801187" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801187" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801187" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801187" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801187" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801187" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801187" rel="stylesheet">
-    <link href="/css/theme.css?1733801187" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801187" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450734" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450734" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450734" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450734" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450734" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450734" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450734" rel="stylesheet">
+    <link href="/css/theme.css?1737450734" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450734" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801187" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450734" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801187"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450734"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801187"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801187"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450734"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450734"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801187"></script>
+<script type="text/javascript" src="/js/search.js?1737450734"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5303,7 +5304,7 @@
 
 	<h2 id="mục-tiêu-của-bước-cuối-cùng-trong-_lab-1_">Mục tiêu của bước cuối cùng trong <em>Lab 1</em></h2>
 <p>Mục tiêu của bước cuối cùng trong <em>Lab 1</em> là cấu hình chính xác hàm <code>ReduceLambda</code>, kết nối nó với DynamoDB stream của <code>ReduceTable</code>, và đảm bảo rằng tổng số liệu được ghi vào <code>AggregateTable</code>. Khi hoàn thành thành công bước này, bạn sẽ bắt đầu tích lũy điểm trên bảng xếp hạng.</p>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/10.png"></p>
+<p><img src="/images/6/6.3/10.png" alt="Kiến trúc-1"></p>
 <h2 id="cấu-hình-lambda-concurrency">Cấu hình Lambda concurrency</h2>
 <p>Chúng ta bắt đầu bằng cách thiết lập concurrency (đồng thời) của hàm <code>ReduceLambda</code> thành <code>1</code>. Điều này đảm bảo rằng chỉ có một instance hoạt động của hàm <code>ReduceLambda</code> tại bất kỳ thời điểm nào. Điều này cần thiết để tránh xung đột ghi, nơi mà nhiều instance cố gắng cập nhật <code>AggregateTable</code> cùng một lúc. Từ góc độ hiệu suất, một instance Lambda duy nhất có thể xử lý việc tổng hợp của toàn bộ pipeline vì các thông điệp đến đã được tổng hợp trước bởi các hàm <code>MapLambda</code>.</p>
 <ol>
@@ -5313,12 +5314,12 @@
 <li>Nhấp vào nút <code>Edit</code> ở góc trên bên phải, chọn <code>Reserve concurrency</code> và nhập <code>1</code>.</li>
 <li>Sau khi nhấp vào <code>Save</code>, cấu hình của bạn sẽ trông giống như hình dưới đây.</li>
 </ol>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/11.png"></p>
+<p><img src="/images/6/6.3/11.png" alt="Kiến trúc-1"></p>
 <h2 id="kết-nối-reducelambda-với-stream-của-reducetable">Kết nối ReduceLambda với stream của ReduceTable</h2>
 <p>Tiếp theo, chúng ta muốn kết nối hàm <code>ReduceLambda</code> với DynamoDB stream của <code>ReduceTable</code>.</p>
 <ol>
 <li>
-<p>Bảng tổng quan về hàm cho thấy hàm <code>ReduceLambda</code> chưa có trigger. Nhấp vào nút <code>Add trigger</code>. <img alt="Kiến trúc-1" src="/images/6/6.3/12.png"></p>
+<p>Bảng tổng quan về hàm cho thấy hàm <code>ReduceLambda</code> chưa có trigger. Nhấp vào nút <code>Add trigger</code>. <img src="/images/6/6.3/12.png" alt="Kiến trúc-1"></p>
 </li>
 <li>
 <p>Cấu hình như sau:</p>
@@ -5333,7 +5334,7 @@
 </li>
 </ol>
 <p>Bạn sẽ thấy một lỗi! Trước khi có thể kích hoạt trigger này, chúng ta cần thêm quyền IAM cho hàm Lambda này.</p>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/13.png"></p>
+<p><img src="/images/6/6.3/13.png" alt="Kiến trúc-1"></p>
 <h2 id="thêm-quyền-iam-cần-thiết">Thêm quyền IAM cần thiết</h2>
 <p>Thông báo lỗi trên cho biết hàm <code>ReduceLambda</code> không có đủ quyền để đọc từ stream của <code>ReduceTable</code>. Mặc dù chúng ta đã gán các vai trò IAM với các quyền cần thiết cho các hàm <code>StateLambda</code> và <code>MapLambda</code>, nhưng giờ là lúc bạn cần làm điều này cho hàm <code>ReduceLambda</code>:</p>
 <ol>
@@ -5341,11 +5342,11 @@
 <li>Mở một tab trình duyệt mới, đi đến dịch vụ AWS Lambda và chọn hàm <code>ReduceLambda</code>.</li>
 <li>Điều hướng đến tab <code>Configuration</code> và nhấp vào <code>Permissions</code>. Bạn sẽ thấy vai trò thực thi Lambda có tên là <code>ReduceLambdaRole</code>. Nhấp vào vai trò này để chỉnh sửa nó.</li>
 </ol>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/14.png"></p>
+<p><img src="/images/6/6.3/14.png" alt="Kiến trúc-1"></p>
 <ol start="4">
 <li>Bây giờ bạn đã được chuyển hướng đến dịch vụ IAM, nơi bạn thấy chi tiết của vai trò <code>ReduceLambdaRole</code>. Có một chính sách liên kết với vai trò này, đó là <code>ReduceLambdaPolicy</code>. Mở rộng để xem các quyền hiện tại của hàm <code>ReduceLambda</code>. Bây giờ, nhấp vào nút <code>Edit</code> để thêm các quyền bổ sung.</li>
 </ol>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/15.png"></p>
+<p><img src="/images/6/6.3/15.png" alt="Kiến trúc-1"></p>
 <h3 id="chỉnh-sửa-chính-sách-iam">Chỉnh sửa chính sách IAM</h3>
 
 <div class="notices tip" ><p>Đã có sẵn một quyền IAM cho DynamoDB: điều này cần thiết để đảm bảo workshop hoạt động như mong đợi. Đừng bị nhầm lẫn bởi điều này và xin đừng xóa các quyền mà chúng tôi đã cấp! Tất cả các hàm Lambda cần có quyền truy cập vào ParameterTable để kiểm tra tiến độ hiện tại của lab và các chế độ lỗi tương ứng.</p>
@@ -5354,7 +5355,7 @@
 <ul>
 <li>Trước tiên, chúng ta cần thêm quyền để hàm <code>ReduceLambda</code> có thể đọc các thông điệp từ stream của <code>ReduceTable</code>.
 <ul>
-<li>Nhấp vào <code>Add new statement</code> <img alt="Kiến trúc-1" src="/images/6/6.3/16.png"></li>
+<li>Nhấp vào <code>Add new statement</code> <img src="/images/6/6.3/16.png" alt="Kiến trúc-1"></li>
 <li>Đối với <code>Service</code>, chọn <code>DynamoDB</code></li>
 <li>Dưới <code>Access level - read</code>, chọn bốn ô sau: <code>DescribeStream</code>, <code>GetRecords</code>, <code>GetShardIterator</code>, và <code>ListStreams</code></li>
 </ul>
@@ -5372,7 +5373,7 @@
 <div class="notices tip" ><p>Hãy chắc chắn xóa tất cả các dấu ngoặc nhọn khỏi ARN của bạn trước khi nhấp vào <code>Add resource</code></p>
 </div>
 
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/17.png"></p>
+<p><img src="/images/6/6.3/17.png" alt="Kiến trúc-1"></p>
 <p>Nếu chúng ta không thực hiện thêm thay đổi nào, hàm <code>ReduceLambda</code> sẽ không thể cập nhật kết quả cuối cùng trong <code>AggregateTable</code>. Chúng ta cần chỉnh sửa chính sách để thêm các quyền bổ sung cho phép truy cập <code>UpdateItem</code> cho hàm.</p>
 <ul>
 <li>Nhấp vào <code>Add new statement</code></li>
@@ -5381,7 +5382,7 @@
 <li>Lại, chúng ta muốn liên kết các quyền này với một tài nguyên cụ thể: Chúng ta muốn hàm <code>ReduceLambda</code> chỉ có thể ghi vào <code>AggregateTable</code>. Do đó, nhấp vào <code>Add a resource</code> và trong danh sách thả xuống <code>Resource type</code> chọn <code>table</code>. Tiếp theo, nhập các giá trị cho <code>Region</code> (sử dụng cùng một vùng như trước), <code>Account</code> (cân nhắc sử dụng dấu sao <code>*</code>), và <code>TableName</code> (lần này là <code>AggregateTable</code>).</li>
 <li>Nhấp <code>Add resource</code>.</li>
 </ul>
-<p><img alt="Kiến trúc-1" src="/images/6/6.3/18.png"></p>
+<p><img src="/images/6/6.3/18.png" alt="Kiến trúc-1"></p>
 <ul>
 <li>Cuối cùng, nhấp <code>Next</code> và sau đó <code>Save changes</code> ở góc dưới bên phải.</li>
 </ul>
@@ -5394,7 +5395,7 @@
 <h2 id="làm-sao-để-biết-nó-hoạt-động">Làm sao để biết nó hoạt động?</h2>
 <p>Nếu mọi thứ được thực hiện đúng, thì DynamoDB stream của <code>ReduceTable</code> sẽ kích hoạt hàm <code>ReduceLambda</code>. Do đó, bạn sẽ thấy nhật ký cho mỗi lần gọi Lambda trong tab <code>Monitor</code> -&gt; <code>Logs</code>.</p>
 <p>Một cách khác để kiểm tra xem nó có hoạt động hay không là quan sát các mục được ghi bởi <code>ReduceLambda</code> vào bảng DynamoDB <code>AggregateTable</code>. Để làm điều đó, điều hướng đến dịch vụ DynamoDB trong AWS console, nhấp vào <code>Items</code> ở bên trái, và chọn <code>AggregateTable</code>. Tại thời điểm này, bạn sẽ thấy nhiều hàng tương tự như hình dưới đây.</p>
-<p><img alt="Các mục AggregateTable" src="/images/6/6.3/19.png"></p>
+<p><img src="/images/6/6.3/19.png" alt="Các mục AggregateTable"></p>
 
 <div class="notices tip" ><p>AWS Event: Nếu các bước 1, 2 và 3 của <em>Lab 1</em> được hoàn thành thành công, bạn sẽ bắt đầu ghi điểm trong vòng một đến hai phút. Hãy kiểm tra bảng xếp hạng! Yêu cầu người điều hành phòng lab cung cấp liên kết đến bảng xếp hạng.</p>
 </div>
@@ -8159,19 +8160,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801187"></script>
-    <script src="/js/jquery.sticky.js?1733801187"></script>
-    <script src="/js/featherlight.min.js?1733801187"></script>
-    <script src="/js/highlight.pack.js?1733801187"></script>
+    <script src="/js/clipboard.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450734"></script>
+    <script src="/js/jquery.sticky.js?1737450734"></script>
+    <script src="/js/featherlight.min.js?1737450734"></script>
+    <script src="/js/highlight.pack.js?1737450734"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801187"></script>
-    <script src="/js/learn.js?1733801187"></script>
-    <script src="/js/hugo-learn.js?1733801187"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450734"></script>
+    <script src="/js/learn.js?1737450734"></script>
+    <script src="/js/hugo-learn.js?1737450734"></script>
 
-    <link href="/mermaid/mermaid.css?1733801187" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801187"></script>
+    <link href="/mermaid/mermaid.css?1737450734" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450734"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

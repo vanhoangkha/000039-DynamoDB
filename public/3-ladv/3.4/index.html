@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Exercise 3: Global Secondary Index Write Sharding :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Exercise 3: Global Secondary Index Write Sharding :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5285,7 +5286,7 @@
 	<p>The primary key of a DynamoDB table or a global secondary index consists of a partition key and an optional sort key. The way you design the content of those keys is extremely important for the structure and performance of your database. Partition key values determine the logical partitions in which your data is stored. Therefore, it is important to choose a partition key value that uniformly distributes the workload across all partitions in the table or global secondary index. For a discussion on how to choose the right partition key, see our blog titled <a href="https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/">Choosing the Right DynamoDB Partition Key</a> .</p>
 <p>In this exercise, you learn about global secondary index write sharding, which is an effective design pattern to query selectively the items spread across different logical partitions in a very large table. Let&rsquo;s review the server access logs example [from Exercise 1]{href=&quot;/design-patterns/ex1capacity&quot;}, which is based on Apache service access logs. This time, you query the items with response code <code>4xx</code>. Note that the items with response code <code>4xx</code> are a very small percentage of the total data and do not have an even distribution by response code. For example, the response code <code>200 OK</code> has more records than the others, which is as expected for any web application.<br>
 The following chart shows the distribution of the log records by response code for the sample file, <code>logfile_medium1.csv</code>.</p>
-<p><img alt="Log records by response code" src="/images/3/3.4/1.jpg"></p>
+<p><img src="/images/3/3.4/1.jpg" alt="Log records by response code"></p>
 <p>You will create a write-sharded global secondary index on a table to randomize the writes across multiple logical partition key values. In effect, this increases the write and read throughput of the application. To apply this design pattern, you can create a random number from a fixed set (for example, 1 to 10), and use this number as the logical partition key for a global secondary index. Because you are randomizing the partition key, the writes to the table are spread evenly across all of the partition key values independent of any attribute. This will yield better parallelism and higher overall throughput. Also, if the application needs to query the log records by a specific response code on a specific date, you can create a composite sort key using a combination of the response code and the date.</p>
 <p>In this exercise, you create a global secondary index using random values for the partition key, and the composite key <code>responsecode#date#hourofday</code> as the sort key. The <code>logfile_scan</code> table that you created and populated during the preparation phase of the workshop already has these two attributes. If you did not complete the setup steps, return to <a href="https://catalog.workshops.aws/dynamodb-labs/en-US/design-patterns/setup/Step6">Setup - Step 6</a> and complete the step. These attributes were created using the following code.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>SHARDS <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
@@ -8047,19 +8048,19 @@ The following chart shows the distribution of the log records by response code f
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801184"></script>
-    <script src="/js/jquery.sticky.js?1733801184"></script>
-    <script src="/js/featherlight.min.js?1733801184"></script>
-    <script src="/js/highlight.pack.js?1733801184"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801184"></script>
-    <script src="/js/learn.js?1733801184"></script>
-    <script src="/js/hugo-learn.js?1733801184"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801184" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801184"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

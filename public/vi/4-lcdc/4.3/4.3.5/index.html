@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Mô phỏng cập nhật đơn hàng :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Mô phỏng cập nhật đơn hàng :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801187" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801187" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801187" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801187" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801187" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801187" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801187" rel="stylesheet">
-    <link href="/css/theme.css?1733801187" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801187" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450734" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450734" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450734" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450734" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450734" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450734" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450734" rel="stylesheet">
+    <link href="/css/theme.css?1737450734" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450734" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801187" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450734" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801187"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450734"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801187"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801187"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450734"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450734"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801187"></script>
+<script type="text/javascript" src="/js/search.js?1737450734"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5297,10 +5298,10 @@
 <p>Chọn bảng <strong>Orders</strong>, sau đó chọn nút <strong>Explore table items</strong> để xem các đơn hàng trên bảng.</p>
 </li>
 </ol>
-<p><img alt="Các mặt hàng trên bảng Orders" src="/images/4/4.3/14.png"></p>
-<p><img alt="Các mặt hàng trên bảng Orders" src="/images/4/4.3/15.png"></p>
+<p><img src="/images/4/4.3/14.png" alt="Các mặt hàng trên bảng Orders"></p>
+<p><img src="/images/4/4.3/15.png" alt="Các mặt hàng trên bảng Orders"></p>
 <p>Sẽ có 4 đơn hàng trên bảng, tất cả đều có trạng thái là <strong>PLACED</strong> như hình dưới đây.</p>
-<p><img alt="Các mặt hàng trên bảng Orders" src="/images/4/4.3/16.png"></p>
+<p><img src="/images/4/4.3/16.png" alt="Các mặt hàng trên bảng Orders"></p>
 <p>Bạn có thể khám phá nội dung của từng đơn hàng bằng cách chọn <strong>id</strong> của mục bằng Console DynamoDB.</p>
 <p>Sẽ không có dữ liệu nào trên bảng <strong>OrdersHistory</strong> tại thời điểm này vì chưa có dữ liệu nào được ghi vào đó.</p>
 <p>Bạn có thể mô phỏng cập nhật các mục trên bảng Orders bằng cách sử dụng AWS Management Console hoặc AWS CLI. Mở rộng phần thích hợp dưới đây để có hướng dẫn về cách tiến hành với phương pháp ưa thích của bạn.</p>
@@ -5308,14 +5309,14 @@
 <div class="notices info" ><p>Mô phỏng cập nhật sử dụng AWS Management Console</p>
 <ol>
 <li>Chọn bảng <strong>Orders</strong>.
-<img alt="AWS Lambda function console" src="/images/4/4.3/21.png"></li>
+<img src="/images/4/4.3/21.png" alt="AWS Lambda function console"></li>
 <li>Chọn nút <strong>Explore table items</strong>.
-<img alt="AWS Lambda function console" src="/images/4/4.3/22.png"></li>
+<img src="/images/4/4.3/22.png" alt="AWS Lambda function console"></li>
 <li>Nhấp vào ID đơn hàng <strong>6421680</strong> trên bảng.
-<img alt="AWS Lambda function console" src="/images/4/4.3/23.png"></li>
+<img src="/images/4/4.3/23.png" alt="AWS Lambda function console"></li>
 <li>Thay đổi trạng thái của đơn hàng từ <code>PLACED</code> sang <code>COMPLETE</code>.</li>
 <li>Chọn nút <strong>Save and close</strong>.
-<img alt="AWS Lambda function console" src="/images/4/4.3/24.png"></li>
+<img src="/images/4/4.3/24.png" alt="AWS Lambda function console"></li>
 </ol>
 </div>
 
@@ -5420,9 +5421,9 @@
 
 <p>Bây giờ hãy khám phá các bảng <strong>Orders</strong> và <strong>OrdersHistory</strong> để xem các kết quả cập nhật mục mà bạn đã thực hiện.</p>
 <p>Trạng thái của đơn hàng ID 6421680 trên bảng <strong>Orders</strong> sẽ là <strong>COMPLETE</strong> như hình dưới đây.</p>
-<p><img alt="Các mặt hàng trên bảng Orders" src="/images/4/4.3/17.png"></p>
+<p><img src="/images/4/4.3/17.png" alt="Các mặt hàng trên bảng Orders"></p>
 <p>&hellip; và sẽ có một bản ghi trên <strong>OrdersHistory</strong> hiển thị trạng thái trước đó của đơn hàng ID 6421680.</p>
-<p><img alt="Các mặt hàng trên bảng OrdersHistory" src="/images/4/4.3/18.png"></p>
+<p><img src="/images/4/4.3/18.png" alt="Các mặt hàng trên bảng OrdersHistory"></p>
 <p>Thực hiện các cập nhật bổ sung cho đơn hàng ID <strong>4514280</strong> trên bảng Orders. Lần này, đầu tiên thay đổi trạng thái của đơn hàng thành <strong>COMPLETE</strong>, sau đó thay đổi trạng thái của một số mặt hàng trên cùng đơn hàng thành <strong>RETURNED</strong> bằng cách sử dụng các lệnh dưới đây.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws dynamodb update-item <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --table-name Orders <span style="color:#ae81ff">\
@@ -5458,9 +5459,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --return-consumed-capacity TOTAL
 </span></span></code></pre></div><p>Khám phá các mặt hàng trên các bảng Orders và OrdersHistory để xem kết quả của các cập nhật của bạn.</p>
 <p>Trạng thái của đơn hàng ID 4514280 trên bảng Orders sẽ là <strong>COMPLETE</strong> như hình dưới đây.</p>
-<p><img alt="Các mặt hàng trên bảng Orders" src="/images/4/4.3/19.png"></p>
+<p><img src="/images/4/4.3/19.png" alt="Các mặt hàng trên bảng Orders"></p>
 <p>&hellip; và sẽ có hai mục nhập cho đơn hàng ID 4514280 trên bảng OrdersHistory hiển thị các trạng thái trước đó của đơn hàng.</p>
-<p><img alt="Các mặt hàng trên bảng OrdersHistory" src="/images/4/4.3/20.png"></p>
+<p><img src="/images/4/4.3/20.png" alt="Các mặt hàng trên bảng OrdersHistory"></p>
 
 <div class="notices tip" ><p><strong>Lưu ý:</strong> Thứ tự cập nhật trên bảng Orders được duy trì bởi các luồng DynamoDB khi các thay đổi được gửi đến hàm lambda tạo lịch sử đơn hàng. Vì các mục trên bảng OrdersHistory có khóa sắp xếp - sk, là một dấu thời gian, các mục trên bảng OrderHistory có thể được sắp xếp theo thứ tự chúng được tạo ra.</p>
 </div>
@@ -8225,19 +8226,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801187"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801187"></script>
-    <script src="/js/jquery.sticky.js?1733801187"></script>
-    <script src="/js/featherlight.min.js?1733801187"></script>
-    <script src="/js/highlight.pack.js?1733801187"></script>
+    <script src="/js/clipboard.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450734"></script>
+    <script src="/js/jquery.sticky.js?1737450734"></script>
+    <script src="/js/featherlight.min.js?1737450734"></script>
+    <script src="/js/highlight.pack.js?1737450734"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801187"></script>
-    <script src="/js/learn.js?1733801187"></script>
-    <script src="/js/hugo-learn.js?1733801187"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450734"></script>
+    <script src="/js/learn.js?1737450734"></script>
+    <script src="/js/hugo-learn.js?1737450734"></script>
 
-    <link href="/mermaid/mermaid.css?1733801187" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801187"></script>
+    <link href="/mermaid/mermaid.css?1737450734" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450734"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Định cấu hình quyền OpenSearch Service :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Định cấu hình quyền OpenSearch Service :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5298,7 +5299,7 @@
 <ol>
 <li>
 <p>Mở tab &ldquo;Outputs&rdquo; của stack có tên <code>dynamodb-opensearch-setup</code> trong CloudFormation Console.</p>
-<p><img alt="CloudFormation Outputs" src="/images/2/2.2/1.jpg"></p>
+<p><img src="/images/2/2.2/1.jpg" alt="CloudFormation Outputs"></p>
 </li>
 <li>
 <p>Mở liên kết &ldquo;SecretConsoleLink&rdquo; trong một tab mới. Điều này sẽ đưa bạn đến bí mật trong AWS Secrets Manager chứa thông tin đăng nhập cho OpenSearch. Nhấp vào nút <code>Retrieve secret value</code> để xem tên người dùng và mật khẩu cho OpenSearch Cluster.</p>
@@ -5308,34 +5309,34 @@
 </li>
 <li>
 <p>Đăng nhập vào Dashboards với tên người dùng và mật khẩu được cung cấp trong Secrets Manager.</p>
-<p><img alt="OpenSearch Service Dashboards" src="/images/2/2.2/2.jpg"></p>
+<p><img src="/images/2/2.2/2.jpg" alt="OpenSearch Service Dashboards"></p>
 </li>
 <li>
 <p>Khi được nhắc chọn tenant, chọn <em>Global</em> và nhấp vào <strong>Confirm</strong>. Đóng mọi cửa sổ bật lên.</p>
-<p><img alt="OpenSearch Service Dashboards" src="/images/2/2.2/3.jpg"></p>
+<p><img src="/images/2/2.2/3.jpg" alt="OpenSearch Service Dashboards"></p>
 </li>
 <li>
 <p>Mở menu trên cùng bên trái và chọn <strong>Security</strong> trong phần <em>Management</em>.</p>
-<p><img alt="Security Settings" src="/images/2/2.2/4.jpg"></p>
+<p><img src="/images/2/2.2/4.jpg" alt="Security Settings"></p>
 </li>
 <li>
 <p>Mở tab &ldquo;Roles&rdquo;, sau đó nhấp vào vai trò &ldquo;all_access&rdquo;.</p>
-<p><img alt="Roles Settings" src="/images/2/2.2/5.jpg"></p>
+<p><img src="/images/2/2.2/5.jpg" alt="Roles Settings"></p>
 </li>
 <li>
 <p>Mở tab &ldquo;Mapped users&rdquo;, sau đó chọn &ldquo;Manage mapping&rdquo;.</p>
-<p><img alt="Mapping Settings" src="/images/2/2.2/6.jpg"></p>
+<p><img src="/images/2/2.2/6.jpg" alt="Mapping Settings"></p>
 </li>
 <li>
 <p>Trong trường &ldquo;Backend roles&rdquo;, nhập Arn được cung cấp trong CloudFormation Stack Outputs. Thuộc tính có tên &ldquo;Role&rdquo; cung cấp Arn chính xác.<br>
 Hãy chắc chắn rằng bạn đã xóa mọi ký tự khoảng trắng từ đầu và cuối của ARN để đảm bảo bạn không gặp vấn đề về quyền sau này. Nhấp vào &ldquo;Map&rdquo;.</p>
-<p><img alt="Settings" src="/images/2/2.2/7.jpg"></p>
+<p><img src="/images/2/2.2/7.jpg" alt="Settings"></p>
 </li>
 <li>
 <p>Xác minh rằng vai trò &ldquo;all_access&rdquo; hiện có một &ldquo;Backend role&rdquo; được liệt kê.</p>
 </li>
 </ol>
-<p><img alt="Settings" src="/images/2/2.2/8.jpg"></p>
+<p><img src="/images/2/2.2/8.jpg" alt="Settings"></p>
 
 
 
@@ -8093,19 +8094,19 @@ Hãy chắc chắn rằng bạn đã xóa mọi ký tự khoảng trắng từ �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

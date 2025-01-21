@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Exercise 6: Composite Keys :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Exercise 6: Composite Keys :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5294,28 +5295,28 @@
 <p>Previously (Exercise 4, Step 1) you ran commands to create the <code>employees</code> table and load it with sample records. One of the attributes in this data is called <code>state</code>, that stores two-letter state abbreviations for US states. In addition, the attribute value of state is prefixed with <code>state#</code> and stored under the attribute name <code>GSI_3_PK</code>. The script also created the attribute city_dept which represents a composite attribute using the <code>city</code> and <code>dept</code> attributes delimited by a # between the values. The attribute value uses the format <code>city#dept</code> (for example <code>Seattle#Development</code>). This attribute value is duplicated and stored under the <code>GSI_3_SK</code> key.</p>
 <h4 id="gsi_3">GSI_3</h4>
 <table>
-<thead>
-<tr>
-<th>Attribute Name (Type)</th>
-<th>Special Attribute?</th>
-<th>Attribute Use Case</th>
-<th>Sample Attribute Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GSI_3_PK</code> (STRING)</td>
-<td>GSI_3 partition key</td>
-<td>The state of the employee</td>
-<td><code>state#WA</code></td>
-</tr>
-<tr>
-<td><code>GSI_3_SK</code> (STRING)</td>
-<td>GSI_3 sort key</td>
-<td>The city and department of the employee, concatenated</td>
-<td><code>Seattle#Development</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute Name (Type)</th>
+          <th>Special Attribute?</th>
+          <th>Attribute Use Case</th>
+          <th>Sample Attribute Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>GSI_3_PK</code> (STRING)</td>
+          <td>GSI_3 partition key</td>
+          <td>The state of the employee</td>
+          <td><code>state#WA</code></td>
+      </tr>
+      <tr>
+          <td><code>GSI_3_SK</code> (STRING)</td>
+          <td>GSI_3 sort key</td>
+          <td>The city and department of the employee, concatenated</td>
+          <td><code>Seattle#Development</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Note</strong>: Though you’re making a new global secondary index for this query, you can still overload this global secondary index in the future. Global secondary index overloading gives you the flexibility to put different entity types in the same index (for example, employees and buildings). To support future growth, the <code>GSI_3</code> partition key is suffixed with the entity type, which allows you to insert rows in the same global secondary index later without comingling data.</p>
 
@@ -8074,19 +8075,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801184"></script>
-    <script src="/js/jquery.sticky.js?1733801184"></script>
-    <script src="/js/featherlight.min.js?1733801184"></script>
-    <script src="/js/highlight.pack.js?1733801184"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801184"></script>
-    <script src="/js/learn.js?1733801184"></script>
-    <script src="/js/hugo-learn.js?1733801184"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801184" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801184"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

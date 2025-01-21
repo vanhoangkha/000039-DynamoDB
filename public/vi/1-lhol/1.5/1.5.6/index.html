@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Load DynamoDB Table :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Load DynamoDB Table :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5303,7 +5304,7 @@
 <h2 id="xác-minh-việc-tạo-dms">Xác minh việc tạo DMS</h2>
 <ol>
 <li>Truy cập <a href="https://console.aws.amazon.com/dms/v2/home?region=us-east-1#dashboard">DMS Console</a> và nhấp vào &ldquo;Replication Instances&rdquo;. Bạn sẽ thấy một bản sao nhân bản với Class dms.c5.2xlarge ở trạng thái &ldquo;Available&rdquo;.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/19.jpg"></li>
+<img src="/images/1/1.5/19.jpg" alt="Final Deployment Architecture"></li>
 </ol>
 
 <div class="notices tip" ><p><em>Hãy đảm bảo rằng DMS instance ở trạng thái &ldquo;Available&rdquo; trước khi bạn tiếp tục. Nếu không phải là &ldquo;Available&rdquo;, quay lại bảng điều khiển CloudFormation để xem xét và khắc phục sự cố với CloudFormation stack.</em></p>
@@ -5313,89 +5314,89 @@
 <ol>
 <li>
 <p>Nhấp vào &ldquo;Endpoints&rdquo; và nút &ldquo;Create endpoint&rdquo;.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/20.jpg"></p>
+<img src="/images/1/1.5/20.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Tạo endpoint nguồn. Sử dụng các tham số sau để cấu hình endpoint:</p>
 <table>
-<thead>
-<tr>
-<th>Tham số</th>
-<th>Giá trị</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endpoint type</td>
-<td>Source endpoint</td>
-</tr>
-<tr>
-<td>Endpoint identifier</td>
-<td>mysql-endpoint</td>
-</tr>
-<tr>
-<td>Source engine</td>
-<td>MySQL</td>
-</tr>
-<tr>
-<td>Access to endpoint database</td>
-<td>Chọn radio button &ldquo;Provide access information manually&rdquo;</td>
-</tr>
-<tr>
-<td>Server name</td>
-<td>Từ <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running">EC2 dashboard</a>, chọn MySQL-Instance và sao chép Public IPv4 DNS</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>3306</td>
-</tr>
-<tr>
-<td>SSL mode</td>
-<td>none</td>
-</tr>
-<tr>
-<td>User name</td>
-<td>Giá trị của DbMasterUsername đã thêm làm tham số khi cấu hình môi trường MySQL</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Giá trị của DbMasterPassword đã thêm làm tham số khi cấu hình môi trường MySQL</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Tham số</th>
+          <th>Giá trị</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Endpoint type</td>
+          <td>Source endpoint</td>
+      </tr>
+      <tr>
+          <td>Endpoint identifier</td>
+          <td>mysql-endpoint</td>
+      </tr>
+      <tr>
+          <td>Source engine</td>
+          <td>MySQL</td>
+      </tr>
+      <tr>
+          <td>Access to endpoint database</td>
+          <td>Chọn radio button &ldquo;Provide access information manually&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Server name</td>
+          <td>Từ <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running">EC2 dashboard</a>, chọn MySQL-Instance và sao chép Public IPv4 DNS</td>
+      </tr>
+      <tr>
+          <td>Port</td>
+          <td>3306</td>
+      </tr>
+      <tr>
+          <td>SSL mode</td>
+          <td>none</td>
+      </tr>
+      <tr>
+          <td>User name</td>
+          <td>Giá trị của DbMasterUsername đã thêm làm tham số khi cấu hình môi trường MySQL</td>
+      </tr>
+      <tr>
+          <td>Password</td>
+          <td>Giá trị của DbMasterPassword đã thêm làm tham số khi cấu hình môi trường MySQL</td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/21.jpg"><br>
+<p><img src="/images/1/1.5/21.jpg" alt="Final Deployment Architecture"><br>
 Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong danh sách thả xuống VPC chọn DMS-VPC và nhấp vào nút &ldquo;Run test&rdquo; để xác minh cấu hình endpoint của bạn là hợp lệ. Bài kiểm tra sẽ chạy trong một phút và bạn sẽ thấy một thông báo thành công trong cột Status. Nhấp vào nút &ldquo;Create endpoint&rdquo; để tạo endpoint. Nếu bạn thấy lỗi kết nối, hãy nhập lại tên người dùng và mật khẩu để đảm bảo không có sai sót. Ngoài ra, hãy đảm bảo bạn đã cung cấp tên DNS IPv4 kết thúc bằng amazonaws.com trong trường <strong>Server name</strong>.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/22.jpg"></p>
+<img src="/images/1/1.5/22.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Tạo endpoint đích. Lặp lại tất cả các bước để tạo endpoint đích với các giá trị tham số sau:</p>
 <table>
-<thead>
-<tr>
-<th>Tham số</th>
-<th>Giá trị</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endpoint type</td>
-<td>Target endpoint</td>
-</tr>
-<tr>
-<td>Endpoint identifier</td>
-<td>dynamodb-endpoint</td>
-</tr>
-<tr>
-<td>Target engine</td>
-<td>Amazon DynamoDB</td>
-</tr>
-<tr>
-<td>Service access role ARN</td>
-<td>CloudFormation template đã tạo vai trò mới với toàn quyền truy cập Amazon DynamoDB. Sao chép Role ARN từ vai trò <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/roles/details/dynamodb-access?section=permissions">dynamodb-access</a></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Tham số</th>
+          <th>Giá trị</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Endpoint type</td>
+          <td>Target endpoint</td>
+      </tr>
+      <tr>
+          <td>Endpoint identifier</td>
+          <td>dynamodb-endpoint</td>
+      </tr>
+      <tr>
+          <td>Target engine</td>
+          <td>Amazon DynamoDB</td>
+      </tr>
+      <tr>
+          <td>Service access role ARN</td>
+          <td>CloudFormation template đã tạo vai trò mới với toàn quyền truy cập Amazon DynamoDB. Sao chép Role ARN từ vai trò <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/roles/details/dynamodb-access?section=permissions">dynamodb-access</a></td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/23.jpg"><br>
+<p><img src="/images/1/1.5/23.jpg" alt="Final Deployment Architecture"><br>
 Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong danh sách thả xuống VPC chọn DMS-VPC và nhấp vào nút &ldquo;Run test&rdquo; để xác minh cấu hình endpoint của bạn là hợp lệ. Bài kiểm tra sẽ chạy trong một phút và bạn sẽ thấy một thông báo thành công trong cột Status. Nhấp vào nút &ldquo;Create endpoint&rdquo; để tạo endpoint.</p>
 </li>
 </ol>
@@ -5405,52 +5406,52 @@ Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong da
 <li>
 <p>Tác vụ 1: Nhập các giá trị tham số sau trong màn hình &ldquo;Create database migration task&rdquo;:</p>
 <table>
-<thead>
-<tr>
-<th>Tham số</th>
-<th>Giá trị</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Task identified</td>
-<td>historical-migration01</td>
-</tr>
-<tr>
-<td>Replication instance</td>
-<td>mysqltodynamodb-instance-*</td>
-</tr>
-<tr>
-<td>Source database endpoint</td>
-<td>mysql-endpoint</td>
-</tr>
-<tr>
-<td>Target database endpoint</td>
-<td>dynamodb-endpoint</td>
-</tr>
-<tr>
-<td>Migration type</td>
-<td>Migrate existing data</td>
-</tr>
-<tr>
-<td>Task settings: Editing mode</td>
-<td>Wizard</td>
-</tr>
-<tr>
-<td>Task settings: Target table preparation mode</td>
-<td>Do nothing</td>
-</tr>
-<tr>
-<td>Task settings: Turn on CloudWatch logs</td>
-<td>Checked</td>
-</tr>
-<tr>
-<td>Table mappings: Editing mode</td>
-<td>Chọn tùy chọn &ldquo;JSON editor&rdquo; và làm theo hướng dẫn sau các ảnh chụp màn hình bên dưới</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Tham số</th>
+          <th>Giá trị</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Task identified</td>
+          <td>historical-migration01</td>
+      </tr>
+      <tr>
+          <td>Replication instance</td>
+          <td>mysqltodynamodb-instance-*</td>
+      </tr>
+      <tr>
+          <td>Source database endpoint</td>
+          <td>mysql-endpoint</td>
+      </tr>
+      <tr>
+          <td>Target database endpoint</td>
+          <td>dynamodb-endpoint</td>
+      </tr>
+      <tr>
+          <td>Migration type</td>
+          <td>Migrate existing data</td>
+      </tr>
+      <tr>
+          <td>Task settings: Editing mode</td>
+          <td>Wizard</td>
+      </tr>
+      <tr>
+          <td>Task settings: Target table preparation mode</td>
+          <td>Do nothing</td>
+      </tr>
+      <tr>
+          <td>Task settings: Turn on CloudWatch logs</td>
+          <td>Checked</td>
+      </tr>
+      <tr>
+          <td>Table mappings: Editing mode</td>
+          <td>Chọn tùy chọn &ldquo;JSON editor&rdquo; và làm theo hướng dẫn sau các ảnh chụp màn hình bên dưới</td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/24.jpg"> <img alt="Final Deployment Architecture" src="/images/1/1.5/25.jpg"></p>
+<p><img src="/images/1/1.5/24.jpg" alt="Final Deployment Architecture"> <img src="/images/1/1.5/25.jpg" alt="Final Deployment Architecture"></p>
 </li>
 </ol>
 <p>Mở phần &ldquo;JSON editor&rdquo; trong trình duyệt của bạn. Trong phần này, chúng ta sẽ tạo tài liệu JSON cho &ldquo;Table mappings&rdquo; để thay thế những gì bạn thấy trong &ldquo;JSON editor&rdquo;. Tài liệu này bao gồm việc ánh xạ từ nguồn sang đích bao gồm bất kỳ chuyển đổi nào trên các bản ghi sẽ được thực hiện trong quá trình di chuyển. Để giảm thời gian tải trong Immersion Day, chúng tôi đã giới hạn danh sách di chuyển đến các bộ phim đã chọn lọc. Dưới đây là tài liệu JSON với danh sách 28 bộ phim do Clint Eastwood tham gia. Các bài tập còn lại sẽ chỉ tập trung vào những bộ phim này. Tuy nhiên, bạn có thể tải dữ liệu còn lại nếu muốn khám phá thêm. Một số thống kê xung quanh bộ dữ liệu đầy đủ được đưa ra ở cuối chương này.</p>
@@ -5611,7 +5612,7 @@ Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong da
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  ]
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/26.png"> Đi tới cuối trang và nhấp vào &ldquo;Create task&rdquo;. Lúc này, tác vụ sẽ được tạo và tự động bắt đầu tải các bộ phim đã chọn từ nguồn sang bảng DynamoDB đích. Bạn có thể tiến hành và tạo thêm hai tác vụ với các bước tương tự (historical-migration02 và historical-migration03). Sử dụng cùng cài đặt như trên ngoại trừ tài liệu JSON &ldquo;Table Mappings&rdquo;. Đối với các tác vụ historical-migration02 và historical-migration03, hãy sử dụng tài liệu JSON được đề cập bên dưới.</p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/26.png" alt="Final Deployment Architecture"> Đi tới cuối trang và nhấp vào &ldquo;Create task&rdquo;. Lúc này, tác vụ sẽ được tạo và tự động bắt đầu tải các bộ phim đã chọn từ nguồn sang bảng DynamoDB đích. Bạn có thể tiến hành và tạo thêm hai tác vụ với các bước tương tự (historical-migration02 và historical-migration03). Sử dụng cùng cài đặt như trên ngoại trừ tài liệu JSON &ldquo;Table Mappings&rdquo;. Đối với các tác vụ historical-migration02 và historical-migration03, hãy sử dụng tài liệu JSON được đề cập bên dưới.</p>
 <p>Dưới đây là tài liệu JSON sẽ di chuyển bảng <code>title_akas</code> từ cơ sở dữ liệu MySQL IMDb (Task identified: historical-migration02). Thay thế chuỗi &ldquo;REPLACE THIS STRING BY MOVIES LIST&rdquo; bằng danh sách các bộ phim đã sao chép trước đó.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rules&#34;</span>: [
@@ -5736,7 +5737,7 @@ Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong da
 <li>Tác vụ <code>historical-migration03</code> sẽ di chuyển hơn 79K bản ghi và thường mất 10-15 phút.</li>
 </ul>
 <p>Bạn có thể theo dõi trạng thái tải dữ liệu dưới phần &ldquo;Table statistics&rdquo; của tác vụ di chuyển. Khi quá trình tải đang tiến hành, hãy thoải mái chuyển sang phần tiếp theo của bài tập.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/27.jpg"></p>
+<img src="/images/1/1.5/27.jpg" alt="Final Deployment Architecture"></p>
 
 <div class="notices tip" ><p><em>Hãy đảm bảo tất cả các tác vụ đang chạy hoặc đã hoàn tất trước khi bạn tiếp tục. Nếu một tác vụ ở trạng thái &ldquo;Ready&rdquo;, hãy chọn hộp kiểm của nó và chọn &ldquo;Restart/Resume&rdquo; dưới nút &ldquo;Actions&rdquo; để bắt đầu tác vụ.</em></p>
 </div>
@@ -8498,19 +8499,19 @@ Mở phần &ldquo;Test endpoint connection (optional)&rdquo;, sau đó trong da
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

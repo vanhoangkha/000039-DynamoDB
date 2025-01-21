@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Exercise 3: Global Secondary Index Write Sharding :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Exercise 3: Global Secondary Index Write Sharding :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450734" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450734" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450734" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450734" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450734" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450734" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450734" rel="stylesheet">
+    <link href="/css/theme.css?1737450734" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450734" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450734" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450734"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450734"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450734"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450734"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5285,7 +5286,7 @@
 	<p>Khóa chính của một bảng DynamoDB hoặc một chỉ mục phụ toàn cầu bao gồm một khóa phân vùng và một khóa sắp xếp tùy chọn. Cách bạn thiết kế nội dung của các khóa này rất quan trọng đối với cấu trúc và hiệu suất của cơ sở dữ liệu. Các giá trị khóa phân vùng xác định các phân vùng logic mà dữ liệu của bạn được lưu trữ. Do đó, việc chọn một giá trị khóa phân vùng phân phối đồng đều khối lượng công việc trên tất cả các phân vùng trong bảng hoặc chỉ mục phụ toàn cầu là rất quan trọng. Để thảo luận về cách chọn khóa phân vùng phù hợp, hãy xem bài viết trên blog của chúng tôi có tiêu đề <a href="https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/">Choosing the Right DynamoDB Partition Key</a>.</p>
 <p>Trong bài tập này, bạn sẽ tìm hiểu về phương pháp ghi phân mảnh (write sharding) trên chỉ mục phụ toàn cầu, đây là một mẫu thiết kế hiệu quả để truy vấn chọn lọc các mục được phân tán trên các phân vùng logic khác nhau trong một bảng rất lớn. Hãy xem lại ví dụ nhật ký truy cập máy chủ từ [Bài tập 1]{href=&quot;/design-patterns/ex1capacity&quot;}, dựa trên nhật ký truy cập dịch vụ Apache. Lần này, bạn sẽ truy vấn các mục có mã phản hồi <code>4xx</code>. Lưu ý rằng các mục có mã phản hồi <code>4xx</code> chiếm một tỷ lệ rất nhỏ trong tổng số dữ liệu và không có sự phân bố đồng đều theo mã phản hồi. Ví dụ, mã phản hồi <code>200 OK</code> có nhiều bản ghi hơn các mã khác, điều này là mong đợi cho bất kỳ ứng dụng web nào.</p>
 <p>Biểu đồ sau đây cho thấy sự phân bố của các bản ghi nhật ký theo mã phản hồi cho tệp mẫu, <code>logfile_medium1.csv</code>.</p>
-<p><img alt="Bản ghi nhật ký theo mã phản hồi" src="/images/3/3.4/1.jpg"></p>
+<p><img src="/images/3/3.4/1.jpg" alt="Bản ghi nhật ký theo mã phản hồi"></p>
 <p>Bạn sẽ tạo một chỉ mục phụ toàn cầu ghi phân mảnh trên một bảng để ngẫu nhiên hóa các lượt ghi trên nhiều giá trị khóa phân vùng logic. Việc này sẽ tăng thông lượng ghi và đọc của ứng dụng. Để áp dụng mẫu thiết kế này, bạn có thể tạo một số ngẫu nhiên từ một tập cố định (ví dụ: 1 đến 10) và sử dụng số này làm khóa phân vùng logic cho chỉ mục phụ toàn cầu. Vì bạn đang ngẫu nhiên hóa khóa phân vùng, các lượt ghi vào bảng sẽ được phân phối đồng đều trên tất cả các giá trị khóa phân vùng, không phụ thuộc vào bất kỳ thuộc tính nào. Điều này sẽ mang lại khả năng song song tốt hơn và thông lượng tổng thể cao hơn. Ngoài ra, nếu ứng dụng cần truy vấn các bản ghi nhật ký theo một mã phản hồi cụ thể vào một ngày cụ thể, bạn có thể tạo một khóa sắp xếp tổng hợp bằng cách kết hợp mã phản hồi và ngày.</p>
 <p>Trong bài tập này, bạn sẽ tạo một chỉ mục phụ toàn cầu sử dụng các giá trị ngẫu nhiên cho khóa phân vùng và khóa tổng hợp <code>responsecode#date#hourofday</code> làm khóa sắp xếp. Bảng <code>logfile_scan</code> mà bạn đã tạo và nạp dữ liệu trong giai đoạn chuẩn bị của workshop đã có hai thuộc tính này. Nếu bạn chưa hoàn thành các bước thiết lập, hãy quay lại <a href="https://catalog.workshops.aws/dynamodb-labs/en-US/design-patterns/setup/Step6">Thiết lập - Bước 6</a> và hoàn thành bước này. Các thuộc tính này đã được tạo bằng đoạn mã sau:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>SHARDS <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
@@ -8047,19 +8048,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450734"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450734"></script>
+    <script src="/js/jquery.sticky.js?1737450734"></script>
+    <script src="/js/featherlight.min.js?1737450734"></script>
+    <script src="/js/highlight.pack.js?1737450734"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450734"></script>
+    <script src="/js/learn.js?1737450734"></script>
+    <script src="/js/hugo-learn.js?1737450734"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450734" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450734"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

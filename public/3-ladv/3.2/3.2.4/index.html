@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Step 4 - View the CloudWatch metrics on your table :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Step 4 - View the CloudWatch metrics on your table :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5295,14 +5296,14 @@
 </li>
 <li>
 <p>As shown in the following image, in the navigation pane, choose Tables. Choose the logfile table, and in the right pane, choose the Metrics tab</p>
-<p><img alt="Open the CloudWatch metrics for the table" src="/images/3/3.2/1.png"></p>
+<p><img src="/images/3/3.2/1.png" alt="Open the CloudWatch metrics for the table"></p>
 </li>
 </ol>
 <p>The CloudWatch metrics will look like what you see in the following image.</p>
-<p><img alt="The Cloud Watch metrics for the base table" src="/images/3/3.2/2.png"></p>
+<p><img src="/images/3/3.2/2.png" alt="The Cloud Watch metrics for the base table"></p>
 <p>You might not see provisioned capacity data in your read or write capacity graphs, which are displayed as red lines. It takes time for DynamoDB to generate provisioned capacity CloudWatch metrics, especially for new tables.</p>
 <p>The CloudWatch metrics will look like what you see in the following image for the global secondary index.</p>
-<p><img alt="The Cloud Watch metrics for the GSI" src="/images/3/3.2/3.png"></p>
+<p><img src="/images/3/3.2/3.png" alt="The Cloud Watch metrics for the GSI"></p>
 <p><strong>You might be wondering:</strong> Why are there throttling events on the table but not on the global secondary index? The reason is a base table receives the writes immediately and consumes write capacity doing so, whereas a global secondary index&rsquo;s capacity is consumed asynchronously some time after the initial write to the base table succeeds. In order for this system to work inside the DynamoDB service, there is a buffer between a given base DynamoDB table and a global secondary index (GSI). A base table will quickly surface a throttle if capacity is exhausted, whereas only an imbalance over an extended period of time on a GSI will cause the buffer to fill, thereby generating a throttle. In short, a GSI is more forgiving in the case of an imbalanced access pattern.</p>
 <p>Continue this exercise to see what happens when you add more write capacity to the base DynamoDB table.</p>
 
@@ -8065,19 +8066,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801184"></script>
-    <script src="/js/jquery.sticky.js?1733801184"></script>
-    <script src="/js/featherlight.min.js?1733801184"></script>
-    <script src="/js/highlight.pack.js?1733801184"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801184"></script>
-    <script src="/js/learn.js?1733801184"></script>
-    <script src="/js/hugo-learn.js?1733801184"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801184" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801184"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

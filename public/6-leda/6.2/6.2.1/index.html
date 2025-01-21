@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Optional - Pipeline Deep Dive :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Optional - Pipeline Deep Dive :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450732" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450732" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450732" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450732" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450732" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450732" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450732" rel="stylesheet">
+    <link href="/css/theme.css?1737450732" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450732" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450732" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450732"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450732"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450732"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450732"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5303,7 +5304,7 @@
 </div>
 
 <p>This section explains in detail how the pipeline works from end-to-end. For a simplified explanation refer to the figure below where we have divided the pipeline into three stages. For each stage we outline the input and the output of the stage.</p>
-<p><img alt="DD Stages" src="/images/6/6.2/2.png"></p>
+<p><img src="/images/6/6.2/2.png" alt="DD Stages"></p>
 <h2 id="stage-1-state">Stage 1: &lsquo;State&rsquo;</h2>
 <p>The business problem of near real-time data aggregation is faced by customers in various industries such as manufacturing, retail, gaming, utilities, and financial services. In this workshop we focus on the banking industry, and specifically on the problem of near real-time trade risk aggregation. Typically, financial institutions associate every trade that is performed on the trading floor with a risk value, and the risk management division of the bank needs a consistent view of the total risk values aggregated over all trades. In this workshop we use the following structure for risk messages:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -5323,7 +5324,7 @@
 <li><code>Hierarchy</code>: A list of attributes associated with this trade. To expand, this includes the type of risk, the region where the trade took place, and the type of the trading desk that performed the trade. These attributes will be used to group trades and aggregate the data.</li>
 </ul>
 <p>Consider an example where five risk messages are ingested in the pipeline, as represented in the following figure. For visibility we labeled each message with an identifier from M1 to M5. Each message has a unique <code>TradeID</code>, a risk <code>Value</code>, and a group of hierarchy attributes (as explained above). For simplicity, all messages have the <code>RiskType</code> <code>&quot;Delta&quot;</code> and the <code>Version</code> attribute is always set to <code>1</code>.</p>
-<p><img alt="DD Part1" src="/images/6/6.2/3.png"></p>
+<p><img src="/images/6/6.2/3.png" alt="DD Part1"></p>
 <p>The pipeline is event driven by an upstream data source that writes records into a Kinesis Data Stream, and the <code>StateLambda</code> function is invoked to process these messages further.</p>
 <p>As the rate of message arrival can be very high, multiple <code>StateLambda</code> functions will be invoked concurrently. This means that many simultaneous instances of the <code>StateLambda</code> function will run, each processing a subset of records. To learn more about Lambda function scaling, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html">AWS Lambda function scaling documentation page</a>  which explains the concept of a Lambda instance. The example above shows the invocation of two <code>StateLambda</code> function instances labeled as #1 and #2. Instance #1 processes messages M1 and M2, while instance #2 processes messages M3, M4, and M5.</p>
 <p>The responsibility of the <code>StateLambda</code> function is to preserve all incoming messages by writing them to the DynamoDB <code>StateTable</code>, and furthermore to ensure exactly once processing by keeping track of the unique ID of every that was processed at this stage. In this example both <code>StateLambda</code> functions write their respective messages into the DynamoDB <code>StateTable</code>. The <code>StateTable</code> at the bottom of the figure stores incoming risk messages without significant modifications.</p>
@@ -5331,7 +5332,7 @@
 <p>In Stage 2, all rows written into the <code>StateTable</code> are sent to the <code>MapLambda</code> for further processing by an event source mapping that connects the function to the DynamoDB stream of the <code>StateTable</code>. DynamoDB Streams ensure that every item change appears exactly once, and that all changes to a given item appear in the stream shards in the order they are written. However, multiple <code>StateLambda</code> functions write to different keys in the <code>StateTable</code>, and as a result the Stream records in the table&rsquo;s stream might be in a different order than the order in which they were ingested in Stage 1.</p>
 <p>In order to handle a high volume of incoming messages, multiple <code>MapLambda</code> instances are invoked to process messages from the <code>StateTable</code> DynamoDB stream, similar to Stage 1. In this example, <code>MapLambda</code> #1 takes messages M4, M3, and M1 while <code>MapLambda</code> #2 processes messages M5 and M2.</p>
 <p>The responsibility of the <code>MapLambda</code> is to perform initial pre-aggregation of the messages, or more specifically to perform arithmetic summation based on the message attributes. The pre-aggregated output of each <code>MapLambda</code> function is written into the <code>ReduceTable</code> as a single row, as seen in &ldquo;Output state of the <code>ReduceTable</code>&rdquo; in the above figure. For simplicity, we refer to these rows as AM1 and AM2.</p>
-<p><img alt="DD Part2" src="/images/6/6.2/4.png"></p>
+<p><img src="/images/6/6.2/4.png" alt="DD Part2"></p>
 <h3 id="how-does-the-pre-aggregation-work">How does the pre-aggregation work?</h3>
 <p>Consider the second row, AM2, which combines messages M2 and M5. Based on the message attributes, the M2 message belongs to <code>Delta::EMEA::FXSpot</code>, while M5 message belongs to <code>Delta::AMER::FXSpot</code>. The common &ldquo;denominator&rdquo; for these trades is that both of them belong to the risk type <code>Delta</code>. Therefore, the <code>Delta</code> attribute in the <code>ReduceTable</code> is a sum of both messages, expressed as <code>100 + 20 = 120</code>. Below are the messages M2 and M5 in JSON format for reference.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>
@@ -5350,7 +5351,7 @@
 </ol>
 <p>Note: there is only one instance of the <code>ReduceLambda</code> function, which is achieved by setting the reserved concurrency to 1. This is desired to avoid a potential write conflict while updating the <code>AggregateTable</code>. From a performance point of view, a single Lambda function instance can handle aggregation of the entire pipeline because incoming messages are already pre-aggregated by the <code>MapLambda</code> functions.</p>
 <p>The final output in the <code>AggregateTable</code> closely resembles the <code>Hierarchy</code> attribute elements, and can be easily read and displayed by a front-end!</p>
-<p><img alt="DD Part3" src="/images/6/6.2/4.png"></p>
+<p><img src="/images/6/6.2/4.png" alt="DD Part3"></p>
 <p>Continue on to: <a href="https://catalog.workshops.aws/dynamodb-labs/en-US/event-driven-architecture/ex2pipeline">Connect the Pipeline</a></p>
 
 
@@ -8109,19 +8110,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801185"></script>
-    <script src="/js/jquery.sticky.js?1733801185"></script>
-    <script src="/js/featherlight.min.js?1733801185"></script>
-    <script src="/js/highlight.pack.js?1733801185"></script>
+    <script src="/js/clipboard.min.js?1737450732"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450732"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450732"></script>
+    <script src="/js/jquery.sticky.js?1737450732"></script>
+    <script src="/js/featherlight.min.js?1737450732"></script>
+    <script src="/js/highlight.pack.js?1737450732"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801185"></script>
-    <script src="/js/learn.js?1733801185"></script>
-    <script src="/js/hugo-learn.js?1733801185"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450732"></script>
+    <script src="/js/learn.js?1737450732"></script>
+    <script src="/js/hugo-learn.js?1737450732"></script>
 
-    <link href="/mermaid/mermaid.css?1733801185" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801185"></script>
+    <link href="/mermaid/mermaid.css?1737450732" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450732"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Configure MySQL Environment :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Configure MySQL Environment :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5290,17 +5291,17 @@
 
 	<p>This chapter will create source environment on AWS as discussed during Exercise Overview. The CloudFormation template used below will create Source VPC, EC2 hosting MySQL server, IMDb database and load IMDb public dataset into 6 tables.</p>
 <ol>
-<li>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=rdbmsmigration&templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml"><img alt="CloudFormation" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png"></a>
+<li>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=rdbmsmigration&amp;templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml"><img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png" alt="CloudFormation"></a>
 <ol>
 <li><em>Optionally, download <a href="https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml">the YAML template</a>  and launch it your own way</em></li>
 </ol>
 </li>
 <li>Click Next</li>
-<li>Confirm the Stack Name <em>rdbmsmigration</em> and update parameters if necessary (leave the default options if at all possible) <img alt="Final Deployment Architecture" src="/images/1/1.5/2.jpg"></li>
+<li>Confirm the Stack Name <em>rdbmsmigration</em> and update parameters if necessary (leave the default options if at all possible) <img src="/images/1/1.5/2.jpg" alt="Final Deployment Architecture"></li>
 <li>Click “Next” twice then check “I acknowledge that AWS CloudFormation might create IAM resources with custom names.”</li>
 <li>Click &ldquo;Submit&rdquo;</li>
-<li>The CloudFormation stack will take about 5 minutes to build the environment <img alt="Final Deployment Architecture" src="/images/1/1.5/3.jpg"></li>
-<li>Go to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:">EC2 Dashboard</a>  and ensure the Status check column is 2/2 checks passed before moving to the next step. <img alt="Final Deployment Architecture" src="/images/1/1.5/4.jpg"></li>
+<li>The CloudFormation stack will take about 5 minutes to build the environment <img src="/images/1/1.5/3.jpg" alt="Final Deployment Architecture"></li>
+<li>Go to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:">EC2 Dashboard</a>  and ensure the Status check column is 2/2 checks passed before moving to the next step. <img src="/images/1/1.5/4.jpg" alt="Final Deployment Architecture"></li>
 </ol>
 
 <div class="notices tip" ><p>Do not continue unless the MySQL instance is passing both health checks, 2/2.</p>
@@ -8063,19 +8064,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801184"></script>
-    <script src="/js/jquery.sticky.js?1733801184"></script>
-    <script src="/js/featherlight.min.js?1733801184"></script>
-    <script src="/js/highlight.pack.js?1733801184"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801184"></script>
-    <script src="/js/learn.js?1733801184"></script>
-    <script src="/js/hugo-learn.js?1733801184"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801184" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801184"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

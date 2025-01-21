@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Add users to a game :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Add users to a game :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801185" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801185" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801185" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801185" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801185" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801185" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801185" rel="stylesheet">
-    <link href="/css/theme.css?1733801185" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801185" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801185" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801185"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801185"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801185"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801185"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5351,7 +5352,7 @@
 <p>In the transaction’s first operation, you use a <code>Put</code> operation to insert a new <code>UserGameMapping</code> entity. As part of that operation, you specify a condition that the <code>SK</code> attribute should not exist for this entity. This ensures that an entity with this <code>PK</code> and <code>SK</code> doesn’t already exist. If such an entity did already exist, that would mean this user already joined the game.</p>
 <p>The second operation is an <code>Update</code> operation on the <code>Game</code> entity to increment the <code>people</code> attribute by one. As part of this operation, you add a conditional check that the current value of <code>people</code> is not greater than 50. As soon as 50 people join a game, the game is full and ready to begin.</p>
 <p>Before we add <code>vlopez</code> to the game, we can verify the current number of users already in the game by querying the sparse GSI we made. In the AWS DynamoDB console choose <code>Explore items</code> on the left and filter for the table named <code>Battle Royale</code>. Choose <strong>Query</strong> and then select the GSI named <strong>OpenGamesIndex</strong> from the dropdown. Specify <code>Urban Underground</code> as the value for the <code>map (Partition Key)</code> and click the orange <strong>Run</strong> button. You should see a single item returned with a vale of 49 for the <code>people</code> attribute.</p>
-<p><img alt="Query a sparse GSI index from the DynamoDB console" src="/images/7/7.5/1.png"></p>
+<p><img src="/images/7/7.5/1.png" alt="Query a sparse GSI index from the DynamoDB console"></p>
 
 <div class="notices tip" ><p>You can choose to run either the <code>join_game.py</code> python script or the AWS CLI command below. Both are provided to show different methods of interacting with DynamoDB.</p>
 </div>
@@ -8155,19 +8156,19 @@ Run the following command to add user <code>ebarton</code> to a game using the
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801185"></script>
-    <script src="/js/jquery.sticky.js?1733801185"></script>
-    <script src="/js/featherlight.min.js?1733801185"></script>
-    <script src="/js/highlight.pack.js?1733801185"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801185"></script>
-    <script src="/js/learn.js?1733801185"></script>
-    <script src="/js/hugo-learn.js?1733801185"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801185" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801185"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Explore Source Model :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Explore Source Model :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5295,15 +5296,15 @@
 <p>Go to <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running">EC2 console</a> </p>
 </li>
 <li>
-<p>Select the MySQL-Instance and click Connect <img alt="Final Deployment Architecture" src="/images/1/1.5/7.jpg"></p>
+<p>Select the MySQL-Instance and click Connect <img src="/images/1/1.5/7.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
-<p>Make sure ec2-user is filled under the User name field. Click Connect <img alt="Final Deployment Architecture" src="/images/1/1.5/8.jpg"></p>
+<p>Make sure ec2-user is filled under the User name field. Click Connect <img src="/images/1/1.5/8.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Elevate your privilege using sudo command</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  sudo su
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/9.jpg"></p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/9.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Go to the file directory</p>
@@ -5311,24 +5312,24 @@
 </span></span><span style="display:flex;"><span>  ls -lrt
 </span></span></code></pre></div></li>
 <li>
-<p>You can see all the 6 files copied from the IMDB dataset to the local EC2 directory <img alt="Final Deployment Architecture" src="/images/1/1.5/10.jpg"></p>
+<p>You can see all the 6 files copied from the IMDB dataset to the local EC2 directory <img src="/images/1/1.5/10.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Feel free to explore the files.</p>
 </li>
 <li>
-<p>Go to AWS CloudFormation <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringStatus=active&filteringText=&viewNested=true&hideStacks=false">Stacks</a>  and click on the stack you created earlier. Go to the Parameters tab and copy the user name and password mentioned next to DbMasterUsername &amp; DbMasterPassword <img alt="Final Deployment Architecture" src="/images/1/1.5/11.jpg"></p>
+<p>Go to AWS CloudFormation <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringStatus=active&amp;filteringText=&amp;viewNested=true&amp;hideStacks=false">Stacks</a>  and click on the stack you created earlier. Go to the Parameters tab and copy the user name and password mentioned next to DbMasterUsername &amp; DbMasterPassword <img src="/images/1/1.5/11.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Go back to EC2 Instance console and login to mysql</p>
 </li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -u DbMasterUsername -pDbMasterPassword
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/12.jpg"> 10. Congratulations! You are now connected to a self-managed MySQL source database on EC2. In next steps, we will explore database and tables hosting IMDb datasets</p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/12.jpg" alt="Final Deployment Architecture"> 10. Congratulations! You are now connected to a self-managed MySQL source database on EC2. In next steps, we will explore database and tables hosting IMDb datasets</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>use imdb;
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/13.jpg"> 11. Show all the tables created;</p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/13.jpg" alt="Final Deployment Architecture"> 11. Show all the tables created;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>show tables;
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/14.jpg"></p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/14.jpg" alt="Final Deployment Architecture"></p>
 <p>For illustration purpose, below is a logical diagram represents relationship between various source tables hosting IMDb dataset.</p>
 <ul>
 <li><code>title_basics</code> table has movies published in US after year 2000. <code>tconst</code> is an alphanumeric key uniquely assigned to each movie.</li>
@@ -5336,7 +5337,7 @@
 <li><code>title_ratings</code> has movies rating and vote count. For this exercise, we can assume the information has high frequency update post movie release. It&rsquo;s 1:1 related with <code>title_basics</code> table</li>
 <li><code>title_principals</code> has cast and crew information. It&rsquo;s 1:many relationship with <code>title_basics</code> table.</li>
 <li><code>title_crew</code> has writer and director information. The table is 1:1 related with <code>title_basics</code> table.</li>
-<li><code>name_basics</code> has cast and crew details. Every member has unique <code>nconst</code> value assigned. <img alt="Final Deployment Architecture" src="/images/1/1.5/15.jpg"></li>
+<li><code>name_basics</code> has cast and crew details. Every member has unique <code>nconst</code> value assigned. <img src="/images/1/1.5/15.jpg" alt="Final Deployment Architecture"></li>
 </ul>
 <ol start="12">
 <li>We will create denormalized view with 1:1 static information and get it ready for migration to Amazon DynamoDB table. For now, go ahead and copy below code and paste into the MySQL command line. The details around target data model will be discussed in the next chapter.</li>
@@ -8125,19 +8126,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

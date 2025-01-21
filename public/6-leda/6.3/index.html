@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Lab 1: Connect the pipeline :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Lab 1: Connect the pipeline :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450732" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450732" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450732" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450732" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450732" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450732" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450732" rel="stylesheet">
+    <link href="/css/theme.css?1737450732" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450732" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450732" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450732"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450732"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450732"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450732"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5298,7 +5299,7 @@
 <h3 id="amazon-dynamodb">Amazon DynamoDB</h3>
 <p>Amazon DynamoDB is a massive horizontally scaled NoSQL database designed for single-digit-millisecond latency with virtually no limits in scale, either in throughput or in storage. DynamoDB offers built-in security, continuous backups, automated multi-region replication, in-memory caching, and data export tools.</p>
 <p>This diagram shows the features and integrations for DynamoDB:</p>
-<p><img alt="DynamoDB ecosystem" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/event-driven-architecture/lab1/dynamodb-ecosystem.png"> If you want to learn more <a href="https://aws.amazon.com/dynamodb/features/">you can review the DynamoDB&rsquo;s features page on aws.amazon.com</a> </p>
+<p><img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/event-driven-architecture/lab1/dynamodb-ecosystem.png" alt="DynamoDB ecosystem"> If you want to learn more <a href="https://aws.amazon.com/dynamodb/features/">you can review the DynamoDB&rsquo;s features page on aws.amazon.com</a> </p>
 <h3 id="dynamodb-streams">DynamoDB Streams</h3>
 <p>DynamoDB Streams provides an ordered set of changes from your DynamoDB table for up to 24 hours after items are written. It is a change data capture (CDC) service, and once you enable the stream on your table changes begin to flow into the stream. DynamoDB item mutations appear exactly once in the stream, and the mutation usually includes the old and new copy of the item but you can choose to have one or the other, or to only have the item keys. The service is durable and highly available. While similar in name to Kinesis Data Streams, DynamoDB Streams has a completely different roadmap, engineering team, and server fleet.</p>
 <p>A DynamoDB <code>stream</code> is made of many shards. A <code>shard</code> contains a time-ordered list of changes from one <code>DynamoDB partition</code>. The item changes are put into the shard as <code>stream records</code>. Let&rsquo;s unpack these terms:</p>
@@ -8083,19 +8084,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801185"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801185"></script>
-    <script src="/js/jquery.sticky.js?1733801185"></script>
-    <script src="/js/featherlight.min.js?1733801185"></script>
-    <script src="/js/highlight.pack.js?1733801185"></script>
+    <script src="/js/clipboard.min.js?1737450732"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450732"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450732"></script>
+    <script src="/js/jquery.sticky.js?1737450732"></script>
+    <script src="/js/featherlight.min.js?1737450732"></script>
+    <script src="/js/highlight.pack.js?1737450732"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801185"></script>
-    <script src="/js/learn.js?1733801185"></script>
-    <script src="/js/hugo-learn.js?1733801185"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450732"></script>
+    <script src="/js/learn.js?1737450732"></script>
+    <script src="/js/hugo-learn.js?1737450732"></script>
 
-    <link href="/mermaid/mermaid.css?1733801185" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801185"></script>
+    <link href="/mermaid/mermaid.css?1737450732" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450732"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

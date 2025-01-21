@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Reading Item Collections using Query :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Reading Item Collections using Query :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5296,16 +5297,16 @@
 </ul>
 <p>The Key Condition Expression will define the number of RRUs or RCUs that are consumed by our Query. DynamoDB will add up the size of all the rows matched by the Key Condition Expression, then divide that total size by 4KB to calculate the consumed capacity (and then it will divide that number in half if you&rsquo;re using an eventually consistent read).</p>
 <p>We can optionally also specify a <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.FilterExpression">Filter Expression</a>  for our Query. If we were comparing this to SQL, we would say &ldquo;this is the part of the WHERE clause that acts on the non-Key attributes&rdquo;. Filter Expressions act to remove some items from the Result Set returned by the Query, <strong>but they do not affect the consumed capacity of the Query</strong>. If your Key Condition Expression matches 1,000,000 items and your FilterExpression reduces the result set down to 100 items, you will still be charged to read all 1,000,000 items. But the Filter Expression reduces the amount of data returned from the network connection so there is still a benefit to our application in using Filter Expressions even if it doesn&rsquo;t affect the price of the Query.</p>
-<p>The ProductCatalog table we used in the previous examples only has a Partition Key so let&rsquo;s look at the data in the <strong>Reply</strong> table which has both a Partition Key and a Sort Key. Select the left menu bar <strong>Explore items</strong> under Tables. <img alt="Console Menu Item Explorer" src="/images/1/1.3/5.png"> You may need to click the hamburger menu icon to expand the left menu if its hidden. <img alt="Console Menu Hamburger Icon" src="/images/1/1.3/6.png"></p>
+<p>The ProductCatalog table we used in the previous examples only has a Partition Key so let&rsquo;s look at the data in the <strong>Reply</strong> table which has both a Partition Key and a Sort Key. Select the left menu bar <strong>Explore items</strong> under Tables. <img src="/images/1/1.3/5.png" alt="Console Menu Item Explorer"> You may need to click the hamburger menu icon to expand the left menu if its hidden. <img src="/images/1/1.3/6.png" alt="Console Menu Hamburger Icon"></p>
 <p>Once you enter the Explore Items you need to select the <strong>Reply</strong> table and then expand the Scan/Query items box.</p>
-<p><img alt="Item Explorer Expand Tables" src="/images/1/1.3/7.png"></p>
+<p><img src="/images/1/1.3/7.png" alt="Item Explorer Expand Tables"></p>
 <p>Data in this table has an Id attribute which references items in the Thread table. Our data has two threads, and each thread has 2 replies. Let&rsquo;s use the <em>Query</em> functionality to read just the items from thread 1 by pasting <code>Amazon DynamoDB#DynamoDB Thread 1</code> into the <em>Id (Partition key)</em> box and then clicking <strong>Run</strong>.</p>
 <p>We can see that there are two Reply items in the <code>DynamoDB Thread 1</code> thread.</p>
-<p><img alt="Item Explorer Query Reply 1" src="/images/1/1.3/8.png"></p>
+<p><img src="/images/1/1.3/8.png" alt="Item Explorer Query Reply 1"></p>
 <p>Since the Sort Key in this table is a timestamp, we could specify a Key Condition Expression to return only the replies in a thread that were posted after a certain time by adding a sort key condition where <code>ReplyDateTime</code> is More than <code>2015-09-21</code> and clicking <strong>Run</strong>.</p>
-<p><img alt="Item Explorer Query Reply 2" src="/images/1/1.3/9.png"></p>
+<p><img src="/images/1/1.3/9.png" alt="Item Explorer Query Reply 2"></p>
 <p>Remember we can use Filter Expressions if we want to limit our results based on non-key attributes. For example, we could find all the replies in Thread 1 that were posted by User B. Clear the sort key condition, and click <strong>Add filter</strong> then use <code>PostedBy</code> for the Attribute name, Condition <code>Equals</code> and Value <code>User B</code>, then click <strong>Run</strong>.</p>
-<p><img alt="Item Explorer Query Reply 3" src="/images/1/1.3/10.png"></p>
+<p><img src="/images/1/1.3/10.png" alt="Item Explorer Query Reply 3"></p>
 
 
 
@@ -8063,19 +8064,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

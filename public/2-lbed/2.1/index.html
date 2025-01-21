@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Getting Started :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Getting Started :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5307,7 +5308,7 @@
 
 <ol>
 <li>
-<p>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=DynamoDBID&templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/C9.yaml"><img alt="CloudFormation" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png"></a><br>
+<p>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=DynamoDBID&amp;templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/C9.yaml"><img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png" alt="CloudFormation"></a><br>
 <em>Optionally, download <a href="https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/C9.yaml">the YAML template</a>  and launch it your own way</em></p>
 </li>
 <li>
@@ -5318,11 +5319,11 @@
 Leave the <em>WorkshopZIP</em> parameter unchanged and click <em>Next</em></p>
 </li>
 </ol>
-<p><img alt="CloudFormation parameters" src="/images/2/2.1/2.png"></p>
+<p><img src="/images/2/2.1/2.png" alt="CloudFormation parameters"></p>
 <ol>
 <li>Scroll to the bottom and click <em>Next</em>, and then review the <em>Template</em> and <em>Parameters</em>. When you are ready to create the stack, scroll to the bottom, check the box acknowledging the creation of IAM resources, and click <em>Submit</em>.</li>
 </ol>
-<p><img alt="Acknowledge IAM role capabilities" src="/images/2/2.1/3.png"> The stack will create a Cloud9 lab instance, a role for the instance, and a role for the AWS Lambda function used later on in the lab. It will use Systems Manager to configure the Cloud9 instance.</p>
+<p><img src="/images/2/2.1/3.png" alt="Acknowledge IAM role capabilities"> The stack will create a Cloud9 lab instance, a role for the instance, and a role for the AWS Lambda function used later on in the lab. It will use Systems Manager to configure the Cloud9 instance.</p>
 <ol>
 <li>After the CloudFormation stack is <code>CREATE_COMPLETE</code>, continue with the next stack.</li>
 </ol>
@@ -5330,7 +5331,7 @@ Leave the <em>WorkshopZIP</em> parameter unchanged and click <em>Next</em></p
 <p><em>Do not continue unless the Cloud9 CloudFormation Template has finished deploying.</em></p>
 <ol>
 <li>
-<p>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=DynamoDBzETL&templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/dynamodb-opensearch-setup.yaml"><img alt="CloudFormation" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png"></a><br>
+<p>Launch the CloudFormation template in US West 2 to deploy the resources in your account: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=DynamoDBzETL&amp;templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/dynamodb-opensearch-setup.yaml"><img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png" alt="CloudFormation"></a><br>
 <em>Optionally, download <a href="https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/dynamodb-opensearch-setup.yaml">the YAML template</a>  and launch it your own way</em></p>
 </li>
 <li>
@@ -5340,7 +5341,7 @@ Leave the <em>WorkshopZIP</em> parameter unchanged and click <em>Next</em></p
 <p>In the Parameters section, optionally change the value of OpenSearchClusterName to set a specific name for your OpenSearch cluster or leave the parameter unchanged. Click <em>Next</em></p>
 </li>
 </ol>
-<p><img alt="CloudFormation parameters" src="/images/2/2.1/4.png"></p>
+<p><img src="/images/2/2.1/4.png" alt="CloudFormation parameters"></p>
 <ol>
 <li>
 <p>Scroll to the bottom and click <em>Next</em>, and then review the <em>Template</em> and <em>Parameters</em>. When you are ready to create the stack, scroll to the bottom and click <em>Submit</em>.</p>
@@ -8102,19 +8103,19 @@ Leave the <em>WorkshopZIP</em> parameter unchanged and click <em>Next</em></p
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

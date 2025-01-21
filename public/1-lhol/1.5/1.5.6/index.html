@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Load DynamoDB Table :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Load DynamoDB Table :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5302,7 +5303,7 @@
 	<p>In this exercise, we will set up Database Migration Service (DMS) jobs to migrate data from source MySQL database (relational view, tables) to Amazon DynamoDB.</p>
 <h2 id="verify-dms-creation">Verify DMS creation</h2>
 <ol>
-<li>Go to <a href="https://console.aws.amazon.com/dms/v2/home?region=us-east-1#dashboard">DMS Console</a>  and click on Replication Instances. You can able to see a replication instance with Class dms.c5.2xlarge in Available Status. <img alt="Final Deployment Architecture" src="/images/1/1.5/19.jpg"></li>
+<li>Go to <a href="https://console.aws.amazon.com/dms/v2/home?region=us-east-1#dashboard">DMS Console</a>  and click on Replication Instances. You can able to see a replication instance with Class dms.c5.2xlarge in Available Status. <img src="/images/1/1.5/19.jpg" alt="Final Deployment Architecture"></li>
 </ol>
 
 <div class="notices tip" ><p><em>Make sure the DMS instance is Available before you continue. If it is not Available, return to the CloudFormation console to review and troubleshoot the CloudFormation stack.</em></p>
@@ -5311,87 +5312,87 @@
 <h2 id="create-source-and-target-endpoints">Create source and target endpoints</h2>
 <ol>
 <li>
-<p>Click on Endpoints and Create endpoint button <img alt="Final Deployment Architecture" src="/images/1/1.5/20.jpg"></p>
+<p>Click on Endpoints and Create endpoint button <img src="/images/1/1.5/20.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Create the source endpoint. Use the following parameters to configure the endpoint:</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endpoint type</td>
-<td>Source endpoint</td>
-</tr>
-<tr>
-<td>Endpoint identifier</td>
-<td>mysql-endpoint</td>
-</tr>
-<tr>
-<td>Source engine</td>
-<td>MySQL</td>
-</tr>
-<tr>
-<td>Access to endpoint database</td>
-<td>Select the &ldquo;Provide access information manually&rdquo; radio button</td>
-</tr>
-<tr>
-<td>Server name</td>
-<td>From the <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running">EC2 dashboard</a> , select MySQL-Instance and copy Public IPv4 DNS</td>
-</tr>
-<tr>
-<td>Port</td>
-<td>3306</td>
-</tr>
-<tr>
-<td>SSL mode</td>
-<td>none</td>
-</tr>
-<tr>
-<td>User name</td>
-<td>Value of DbMasterUsername added as parameter during Configure MySQL Environment</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Value of DbMasterPassword added as parameter during Configure MySQL Environment</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Endpoint type</td>
+          <td>Source endpoint</td>
+      </tr>
+      <tr>
+          <td>Endpoint identifier</td>
+          <td>mysql-endpoint</td>
+      </tr>
+      <tr>
+          <td>Source engine</td>
+          <td>MySQL</td>
+      </tr>
+      <tr>
+          <td>Access to endpoint database</td>
+          <td>Select the &ldquo;Provide access information manually&rdquo; radio button</td>
+      </tr>
+      <tr>
+          <td>Server name</td>
+          <td>From the <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running">EC2 dashboard</a> , select MySQL-Instance and copy Public IPv4 DNS</td>
+      </tr>
+      <tr>
+          <td>Port</td>
+          <td>3306</td>
+      </tr>
+      <tr>
+          <td>SSL mode</td>
+          <td>none</td>
+      </tr>
+      <tr>
+          <td>User name</td>
+          <td>Value of DbMasterUsername added as parameter during Configure MySQL Environment</td>
+      </tr>
+      <tr>
+          <td>Password</td>
+          <td>Value of DbMasterPassword added as parameter during Configure MySQL Environment</td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/21.jpg"> Open Test endpoint connection (optional) section, then in the VPC drop-down select DMS-VPC and click the Run test button to verify that your endpoint configuration is valid. The test will run for a minute and you should see a successful message in the Status column. Click on the Create endpoint button to create the endpoint. If you see a connection error, re-type the username and password to ensure no mistakes were made. Further, ensure you provided the IPv4 DNS name ending in amazonaws.com in the field <strong>Server name</strong>. <img alt="Final Deployment Architecture" src="/images/1/1.5/22.jpg"></p>
+<p><img src="/images/1/1.5/21.jpg" alt="Final Deployment Architecture"> Open Test endpoint connection (optional) section, then in the VPC drop-down select DMS-VPC and click the Run test button to verify that your endpoint configuration is valid. The test will run for a minute and you should see a successful message in the Status column. Click on the Create endpoint button to create the endpoint. If you see a connection error, re-type the username and password to ensure no mistakes were made. Further, ensure you provided the IPv4 DNS name ending in amazonaws.com in the field <strong>Server name</strong>. <img src="/images/1/1.5/22.jpg" alt="Final Deployment Architecture"></p>
 </li>
 <li>
 <p>Create the target endpoint. Repeat all steps to create the target endpoint with the following parameter values:</p>
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endpoint type</td>
-<td>Target endpoint</td>
-</tr>
-<tr>
-<td>Endpoint identifier</td>
-<td>dynamodb-endpoint</td>
-</tr>
-<tr>
-<td>Target engine</td>
-<td>Amazon DynamoDB</td>
-</tr>
-<tr>
-<td>Service access role ARN</td>
-<td>CloudFormation template has created new role with full access to Amazon DynamoDB. Copy Role ARN from <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/roles/details/dynamodb-access?section=permissions">dynamodb-access</a>  role</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Endpoint type</td>
+          <td>Target endpoint</td>
+      </tr>
+      <tr>
+          <td>Endpoint identifier</td>
+          <td>dynamodb-endpoint</td>
+      </tr>
+      <tr>
+          <td>Target engine</td>
+          <td>Amazon DynamoDB</td>
+      </tr>
+      <tr>
+          <td>Service access role ARN</td>
+          <td>CloudFormation template has created new role with full access to Amazon DynamoDB. Copy Role ARN from <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/roles/details/dynamodb-access?section=permissions">dynamodb-access</a>  role</td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/23.jpg"> Open Test endpoint connection (optional) section, then in the VPC drop-down select DMS-VPC and click the Run test button to verify that your endpoint configuration is valid. The test will run for a minute and you should see a successful message in the Status column. Click on the Create endpoint button to create the endpoint.</p>
+<p><img src="/images/1/1.5/23.jpg" alt="Final Deployment Architecture"> Open Test endpoint connection (optional) section, then in the VPC drop-down select DMS-VPC and click the Run test button to verify that your endpoint configuration is valid. The test will run for a minute and you should see a successful message in the Status column. Click on the Create endpoint button to create the endpoint.</p>
 </li>
 </ol>
 <h2 id="configure-and-run-a-replication-task">Configure and Run a Replication Task</h2>
@@ -5399,54 +5400,54 @@
 <ol>
 <li>Task1: Enter the following parameter values in the Create database migration task screen:
 <table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Task identified</td>
-<td>historical-migration01</td>
-</tr>
-<tr>
-<td>Replication instance</td>
-<td>mysqltodynamodb-instance-*</td>
-</tr>
-<tr>
-<td>Source database endpoint</td>
-<td>mysql-endpoint</td>
-</tr>
-<tr>
-<td>Target database endpoint</td>
-<td>dynamodb-endpoint</td>
-</tr>
-<tr>
-<td>Migration type</td>
-<td>Migrate existing data</td>
-</tr>
-<tr>
-<td>Task settings: Editing mode</td>
-<td>Wizard</td>
-</tr>
-<tr>
-<td>Task settings: Target table preparation mode</td>
-<td>Do nothing</td>
-</tr>
-<tr>
-<td>Task settings: Turn on CloudWatch logs</td>
-<td>Checked</td>
-</tr>
-<tr>
-<td>Table mappings: Editing mode</td>
-<td>Select JSON editor option and follow the instructions after below screenshots</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Task identified</td>
+          <td>historical-migration01</td>
+      </tr>
+      <tr>
+          <td>Replication instance</td>
+          <td>mysqltodynamodb-instance-*</td>
+      </tr>
+      <tr>
+          <td>Source database endpoint</td>
+          <td>mysql-endpoint</td>
+      </tr>
+      <tr>
+          <td>Target database endpoint</td>
+          <td>dynamodb-endpoint</td>
+      </tr>
+      <tr>
+          <td>Migration type</td>
+          <td>Migrate existing data</td>
+      </tr>
+      <tr>
+          <td>Task settings: Editing mode</td>
+          <td>Wizard</td>
+      </tr>
+      <tr>
+          <td>Task settings: Target table preparation mode</td>
+          <td>Do nothing</td>
+      </tr>
+      <tr>
+          <td>Task settings: Turn on CloudWatch logs</td>
+          <td>Checked</td>
+      </tr>
+      <tr>
+          <td>Table mappings: Editing mode</td>
+          <td>Select JSON editor option and follow the instructions after below screenshots</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/24.jpg"> <img alt="Final Deployment Architecture" src="/images/1/1.5/25.jpg"></p>
+<p><img src="/images/1/1.5/24.jpg" alt="Final Deployment Architecture"> <img src="/images/1/1.5/25.jpg" alt="Final Deployment Architecture"></p>
 <p>Start with the JSON editor section open in your browser. In this section we will create Table mappings JSON document to replace what you see in the JSON editor. This document includes source to target mapping including any transformation on the records that will be performed during migration. To reduce the loading time during Immersion Day, we have narrowed down the migration list to selective movies. Below JSON document has list of 28 movies worked by Clint Eastwood. The remaining exercise will just focus on these movies. However, feel free to load remaining data in case you like to further explore. Some statistics around full dataset is give at the bottom of this chapter.</p>
 <p>Copy list of selective movies by Clint Eastwood.</p>
 <pre tabindex="0"><code>    {
@@ -5603,7 +5604,7 @@
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  ]
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img alt="Final Deployment Architecture" src="/images/1/1.5/26.png"> Go to the bottom and click on Create task. At this point the task will be created and will automatically start loading selected movies from source to target DynamoDB table. You can move forward and create two more tasks with similar steps (historical-migration02 and historical-migration03). Use the same settings as above except the Table Mappings JSON document. For historical-migration02 and historical-migration03 tasks use the JSON document mentioned below.</p>
+</span></span></code></pre></div><p><img src="/images/1/1.5/26.png" alt="Final Deployment Architecture"> Go to the bottom and click on Create task. At this point the task will be created and will automatically start loading selected movies from source to target DynamoDB table. You can move forward and create two more tasks with similar steps (historical-migration02 and historical-migration03). Use the same settings as above except the Table Mappings JSON document. For historical-migration02 and historical-migration03 tasks use the JSON document mentioned below.</p>
 <p>Below JSON document will migrate title_akas table from imdb MySQL database (Task identified: historical-migration02) Replace the string &ldquo;REPLACE THIS STRING BY MOVIES LIST&rdquo; with list of movies copied earlier.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;rules&#34;</span>: [
@@ -5727,7 +5728,7 @@
 <li>historical-migration02 task will migrate 747K+ records and normally takes 2-3 Hrs.</li>
 <li>historical-migration03 task will migrate 79K+ records and normally takes 10-15 Minutes.</li>
 </ul>
-<p>You can track the status of data loading under the Table statistics of the migration task. Once loading is in progress, feel free to move to the next section of the exercise. <img alt="Final Deployment Architecture" src="/images/1/1.5/27.jpg"></p>
+<p>You can track the status of data loading under the Table statistics of the migration task. Once loading is in progress, feel free to move to the next section of the exercise. <img src="/images/1/1.5/27.jpg" alt="Final Deployment Architecture"></p>
 
 <div class="notices tip" ><p><em>Make sure all tasks are running or complete before you continue. If a task says <strong>Ready</strong>, check its box and choose &ldquo;Restart/Resume&rdquo; under the Actions button to start the task.</em></p>
 </div>
@@ -8489,19 +8490,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

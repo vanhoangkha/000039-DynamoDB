@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Access DynamoDB Table :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Access DynamoDB Table :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5292,9 +5293,9 @@
 <ol>
 <li>Đăng nhập vào <a href="https://console.aws.amazon.com/dynamodbv2/home">DynamoDB console</a> và chọn PartiQL editor từ thanh điều hướng bên trái.</li>
 <li>Chọn bảng movies đã được tạo và tải bằng công việc của Database Migration Service. Chọn dấu ba chấm bên cạnh tên bảng và nhấp vào &ldquo;scan table&rdquo;.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/28.jpg"><br>
+<img src="/images/1/1.5/28.jpg" alt="Final Deployment Architecture"><br>
 Chúng ta sẽ sử dụng các tập lệnh PartiQL để minh họa tất cả 6 mẫu truy cập đã được thảo luận ở chương trước. Trong ví dụ của chúng ta, chúng tôi sẽ cung cấp cho bạn các giá trị khóa phân vùng, nhưng trong thực tế bạn sẽ cần tạo một chỉ mục của các khóa có thể bằng cách sử dụng GSI. Lấy thông tin chi tiết của bộ phim: Mỗi bộ phim IMDB có một tconst duy nhất. Bảng đã không chuẩn hóa được tạo ra với mỗi hàng đại diện cho một sự kết hợp duy nhất của bộ phim và đoàn làm phim, tức là tconst và nconst. Vì tconst là một phần của khóa phân vùng cho bảng cơ sở, nó có thể được sử dụng trong điều kiện WHERE để chọn chi tiết. Sao chép lệnh dưới đây để chạy bên trong PartiQL query editor.<br>
-<img alt="Final Deployment Architecture" src="/images/1/1.5/29.png"></li>
+<img src="/images/1/1.5/29.png" alt="Final Deployment Architecture"></li>
 </ol>
 <ul>
 <li>Tìm tất cả các diễn viên và đoàn làm phim đã làm việc trong một bộ phim. Truy vấn dưới đây sẽ bao gồm diễn viên, diễn viên nữ, nhà sản xuất, nhà quay phim, v.v. đã làm việc trong một bộ phim cho trước.</li>
@@ -5332,36 +5333,36 @@ Chúng ta sẽ sử dụng các tập lệnh PartiQL để minh họa tất cả
 <li>Nhấp vào &ldquo;Create Index&rdquo; và thêm các chi tiết sau.</li>
 </ol>
 <table>
-<thead>
-<tr>
-<th>Tham số</th>
-<th>Giá trị</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Partition key</td>
-<td>nconst</td>
-</tr>
-<tr>
-<td>Data type</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Sort key - optional</td>
-<td>startYear</td>
-</tr>
-<tr>
-<td>Data type</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Attribute projections</td>
-<td>All</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Tham số</th>
+          <th>Giá trị</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Partition key</td>
+          <td>nconst</td>
+      </tr>
+      <tr>
+          <td>Data type</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>Sort key - optional</td>
+          <td>startYear</td>
+      </tr>
+      <tr>
+          <td>Data type</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>Attribute projections</td>
+          <td>All</td>
+      </tr>
+  </tbody>
 </table>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/30.jpg"> <img alt="Final Deployment Architecture" src="/images/1/1.5/31.jpg"></p>
+<p><img src="/images/1/1.5/30.jpg" alt="Final Deployment Architecture"> <img src="/images/1/1.5/31.jpg" alt="Final Deployment Architecture"></p>
 <ol start="5">
 <li>Cuối cùng, nhấp vào &ldquo;Create Index&rdquo;. Quá trình này có thể mất một giờ tùy thuộc vào số lượng bản ghi trong bảng cơ sở.</li>
 <li>Khi cột trạng thái GSI chuyển từ &ldquo;Pending&rdquo; sang &ldquo;Available&rdquo;, quay lại PartiQL editor để thực thi truy vấn trên GSI.</li>
@@ -8135,19 +8136,19 @@ Chúng ta sẽ sử dụng các tập lệnh PartiQL để minh họa tất cả
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Explore Target Model :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Explore Target Model :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801183" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801183" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801183" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801183" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801183" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801183" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801183" rel="stylesheet">
-    <link href="/css/theme.css?1733801183" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801183" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801183" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801183"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801183"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801183"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801183"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5289,29 +5290,29 @@
 
 
 	<p>Relational Database Management System (RDBMS) platforms store data in a normalized relational structure. This structure reduces hierarchical data structures and stores data across multiple tables. You can often query the data from multiple tables and assemble at the presentation layer. However, that is not preferrable and won&rsquo;t be efficient for ultra-low read latency workloads. To support high-traffic queries with ultra-low latency, designing a schema to take advantage of a NoSQL system generally makes technical and economic sense.</p>
-<p>To start designing a target data model in Amazon DynamoDB that will scale efficiently, you must identify the common access patterns. For the IMDb use case we have identified a set of access patterns as described below: <img alt="Final Deployment Architecture" src="/images/1/1.5/16.png"></p>
+<p>To start designing a target data model in Amazon DynamoDB that will scale efficiently, you must identify the common access patterns. For the IMDb use case we have identified a set of access patterns as described below: <img src="/images/1/1.5/16.png" alt="Final Deployment Architecture"></p>
 <p>A common approach to DynamoDB schema design is to identify application layer entities and use denormalization and composite key aggregation to reduce query complexity. In DynamoDB, this means using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-sort-keys.html">composite sort keys</a> , <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-gsi-overloading.html">overloaded global secondary indexes</a> , and other design patterns.</p>
 <p>In this scenario, we will follow the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-adjacency-graphs.html#bp-adjacency-lists">Adjacency List Design Pattern</a>  with primary key overloading to store relational data in the DynamoDB table. The advantages of this pattern include optimal data duplication and simplified query patterns to find all metadata related to each movie. Normally the adjacency list pattern stores duplicate data under two items, each representing one half of the relationship. To associate a title with a region, for example, you would write one item for the region under the title and one item under the title under the region, like this:</p>
 <table>
-<thead>
-<tr>
-<th>Partition Key</th>
-<th>Sort Key</th>
-<th>Attribute List</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tt0309377</td>
-<td>REGN|NZ</td>
-<td>ordering, language, region, title, types</td>
-</tr>
-<tr>
-<td>REGN|NZ</td>
-<td>tt0309377</td>
-<td>language, region, title</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Partition Key</th>
+          <th>Sort Key</th>
+          <th>Attribute List</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>tt0309377</td>
+          <td>REGN|NZ</td>
+          <td>ordering, language, region, title, types</td>
+      </tr>
+      <tr>
+          <td>REGN|NZ</td>
+          <td>tt0309377</td>
+          <td>language, region, title</td>
+      </tr>
+  </tbody>
 </table>
 <p>However in this lab we&rsquo;ll only work with one side of the relationship: the data residing under the title. Our partition key will be <code>mpkey</code> and our sort key <code>mskey</code> for the movies table. Each partition and sort key is prefixed with letters to identify the entity type, and the sort key uses <code>|</code> as a separator between the entity type and value. The partition key is prefixed with <code>tt</code> (unique movie id) and sort key is overloaded to define the entity type.</p>
 <p>The following entity types are found in the table:</p>
@@ -5322,9 +5323,9 @@
 <li><code>REGN</code>: Contains all regions, languages and titles that a movie is published. During target modelling the data is migrated as is to the DynamoDB table.</li>
 <li><code>RTNG</code>: Contains IMDb rating and number of votes. This is considered dynamic and frequent changing records for a movie. In order to reduce I/O during update scenario, the record is not denormalized with other information in the the DynamoDB table.</li>
 </ul>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/17.png"></p>
+<p><img src="/images/1/1.5/17.png" alt="Final Deployment Architecture"></p>
 <p>A new GSI is created on the movies table with new partion key: <code>nconst</code> (unique per movie&rsquo;s crew with entity type <code>nm</code>) and sort key: <code>startYear</code>. This will help to query access pattern by crew member (#6 inside the common access pattern table)</p>
-<p><img alt="Final Deployment Architecture" src="/images/1/1.5/18.png"></p>
+<p><img src="/images/1/1.5/18.png" alt="Final Deployment Architecture"></p>
 <p><a href="/images/1/1.5/1.mp4">Click here to view a video that demonstrates how all of these access pattern are evaluated against target DynamoDB model</a></p>
 
 
@@ -8083,19 +8084,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801183"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801183"></script>
-    <script src="/js/jquery.sticky.js?1733801183"></script>
-    <script src="/js/featherlight.min.js?1733801183"></script>
-    <script src="/js/highlight.pack.js?1733801183"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801183"></script>
-    <script src="/js/learn.js?1733801183"></script>
-    <script src="/js/hugo-learn.js?1733801183"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801183" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801183"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Đọc Item Collections sử dụng Query :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Đọc Item Collections sử dụng Query :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5297,18 +5298,18 @@
 <p>Biểu thức Điều kiện Khóa sẽ xác định số lượng <strong>RRUs</strong> hoặc <strong>RCUs</strong> mà lệnh Query tiêu thụ. DynamoDB sẽ tính tổng kích thước của tất cả các hàng khớp với Biểu thức Điều kiện Khóa, sau đó chia tổng kích thước đó cho 4KB để tính toán dung lượng tiêu thụ (và sau đó sẽ chia số đó cho hai nếu bạn đang sử dụng chế độ đọc nhất quán cuối cùng).</p>
 <p>Chúng ta cũng có thể tùy chọn chỉ định một <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.FilterExpression">Biểu thức Lọc (Filter Expression)</a> cho lệnh Query của mình. Nếu so sánh với SQL, chúng ta có thể nói &ldquo;đây là phần của câu lệnh WHERE áp dụng cho các thuộc tính không phải Khóa&rdquo;. Các Biểu thức Lọc sẽ loại bỏ một số mục khỏi Bộ Kết quả trả về bởi lệnh Query, <strong>nhưng chúng không ảnh hưởng đến dung lượng tiêu thụ của lệnh Query</strong>. Nếu Biểu thức Điều kiện Khóa của bạn khớp với 1.000.000 mục và Biểu thức Lọc giảm bộ kết quả xuống còn 100 mục, bạn vẫn sẽ bị tính phí để đọc tất cả 1.000.000 mục. Nhưng Biểu thức Lọc giảm lượng dữ liệu trả về từ kết nối mạng nên vẫn có lợi cho ứng dụng của chúng ta khi sử dụng Biểu thức Lọc ngay cả khi nó không ảnh hưởng đến giá của lệnh Query.</p>
 <p>Bảng <strong>ProductCatalog</strong> mà chúng ta sử dụng trong các ví dụ trước chỉ có Khóa Phân Vùng, vì vậy hãy xem dữ liệu trong bảng <strong>Reply</strong> có cả Khóa Phân Vùng và Khóa Sắp Xếp. Chọn <strong>Explore items</strong> từ thanh menu bên trái trong phần Tables.<br>
-<img alt="Console Menu Item Explorer" src="/images/1/1.3/5.png"><br>
+<img src="/images/1/1.3/5.png" alt="Console Menu Item Explorer"><br>
 Bạn có thể cần nhấp vào biểu tượng menu hình hamburger để mở rộng menu bên trái nếu nó bị ẩn.<br>
-<img alt="Console Menu Hamburger Icon" src="/images/1/1.3/6.png"></p>
+<img src="/images/1/1.3/6.png" alt="Console Menu Hamburger Icon"></p>
 <p>Khi bạn vào phần <strong>Explore Items</strong>, bạn cần chọn bảng <strong>Reply</strong> và sau đó mở rộng hộp <strong>Scan/Query items</strong>.</p>
-<p><img alt="Item Explorer Expand Tables" src="/images/1/1.3/7.png"></p>
+<p><img src="/images/1/1.3/7.png" alt="Item Explorer Expand Tables"></p>
 <p>Dữ liệu trong bảng này có thuộc tính <strong>Id</strong> tham chiếu đến các mục trong bảng <strong>Thread</strong>. Dữ liệu của chúng ta có hai threads, và mỗi thread có 2 phản hồi. Hãy sử dụng chức năng <strong>Query</strong> để chỉ đọc các mục từ thread 1 bằng cách dán <code>Amazon DynamoDB#DynamoDB Thread 1</code> vào ô <strong><em>Id (Partition key)</em></strong> và sau đó nhấp vào <strong>Run</strong>.</p>
 <p>Chúng ta có thể thấy rằng có hai mục <strong>Reply</strong> trong thread <code>DynamoDB Thread 1</code>.</p>
-<p><img alt="Item Explorer Query Reply 1" src="/images/1/1.3/8.png"></p>
+<p><img src="/images/1/1.3/8.png" alt="Item Explorer Query Reply 1"></p>
 <p>Vì Khóa Sắp Xếp trong bảng này là dấu thời gian (timestamp), chúng ta có thể chỉ định một Biểu thức Điều kiện Khóa để chỉ trả về các phản hồi trong một thread được đăng sau một thời gian nhất định bằng cách thêm một điều kiện khóa sắp xếp, nơi <code>ReplyDateTime</code> lớn hơn <code>2015-09-21</code> và nhấp vào <strong>Run</strong>.</p>
-<p><img alt="Item Explorer Query Reply 2" src="/images/1/1.3/9.png"></p>
+<p><img src="/images/1/1.3/9.png" alt="Item Explorer Query Reply 2"></p>
 <p>Hãy nhớ rằng chúng ta có thể sử dụng Biểu thức Lọc nếu muốn giới hạn kết quả dựa trên các thuộc tính không phải Khóa. Ví dụ, chúng ta có thể tìm tất cả các phản hồi trong Thread 1 được đăng bởi User B. Xóa điều kiện khóa sắp xếp, và nhấp vào <strong>Add filter</strong>, sau đó sử dụng <code>PostedBy</code> cho tên Thuộc tính, Điều kiện <code>Equals</code> và Giá trị <code>User B</code>, sau đó nhấp vào <strong>Run</strong>.</p>
-<p><img alt="Item Explorer Query Reply 3" src="/images/1/1.3/10.png"></p>
+<p><img src="/images/1/1.3/10.png" alt="Item Explorer Query Reply 3"></p>
 
 
 
@@ -8066,19 +8067,19 @@ Bạn có thể cần nhấp vào biểu tượng menu hình hamburger để m�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

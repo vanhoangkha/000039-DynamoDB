@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Định cấu hình môi trường MySQL :: AMAZON DYNAMODB NÂNG CAO</title>
+    <title>Định cấu hình môi trường MySQL :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801186" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801186" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801186" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801186" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801186" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801186" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801186" rel="stylesheet">
-    <link href="/css/theme.css?1733801186" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801186" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450733" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450733" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450733" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450733" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450733" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450733" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450733" rel="stylesheet">
+    <link href="/css/theme.css?1737450733" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450733" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801186" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450733" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801186"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450733"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801186"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801186"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450733"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450733"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801186"></script>
+<script type="text/javascript" src="/js/search.js?1737450733"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5290,17 +5291,17 @@
 
 	<p>Chương này sẽ tạo môi trường nguồn trên AWS như đã thảo luận trong Tổng quan về bài tập. Mẫu CloudFormation được sử dụng dưới đây sẽ tạo VPC nguồn, máy chủ MySQL lưu trữ EC2, cơ sở dữ liệu IMDb và tải tập dữ liệu công khai IMDb vào 6 bảng.</p>
 <ol>
-<li>Khởi chạy mẫu CloudFormation ở US West 2 để triển khai các tài nguyên trong tài khoản của bạn: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=rdbmsmigration&templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml"><img alt="Sự hình thành đám mây" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png"></a>
+<li>Khởi chạy mẫu CloudFormation ở US West 2 để triển khai các tài nguyên trong tài khoản của bạn: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=rdbmsmigration&amp;templateURL=https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml"><img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/cloudformation-launch-stack.png" alt="Sự hình thành đám mây"></a>
 <ol>
 <li><em>Tùy chọn, tải xuống <a href="https://s3.amazonaws.com/amazon-dynamodb-labs.com/assets/migration-env-setup.yaml">mẫu YAML</a>  và khởi chạy nó theo cách riêng của bạn</em></li>
 </ol>
 </li>
 <li>Nhấp vào Next</li>
-<li>Xác nhận Tên ngăn xếp <em>rdbmsmigration</em> và cập nhật các tham số nếu cần (để lại các tùy chọn mặc định nếu có thể) <img alt="Kiến trúc triển khai cuối cùng" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration6.jpg"></li>
+<li>Xác nhận Tên ngăn xếp <em>rdbmsmigration</em> và cập nhật các tham số nếu cần (để lại các tùy chọn mặc định nếu có thể) <img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration6.jpg" alt="Kiến trúc triển khai cuối cùng"></li>
 <li>Nhấp vào &ldquo;Tiếp theo&rdquo; hai lần, sau đó chọn &ldquo;Tôi xác nhận rằng AWS CloudFormation có thể tạo tài nguyên IAM có tên tùy chỉnh&rdquo;.</li>
 <li>Nhấp vào &ldquo;Gửi&rdquo;</li>
-<li>Ngăn xếp CloudFormation sẽ mất khoảng 5 phút để xây dựng môi trường <img alt="Kiến trúc triển khai cuối cùng" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration7.jpg"></li>
-<li>Đi tới <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:">Bảng điều khiển EC2</a>  và đảm bảo cột Kiểm tra trạng thái được thông qua 2/2 lần kiểm tra trước khi chuyển sang bước tiếp theo. <img alt="Kiến trúc triển khai cuối cùng" src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration8.jpg"></li>
+<li>Ngăn xếp CloudFormation sẽ mất khoảng 5 phút để xây dựng môi trường <img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration7.jpg" alt="Kiến trúc triển khai cuối cùng"></li>
+<li>Đi tới <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:">Bảng điều khiển EC2</a>  và đảm bảo cột Kiểm tra trạng thái được thông qua 2/2 lần kiểm tra trước khi chuyển sang bước tiếp theo. <img src="https://static.us-east-1.prod.workshops.aws/public/c768eb2c-360b-491e-8422-bfd253e11581/static/images/migration8.jpg" alt="Kiến trúc triển khai cuối cùng"></li>
 </ol>
 
 <div class="notices tip" ><p>Không tiếp tục trừ khi phiên bản MySQL vượt qua cả hai kiểm tra tình trạng, 2/2.</p>
@@ -8063,19 +8064,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801186"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801186"></script>
-    <script src="/js/jquery.sticky.js?1733801186"></script>
-    <script src="/js/featherlight.min.js?1733801186"></script>
-    <script src="/js/highlight.pack.js?1733801186"></script>
+    <script src="/js/clipboard.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450733"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450733"></script>
+    <script src="/js/jquery.sticky.js?1737450733"></script>
+    <script src="/js/featherlight.min.js?1737450733"></script>
+    <script src="/js/highlight.pack.js?1737450733"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801186"></script>
-    <script src="/js/learn.js?1733801186"></script>
-    <script src="/js/hugo-learn.js?1733801186"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450733"></script>
+    <script src="/js/learn.js?1737450733"></script>
+    <script src="/js/hugo-learn.js?1737450733"></script>
 
-    <link href="/mermaid/mermaid.css?1733801186" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801186"></script>
+    <link href="/mermaid/mermaid.css?1737450733" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450733"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

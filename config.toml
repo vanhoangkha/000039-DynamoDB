@@ -11,14 +11,14 @@ home = [ "HTML", "RSS", "JSON"]
   # Git hub repo link
   editURL = ""
   description = ""
-  author = "journeyoftheaverageguy@gmail.com"
+  author = "ngchn464@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
   
 [Languages]
 [Languages.en]
-title = "ADVANCED AMAZON DYNAMODB"
+title = "DYNAMODB IMMERSION DAY"
 weight = 1
 languageName = "English"
 
@@ -35,7 +35,7 @@ url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
 
 [Languages.vi]
-title = "AMAZON DYNAMODB NÂNG CAO"
+title = "DYNAMODB IMMERSION DAY"
 weight = 2
 languageName = "Tiếng Việt"
 

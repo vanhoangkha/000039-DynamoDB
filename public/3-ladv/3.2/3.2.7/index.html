@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.133.0">
+    <meta name="generator" content="Hugo 0.140.2">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="ngchn464@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Step 7 - Create a new table with a low-capacity global secondary index :: ADVANCED AMAZON DYNAMODB</title>
+    <title>Step 7 - Create a new table with a low-capacity global secondary index :: DYNAMODB IMMERSION DAY</title>
 
     
-    <link href="/css/nucleus.css?1733801184" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1733801184" rel="stylesheet">
-    <link href="/css/hybrid.css?1733801184" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1733801184" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1733801184" rel="stylesheet">
-    <link href="/css/auto-complete.css?1733801184" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1733801184" rel="stylesheet">
-    <link href="/css/theme.css?1733801184" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1733801184" rel="stylesheet">
+    <link href="/css/nucleus.css?1737450731" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1737450731" rel="stylesheet">
+    <link href="/css/hybrid.css?1737450731" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1737450731" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1737450731" rel="stylesheet">
+    <link href="/css/auto-complete.css?1737450731" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1737450731" rel="stylesheet">
+    <link href="/css/theme.css?1737450731" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1737450731" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1733801184" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1737450731" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1733801184"></script>
+    <script src="/js/jquery-3.3.1.min.js?1737450731"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1733801184"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1733801184"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1737450731"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1737450731"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1733801184"></script>
+<script type="text/javascript" src="/js/search.js?1737450731"></script>
 
     
   </div>
@@ -5193,7 +5193,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>10-12-2024</font></i>
+        <i><font color=orange>21-01-2025</font></i>
     </left>
     <left>
         <br>
@@ -5201,6 +5201,7 @@
             <b> Team </b> <br>
            
             <i>  <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i>  <a href="https://www.linkedin.com/in/vanhoangkha/"  style="color:orange"> Hoàng Kha </a> <br>
                
         </i>
         </left>
@@ -5322,28 +5323,28 @@
 </li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Attribute Name (Type)</th>
-<th>Special Attribute?</th>
-<th>Attribute Use Case</th>
-<th>Sample Attribute Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PK (STRING)</td>
-<td>Partition key</td>
-<td>Holds the request ID for the access log</td>
-<td><em>request#104009</em></td>
-</tr>
-<tr>
-<td>GSI_1_PK (STRING)</td>
-<td>GSI 1 partition key</td>
-<td>The host for the request, an IPv4 address</td>
-<td><em>host#66.249.67.3</em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute Name (Type)</th>
+          <th>Special Attribute?</th>
+          <th>Attribute Use Case</th>
+          <th>Sample Attribute Value</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PK (STRING)</td>
+          <td>Partition key</td>
+          <td>Holds the request ID for the access log</td>
+          <td><em>request#104009</em></td>
+      </tr>
+      <tr>
+          <td>GSI_1_PK (STRING)</td>
+          <td>GSI 1 partition key</td>
+          <td>The host for the request, an IPv4 address</td>
+          <td><em>host#66.249.67.3</em></td>
+      </tr>
+  </tbody>
 </table>
 <p>Let&rsquo;s populate this table with a large dataset. You will use a multi-threaded version of the Python load script to simulate more writes per second to the DynamoDB table. This will create contention for provisioned capacity to simulate a surge of traffic on an under-provisioned table.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python load_logfile_parallel.py logfile_gsi_low
@@ -5363,13 +5364,13 @@
 <div class="notices tip" ><p>It may take a few minutes for the provisioned capacity (red line) to show up in the graphs. The provisioned capacity metrics are synthetic and there can be delays of five to ten minutes until they show a change.</p>
 </div>
 
-<p><img alt="Write capacity metric for the table" src="/images/3/3.2/4.png"></p>
+<p><img src="/images/3/3.2/4.png" alt="Write capacity metric for the table"></p>
 <p>The following image shows the write capacity metric for the global secondary index. Note that the consumed writes (the blue line) were higher than the provisioned writes (red line) for the global secondary index during the test. This tells us the GSI was woefully under-provisioned for the requests it received.</p>
-<p><img alt="Write capacity metric for the GSI" src="/images/3/3.2/5.png"></p>
-<p>The following image shows the throttled write requests for the <code>logfile_gsi_low</code> table. Note that the table has throttled write requests, even though the base table was provisioned with sufficient WCUs. Each throttled API request on DynamoDB generates one datapoint for the <code>ThrottledRequests</code> metric. In this picture, about 20 API requests were throttled by DynamoDB. However, the table has a GSI and we do not yet know if it, or the base table was the source of the throttle. We must continue investigating. <img alt="Throttled writes for the table" src="/images/3/3.2/6.png"></p>
+<p><img src="/images/3/3.2/5.png" alt="Write capacity metric for the GSI"></p>
+<p>The following image shows the throttled write requests for the <code>logfile_gsi_low</code> table. Note that the table has throttled write requests, even though the base table was provisioned with sufficient WCUs. Each throttled API request on DynamoDB generates one datapoint for the <code>ThrottledRequests</code> metric. In this picture, about 20 API requests were throttled by DynamoDB. However, the table has a GSI and we do not yet know if it, or the base table was the source of the throttle. We must continue investigating. <img src="/images/3/3.2/6.png" alt="Throttled writes for the table"></p>
 <p>To identify the source of these throttled write requests, review the throttled write events metric. If the DynamoDB base table is the throttle source, it will have <code>WriteThrottleEvents</code>. However, if the GSI has insufficient write capacity, it will have <code>WriteThrottleEvents</code>.</p>
 <p>When you review the throttle events for the GSI, you will see the source of our throttles! Only the GSI has &lsquo;Throttled write events&rsquo;, which means it is the source of throttling on the table, and the cause of the throttled Batch write requests.</p>
-<p><img alt="Throttled writes for the GSI" src="/images/3/3.2/7.png">
+<p><img src="/images/3/3.2/7.png" alt="Throttled writes for the GSI">
 
 <div class="notices warning" ><p>It may take some time for the write throttle events to appear on the GSI throttled write events graph. If you don&rsquo;t immediately see metrics, re-run the command above to load data into DynamoDB and let it continue for several minutes so that many throttling events are created.</p>
 </div>
@@ -8137,19 +8138,19 @@ When a DynamoDB global secondary index&rsquo;s write throttles are sufficient en
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.min.js?1733801184"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1733801184"></script>
-    <script src="/js/jquery.sticky.js?1733801184"></script>
-    <script src="/js/featherlight.min.js?1733801184"></script>
-    <script src="/js/highlight.pack.js?1733801184"></script>
+    <script src="/js/clipboard.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.min.js?1737450731"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1737450731"></script>
+    <script src="/js/jquery.sticky.js?1737450731"></script>
+    <script src="/js/featherlight.min.js?1737450731"></script>
+    <script src="/js/highlight.pack.js?1737450731"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1733801184"></script>
-    <script src="/js/learn.js?1733801184"></script>
-    <script src="/js/hugo-learn.js?1733801184"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1737450731"></script>
+    <script src="/js/learn.js?1737450731"></script>
+    <script src="/js/hugo-learn.js?1737450731"></script>
 
-    <link href="/mermaid/mermaid.css?1733801184" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1733801184"></script>
+    <link href="/mermaid/mermaid.css?1737450731" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1737450731"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
