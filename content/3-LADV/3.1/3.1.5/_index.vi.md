@@ -1,6 +1,6 @@
 ---
 title : "Bước 4 - Kiểm tra nội dung thư mục workshop"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 3.1.5. </b> "

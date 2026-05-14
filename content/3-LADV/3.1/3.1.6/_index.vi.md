@@ -1,6 +1,6 @@
 ---
 title : "Bước 5 - Kiểm tra định dạng và nội dung tệp"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 3.1.6. </b> "

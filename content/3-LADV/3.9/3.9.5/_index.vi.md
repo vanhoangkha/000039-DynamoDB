@@ -1,6 +1,6 @@
 ---
 title : "Bước 5 - Ánh xạ luồng nguồn tới hàm Lambda"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 3.9.5. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Exercise Overview"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 1.5.1. </b> "

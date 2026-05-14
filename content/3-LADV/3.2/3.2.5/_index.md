@@ -1,6 +1,6 @@
 ---
 title : "Step 5 - Increase the capacity of the table"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 3.2.5. </b> "

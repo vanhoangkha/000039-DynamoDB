@@ -1,6 +1,6 @@
 ---
 title : "LMR: Xây dựng và triển khai ứng dụng serverless toàn cầu với Amazon DynamoDB"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 5. </b> "

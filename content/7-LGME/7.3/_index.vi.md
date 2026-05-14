@@ -1,6 +1,6 @@
 ---
 title : "Sử dụng cốt lõi: hồ sơ người dùng và trò chơi"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 7.3. </b> "

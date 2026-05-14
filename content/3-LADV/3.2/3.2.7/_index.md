@@ -1,6 +1,6 @@
 ---
 title : "Step 7 - Create a new table with a low-capacity global secondary index"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 7
 chapter : false
 pre : " <b> 3.2.7. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Bước 2 - Quét bảng nhân viên để tìm người quản lý mà không cần sử dụng sparse global secondary index"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 3.6.2. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Bước 4 - Truy vấn chi tiết Khách hàng và Chi tiết hóa đơn bằng cách sử dụng Index"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 3.8.4. </b> "

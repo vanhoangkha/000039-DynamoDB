@@ -1,6 +1,6 @@
 ---
 title : "Lab 2: Đảm bảo khả năng chịu lỗi và xử lý chính xác một lần"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 6.4. </b> "

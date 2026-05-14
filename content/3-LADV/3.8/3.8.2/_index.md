@@ -1,6 +1,6 @@
 ---
 title : "Step 2 - Review the InvoiceAndBills table on the DynamoDB console"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 3.8.2. </b> "

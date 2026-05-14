@@ -1,6 +1,6 @@
 ---
 title : "Bước 3: Kết nối ReduceLambda"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 6.3.3. </b> "

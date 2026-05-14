@@ -1,6 +1,6 @@
 ---
 title : "LEDA: Xây dựng Kiến trúc Serverless Event Driven với DynamoDB"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 6. </b> "

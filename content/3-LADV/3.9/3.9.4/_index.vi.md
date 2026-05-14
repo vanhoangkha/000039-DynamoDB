@@ -1,6 +1,6 @@
 ---
 title : "Bước 4 - Bật luồng DynamoDB"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 3.9.4. </b> "

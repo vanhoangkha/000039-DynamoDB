@@ -1,6 +1,6 @@
 ---
 title : "Step 1 - Add a new global secondary index to the employees table"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 3.6.1. </b> "

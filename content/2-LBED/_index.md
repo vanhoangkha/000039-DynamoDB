@@ -1,6 +1,6 @@
 ---
 title : "LBED: Generative AI with DynamoDB zero-ETL to OpenSearch integration and Amazon Bedrock"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 2. </b> "

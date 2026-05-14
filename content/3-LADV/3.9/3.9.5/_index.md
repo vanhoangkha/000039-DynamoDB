@@ -1,6 +1,6 @@
 ---
 title : "Step 5 - Map the source stream to the Lambda function"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 3.9.5. </b> "

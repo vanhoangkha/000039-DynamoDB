@@ -1,6 +1,6 @@
 ---
 title : "Bước 2 - Xem lại bảng InvoiceAndBills trên bảng điều khiển DynamoDB"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 3.8.2.</b> "

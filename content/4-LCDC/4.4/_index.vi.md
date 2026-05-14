@@ -1,6 +1,6 @@
 ---
 title : "Thay đổi tính năng Thu thập dữ liệu bằng Kinesis Data Streams"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 4.4. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Exercise 6: Composite Keys"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 7
 chapter : false
 pre : " <b> 3.7. </b> "

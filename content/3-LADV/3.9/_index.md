@@ -1,6 +1,6 @@
 ---
 title : "Exercise 8: Amazon DynamoDB Streams and AWS Lambda"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 9
 chapter : false
 pre : " <b> 3.9. </b> "

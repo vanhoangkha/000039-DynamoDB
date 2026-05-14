@@ -1,6 +1,6 @@
 ---
 title : "Step 6 - Populate the logfile table and verify replication to logfile_replica"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 3.9.6. </b> "

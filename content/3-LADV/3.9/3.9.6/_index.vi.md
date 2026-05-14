@@ -1,6 +1,6 @@
 ---
 title : "Bước 6 - Điền vào bảng logfile và xác minh sao chép để logfile_replica"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 6
 chapter : false
 pre : " <b> 3.9.6. </b> "

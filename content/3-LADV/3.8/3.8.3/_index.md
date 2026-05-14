@@ -1,6 +1,6 @@
 ---
 title : "Step 3 - Query the table's invoice details"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.8.3. </b> "

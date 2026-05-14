@@ -1,6 +1,6 @@
 ---
 title : "Exercise 2: Sequential and Parallel Table Scans"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.3. </b> "

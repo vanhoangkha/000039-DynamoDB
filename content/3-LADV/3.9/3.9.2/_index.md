@@ -1,6 +1,6 @@
 ---
 title : "Step 2 - Review the AWS IAM policy for the IAM role"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 3.9.2. </b> "

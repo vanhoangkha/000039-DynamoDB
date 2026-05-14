@@ -1,6 +1,6 @@
 ---
 title : "Bước 3 - Truy vấn chi tiết hóa đơn của bảng"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.8.3. </b> "

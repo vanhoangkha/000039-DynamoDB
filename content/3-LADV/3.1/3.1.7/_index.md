@@ -1,6 +1,6 @@
 ---
 title : "Step 6 - Preload the items for the table Scan exercise"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 7
 chapter : false
 pre : " <b> 3.1.7. </b> "

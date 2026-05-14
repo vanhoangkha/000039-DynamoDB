@@ -1,6 +1,6 @@
 ---
 title : "Step 3 - Check boto3 installation"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 3.1.4. </b> "

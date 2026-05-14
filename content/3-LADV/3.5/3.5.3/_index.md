@@ -1,6 +1,6 @@
 ---
 title : "Step 3 - Query the employees table using the global secondary index with overloaded attributes"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 3.5.3. </b> "

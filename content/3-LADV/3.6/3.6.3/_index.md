@@ -1,6 +1,6 @@
 ---
 title : "Step 3 - Scan the employees table to find managers by using the sparse global secondary index"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.6.3. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Step 1 - Create the employees table for global secondary index key overloading"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 3.5.1. </b> "

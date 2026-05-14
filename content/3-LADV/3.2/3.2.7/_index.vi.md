@@ -1,6 +1,6 @@
 ---
 title : "Bước 7 - Tạo bảng mới với global secondary index dung lượng thấp"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 7
 chapter : false
 pre : " <b> 3.2.7. </b> "

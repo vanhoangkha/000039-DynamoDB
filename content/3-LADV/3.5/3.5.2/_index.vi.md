@@ -1,6 +1,6 @@
 ---
 title : "Bước 2 - Tải dữ liệu vào bảng mới"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 3.5.2. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Summary and Clean Up"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 5
 chapter : false
 pre : " <b> 4.5. </b> "

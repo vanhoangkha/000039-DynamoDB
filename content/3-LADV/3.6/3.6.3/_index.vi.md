@@ -1,6 +1,6 @@
 ---
 title : "Bước 3 - Quét bảng employees để tìm người quản lý bằng cách sử dụng sparse global secondary index"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.6.3. </b> "

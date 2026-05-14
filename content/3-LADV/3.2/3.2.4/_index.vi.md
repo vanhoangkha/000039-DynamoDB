@@ -1,6 +1,6 @@
 ---
 title : "Bước 4 - Xem số liệu CloudWatch trên table của bạn"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 3.2.4. </b> "

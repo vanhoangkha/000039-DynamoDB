@@ -1,6 +1,6 @@
 ---
 title : "Step 2 - Check the Python and AWS CLI installation"
-date : "`r Sys.Date()`"
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.1.3. </b> "

@@ -1,6 +1,6 @@
 ---
 title : "Bước 3 - Truy vấn bảng nhân viên bằng cách sử dụng global secondary index với các thuộc tính quá tải"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 3.5.3. </b> "

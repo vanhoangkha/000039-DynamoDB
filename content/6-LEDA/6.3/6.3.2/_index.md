@@ -1,6 +1,6 @@
 ---
 title : "Step 2: Check MapLambda trigger"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 2
 chapter : false
 pre : " <b> 6.3.2. </b> "
