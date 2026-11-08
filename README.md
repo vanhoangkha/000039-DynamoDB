@@ -1,4 +1,4 @@
-# 🗃️ DynamoDB
+# DynamoDB
 
 Learn Amazon DynamoDB fundamentals and data modeling.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series, designe
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000039-DynamoDB/)**
+**[Start the workshop](https://vanhoangkha.github.io/000039-DynamoDB/)**
 
 ## Prerequisites
 
